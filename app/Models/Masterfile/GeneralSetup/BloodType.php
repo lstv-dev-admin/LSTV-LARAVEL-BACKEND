@@ -8,5 +8,3 @@ class BloodType extends Model
 {
     protected $fillable = ['name'];
 }
-
-

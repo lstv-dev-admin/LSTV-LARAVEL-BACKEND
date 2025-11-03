@@ -8,5 +8,3 @@ class Religion extends Model
 {
     protected $fillable = ['name'];
 }
-
-

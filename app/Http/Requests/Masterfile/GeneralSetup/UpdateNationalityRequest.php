@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Masterfile\GeneralSetup;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdateNationalityRequest extends FormRequest

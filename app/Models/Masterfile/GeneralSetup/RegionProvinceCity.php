@@ -8,5 +8,3 @@ class RegionProvinceCity extends Model
 {
     protected $fillable = ['name'];
 }
-
-

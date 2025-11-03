@@ -8,5 +8,3 @@ class Nationality extends Model
 {
     protected $fillable = ['name'];
 }
-
-

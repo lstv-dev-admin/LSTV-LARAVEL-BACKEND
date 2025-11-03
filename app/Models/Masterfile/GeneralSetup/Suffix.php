@@ -8,5 +8,3 @@ class Suffix extends Model
 {
     protected $fillable = ['name'];
 }
-
-

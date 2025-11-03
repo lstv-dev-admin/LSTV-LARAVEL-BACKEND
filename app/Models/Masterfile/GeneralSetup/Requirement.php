@@ -8,5 +8,3 @@ class Requirement extends Model
 {
     protected $fillable = ['name'];
 }
-
-

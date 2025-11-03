@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Masterfile\GeneralSetup;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdateCountryRequest extends FormRequest
@@ -31,7 +31,7 @@ class UpdateCountryRequest extends FormRequest
     {
         throw new HttpResponseException(
             response()->json([
-                'status' => 'error',
+                'status'  => 'error',
                 'message' => $validator->errors()
             ], 422)
         );

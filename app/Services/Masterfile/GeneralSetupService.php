@@ -3,9 +3,12 @@
 namespace App\Services\Masterfile;
 
 use App\Interfaces\Masterfile\GeneralSetupInterface;
+
+use App\Helpers\QueryResultHelper;
+
 use Exception;
 
-class GeneralSetupService 
+class GeneralSetupService
 {
     protected $repository;
 
@@ -14,533 +17,553 @@ class GeneralSetupService
         $this->repository = $repository;
     }
 
-    public function createArea($newArea) {
+    public function createArea($newArea)
+    {
         try {
             $this->repository->createArea($newArea);
-            return $this->onSuccessCreate('area');
+            return QueryResultHelper::successCreate('area');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function getAreas() {
-        return $this->onSuccessGet($this->repository->getAreas());
+    public function getAreas()
+    {
+        return QueryResultHelper::successGet($this->repository->getAreas());
     }
 
-    public function updateArea($id, $updatedArea) {
+    public function updateArea($id, $updatedArea)
+    {
         try {
             $this->repository->updateArea($id, $updatedArea);
-            return  $this->onSuccessUpdate('area');
+            return QueryResultHelper::successUpdate('area');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function createBloodType($newBloodType) {
+    public function createBloodType($newBloodType)
+    {
         try {
             $this->repository->createBloodType($newBloodType);
-            return $this->onSuccessCreate('blood type');
+            return QueryResultHelper::successCreate('blood type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getBloodTypes() {
-        return $this->onSuccessGet($this->repository->getBloodTypes());
+
+    public function getBloodTypes()
+    {
+        return QueryResultHelper::successGet($this->repository->getBloodTypes());
     }
-    
-    public function updateBloodType($id, $updatedBloodType) {
+
+    public function updateBloodType($id, $updatedBloodType)
+    {
         try {
             $this->repository->updateBloodType($id, $updatedBloodType);
-            return $this->onSuccessUpdate('blood type');
+            return QueryResultHelper::successUpdate('blood type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createCitizenship($newCitizenship) {
+
+    public function createCitizenship($newCitizenship)
+    {
         try {
             $this->repository->createCitizenship($newCitizenship);
-            return $this->onSuccessCreate('citizenship');
+            return QueryResultHelper::successCreate('citizenship');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getCitizenships() {
-        return $this->onSuccessGet($this->repository->getCitizenships());
+
+    public function getCitizenships()
+    {
+        return QueryResultHelper::successGet($this->repository->getCitizenships());
     }
-    
-    public function updateCitizenship($id, $updatedCitizenship) {
+
+    public function updateCitizenship($id, $updatedCitizenship)
+    {
         try {
             $this->repository->updateCitizenship($id, $updatedCitizenship);
-            return $this->onSuccessUpdate('citizenship');
+            return QueryResultHelper::successUpdate('citizenship');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createCity($newCity) {
+
+    public function createCity($newCity)
+    {
         try {
             $this->repository->createCity($newCity);
-            return $this->onSuccessCreate('city');
+            return QueryResultHelper::successCreate('city');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getCities() {
-        return $this->onSuccessGet($this->repository->getCities());
+
+    public function getCities()
+    {
+        return QueryResultHelper::successGet($this->repository->getCities());
     }
-    
-    public function updateCity($id, $updatedCity) {
+
+    public function updateCity($id, $updatedCity)
+    {
         try {
             $this->repository->updateCity($id, $updatedCity);
-            return $this->onSuccessUpdate('city');
+            return QueryResultHelper::successUpdate('city');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createCivilStatus($newCivilStatus) {
+
+    public function createCivilStatus($newCivilStatus)
+    {
         try {
             $this->repository->createCivilStatus($newCivilStatus);
-            return $this->onSuccessCreate('civil status');
+            return QueryResultHelper::successCreate('civil status');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getCivilStatuses() {
-        return $this->onSuccessGet($this->repository->getCivilStatuses());
+
+    public function getCivilStatuses()
+    {
+        return QueryResultHelper::successGet($this->repository->getCivilStatuses());
     }
-    
-    public function updateCivilStatus($id, $updatedCivilStatus) {
+
+    public function updateCivilStatus($id, $updatedCivilStatus)
+    {
         try {
             $this->repository->updateCivilStatus($id, $updatedCivilStatus);
-            return $this->onSuccessUpdate('civil status');
+            return QueryResultHelper::successUpdate('civil status');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createCountry($newCountry) {
+
+    public function createCountry($newCountry)
+    {
         try {
             $this->repository->createCountry($newCountry);
-            return $this->onSuccessCreate('country');
+            return QueryResultHelper::successCreate('country');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getCountries() {
-        return $this->onSuccessGet($this->repository->getCountries());
+
+    public function getCountries()
+    {
+        return QueryResultHelper::successGet($this->repository->getCountries());
     }
-    
-    public function updateCountry($id, $updatedCountry) {
+
+    public function updateCountry($id, $updatedCountry)
+    {
         try {
             $this->repository->updateCountry($id, $updatedCountry);
-            return $this->onSuccessUpdate('country');
+            return QueryResultHelper::successUpdate('country');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createEmploymentType($newEmploymentType) {
+
+    public function createEmploymentType($newEmploymentType)
+    {
         try {
             $this->repository->createEmploymentType($newEmploymentType);
-            return $this->onSuccessCreate('employment type');
+            return QueryResultHelper::successCreate('employment type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getEmploymentTypes() {
-        return $this->onSuccessGet($this->repository->getEmploymentTypes());
+
+    public function getEmploymentTypes()
+    {
+        return QueryResultHelper::successGet($this->repository->getEmploymentTypes());
     }
-    
-    public function updateEmploymentType($id, $updatedEmploymentType) {
+
+    public function updateEmploymentType($id, $updatedEmploymentType)
+    {
         try {
             $this->repository->updateEmploymentType($id, $updatedEmploymentType);
-            return $this->onSuccessUpdate('employment type');
+            return QueryResultHelper::successUpdate('employment type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createLanguage($newLanguage) {
+
+    public function createLanguage($newLanguage)
+    {
         try {
             $this->repository->createLanguage($newLanguage);
-            return $this->onSuccessCreate('language');
+            return QueryResultHelper::successCreate('language');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getLanguages() {
-        return $this->onSuccessGet($this->repository->getLanguages());
+
+    public function getLanguages()
+    {
+        return QueryResultHelper::successGet($this->repository->getLanguages());
     }
-    
-    public function updateLanguage($id, $updatedLanguage) {
+
+    public function updateLanguage($id, $updatedLanguage)
+    {
         try {
             $this->repository->updateLanguage($id, $updatedLanguage);
-            return $this->onSuccessUpdate('language');
+            return QueryResultHelper::successUpdate('language');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createLicenseType($newLicenseType) {
+
+    public function createLicenseType($newLicenseType)
+    {
         try {
             $this->repository->createLicenseType($newLicenseType);
-            return $this->onSuccessCreate('license type');
+            return QueryResultHelper::successCreate('license type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getLicenseTypes() {
-        return $this->onSuccessGet($this->repository->getLicenseTypes());
+
+    public function getLicenseTypes()
+    {
+        return QueryResultHelper::successGet($this->repository->getLicenseTypes());
     }
-    
-    public function updateLicenseType($id, $updatedLicenseType) {
+
+    public function updateLicenseType($id, $updatedLicenseType)
+    {
         try {
             $this->repository->updateLicenseType($id, $updatedLicenseType);
-            return $this->onSuccessUpdate('license type');
+            return QueryResultHelper::successUpdate('license type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
-    }    
+    }
 
-    public function createMembershipType($newMembershipType) {
+    public function createMembershipType($newMembershipType)
+    {
         try {
             $this->repository->createMembershipType($newMembershipType);
-            return $this->onSuccessCreate('membership type');
+            return QueryResultHelper::successCreate('membership type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getMembershipTypes() {
-        return $this->onSuccessGet($this->repository->getMembershipTypes());
+
+    public function getMembershipTypes()
+    {
+        return QueryResultHelper::successGet($this->repository->getMembershipTypes());
     }
-    
-    public function updateMembershipType($id, $updatedMembershipType) {
+
+    public function updateMembershipType($id, $updatedMembershipType)
+    {
         try {
             $this->repository->updateMembershipType($id, $updatedMembershipType);
-            return $this->onSuccessUpdate('membership type');
+            return QueryResultHelper::successUpdate('membership type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createNationality($newNationality) {
+
+    public function createNationality($newNationality)
+    {
         try {
             $this->repository->createNationality($newNationality);
-            return $this->onSuccessCreate('nationality');
+            return QueryResultHelper::successCreate('nationality');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getNationalities() {
-        return $this->onSuccessGet($this->repository->getNationalities());
+
+    public function getNationalities()
+    {
+        return QueryResultHelper::successGet($this->repository->getNationalities());
     }
-    
-    public function updateNationality($id, $updatedNationality) {
+
+    public function updateNationality($id, $updatedNationality)
+    {
         try {
             $this->repository->updateNationality($id, $updatedNationality);
-            return $this->onSuccessUpdate('nationality');
+            return QueryResultHelper::successUpdate('nationality');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createPositionType($newPositionType) {
+
+    public function createPositionType($newPositionType)
+    {
         try {
             $this->repository->createPositionType($newPositionType);
-            return $this->onSuccessCreate('position type');
+            return QueryResultHelper::successCreate('position type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getPositionTypes() {
-        return $this->onSuccessGet($this->repository->getPositionTypes());
+
+    public function getPositionTypes()
+    {
+        return QueryResultHelper::successGet($this->repository->getPositionTypes());
     }
-    
-    public function updatePositionType($id, $updatedPositionType) {
+
+    public function updatePositionType($id, $updatedPositionType)
+    {
         try {
             $this->repository->updatePositionType($id, $updatedPositionType);
-            return $this->onSuccessUpdate('position type');
+            return QueryResultHelper::successUpdate('position type');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createPrefix($newPrefix) {
+
+    public function createPrefix($newPrefix)
+    {
         try {
             $this->repository->createPrefix($newPrefix);
-            return $this->onSuccessCreate('prefix');
+            return QueryResultHelper::successCreate('prefix');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getPrefixes() {
-        return $this->onSuccessGet($this->repository->getPrefixes());
+
+    public function getPrefixes()
+    {
+        return QueryResultHelper::successGet($this->repository->getPrefixes());
     }
-    
-    public function updatePrefix($id, $updatedPrefix) {
+
+    public function updatePrefix($id, $updatedPrefix)
+    {
         try {
             $this->repository->updatePrefix($id, $updatedPrefix);
-            return $this->onSuccessUpdate('prefix');
+            return QueryResultHelper::successUpdate('prefix');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createProvince($newProvince) {
+
+    public function createProvince($newProvince)
+    {
         try {
             $this->repository->createProvince($newProvince);
-            return $this->onSuccessCreate('province');
+            return QueryResultHelper::successCreate('province');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getProvinces() {
-        return $this->onSuccessGet($this->repository->getProvinces());
+
+    public function getProvinces()
+    {
+        return QueryResultHelper::successGet($this->repository->getProvinces());
     }
-    
-    public function updateProvince($id, $updatedProvince) {
+
+    public function updateProvince($id, $updatedProvince)
+    {
         try {
             $this->repository->updateProvince($id, $updatedProvince);
-            return $this->onSuccessUpdate('province');
+            return QueryResultHelper::successUpdate('province');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createRegion($newRegion) {
+
+    public function createRegion($newRegion)
+    {
         try {
             $this->repository->createRegion($newRegion);
-            return $this->onSuccessCreate('region');
+            return QueryResultHelper::successCreate('region');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getRegions() {
-        return $this->onSuccessGet($this->repository->getRegions());
+
+    public function getRegions()
+    {
+        return QueryResultHelper::successGet($this->repository->getRegions());
     }
-    
-    public function updateRegion($id, $updatedRegion) {
+
+    public function updateRegion($id, $updatedRegion)
+    {
         try {
             $this->repository->updateRegion($id, $updatedRegion);
-            return $this->onSuccessUpdate('region');
+            return QueryResultHelper::successUpdate('region');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function createRegionProvinceCity($newRegionProvinceCity) {
+    public function createRegionProvinceCity($newRegionProvinceCity)
+    {
         try {
             $this->repository->createRegionProvinceCity($newRegionProvinceCity);
-            return $this->onSuccessCreate('region province city');
+            return QueryResultHelper::successCreate('region province city');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getRegionProvinceCities() {
-        return $this->onSuccessGet($this->repository->getRegionProvinceCities());
+
+    public function getRegionProvinceCities()
+    {
+        return QueryResultHelper::successGet($this->repository->getRegionProvinceCities());
     }
-    
-    public function updateRegionProvinceCity($id, $updatedRegionProvinceCity) {
+
+    public function updateRegionProvinceCity($id, $updatedRegionProvinceCity)
+    {
         try {
             $this->repository->updateRegionProvinceCity($id, $updatedRegionProvinceCity);
-            return $this->onSuccessUpdate('region province city');
+            return QueryResultHelper::successUpdate('region province city');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createReligion($newReligion) {
+
+    public function createReligion($newReligion)
+    {
         try {
             $this->repository->createReligion($newReligion);
-            return $this->onSuccessCreate('religion');
+            return QueryResultHelper::successCreate('religion');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getReligions() {
-        return $this->onSuccessGet($this->repository->getReligions());
+
+    public function getReligions()
+    {
+        return QueryResultHelper::successGet($this->repository->getReligions());
     }
-    
-    public function updateReligion($id, $updatedReligion) {
+
+    public function updateReligion($id, $updatedReligion)
+    {
         try {
             $this->repository->updateReligion($id, $updatedReligion);
-            return $this->onSuccessUpdate('religion');
+            return QueryResultHelper::successUpdate('religion');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createRequirement($newRequirement) {
+
+    public function createRequirement($newRequirement)
+    {
         try {
             $this->repository->createRequirement($newRequirement);
-            return $this->onSuccessCreate('requirement');
+            return QueryResultHelper::successCreate('requirement');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getRequirements() {
-        return $this->onSuccessGet($this->repository->getRequirements());
+
+    public function getRequirements()
+    {
+        return QueryResultHelper::successGet($this->repository->getRequirements());
     }
-    
-    public function updateRequirement($id, $updatedRequirement) {
+
+    public function updateRequirement($id, $updatedRequirement)
+    {
         try {
             $this->repository->updateRequirement($id, $updatedRequirement);
-            return $this->onSuccessUpdate('requirement');
+            return QueryResultHelper::successUpdate('requirement');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createSchool($newSchool) {
+
+    public function createSchool($newSchool)
+    {
         try {
             $this->repository->createSchool($newSchool);
-            return $this->onSuccessCreate('school');
+            return QueryResultHelper::successCreate('school');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getSchools() {
-        return $this->onSuccessGet($this->repository->getSchools());
+
+    public function getSchools()
+    {
+        return QueryResultHelper::successGet($this->repository->getSchools());
     }
-    
-    public function updateSchool($id, $updatedSchool) {
+
+    public function updateSchool($id, $updatedSchool)
+    {
         try {
             $this->repository->updateSchool($id, $updatedSchool);
-            return $this->onSuccessUpdate('school');
+            return QueryResultHelper::successUpdate('school');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createSkill($newSkill) {
+
+    public function createSkill($newSkill)
+    {
         try {
             $this->repository->createSkill($newSkill);
-            return $this->onSuccessCreate('skill');
+            return QueryResultHelper::successCreate('skill');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getSkills() {
-        return $this->onSuccessGet($this->repository->getSkills());
+
+    public function getSkills()
+    {
+        return QueryResultHelper::successGet($this->repository->getSkills());
     }
-    
-    public function updateSkill($id, $updatedSkill) {
+
+    public function updateSkill($id, $updatedSkill)
+    {
         try {
             $this->repository->updateSkill($id, $updatedSkill);
-            return $this->onSuccessUpdate('skill');
+            return QueryResultHelper::successUpdate('skill');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createSuffix($newSuffix) {
+
+    public function createSuffix($newSuffix)
+    {
         try {
             $this->repository->createSuffix($newSuffix);
-            return $this->onSuccessCreate('suffix');
+            return QueryResultHelper::successCreate('suffix');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getSuffixes() {
-        return $this->onSuccessGet($this->repository->getSuffixes());
+
+    public function getSuffixes()
+    {
+        return QueryResultHelper::successGet($this->repository->getSuffixes());
     }
-    
-    public function updateSuffix($id, $updatedSuffix) {
+
+    public function updateSuffix($id, $updatedSuffix)
+    {
         try {
             $this->repository->updateSuffix($id, $updatedSuffix);
-            return $this->onSuccessUpdate('suffix');
+            return QueryResultHelper::successUpdate('suffix');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    
-    public function createViolation($newViolation) {
+
+    public function createViolation($newViolation)
+    {
         try {
             $this->repository->createViolation($newViolation);
-            return $this->onSuccessCreate('violation');
+            return QueryResultHelper::successCreate('violation');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
-    
-    public function getViolations() {
-        return $this->onSuccessGet($this->repository->getViolations());
+
+    public function getViolations()
+    {
+        return QueryResultHelper::successGet($this->repository->getViolations());
     }
-    
-    public function updateViolation($id, $updatedViolation) {
+
+    public function updateViolation($id, $updatedViolation)
+    {
         try {
             $this->repository->updateViolation($id, $updatedViolation);
-            return $this->onSuccessUpdate('violation');
+            return QueryResultHelper::successUpdate('violation');
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
-    }
-    
-    private function onSuccessCreate(string $entity) {
-        return [
-            'status' => 'success',
-            'message' => "New {$entity} added successfully"
-        ];
-    }
-
-    private function onSuccessGet($data) {
-        return [
-            'status' => 'success',
-            'data' => $data
-        ];
-    }
-
-    private function onSuccessUpdate(string $entity) {
-        return [
-            'status' => 'success',
-            'message' => "{$entity} updated successfully"
-        ];
-    }
-
-    private function onError($e) {
-        return [
-            'status' => 'error',
-            'message' => $e->getMessage()
-        ];
     }
 }

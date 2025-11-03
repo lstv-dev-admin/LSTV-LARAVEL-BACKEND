@@ -8,5 +8,3 @@ class Citizenship extends Model
 {
     protected $fillable = ['name'];
 }
-
-

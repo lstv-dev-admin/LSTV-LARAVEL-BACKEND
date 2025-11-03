@@ -4,9 +4,9 @@ namespace App\Interfaces\Masterfile;
 
 interface GeneralSetupInterface
 {
-    public function createArea($newArea);
+    public function createArea($data);
     public function getAreas();
-    public function updateArea($id, $newArea);
+    public function updateArea($id, $data);
 
     public function createBloodType($data);
     public function getBloodTypes();

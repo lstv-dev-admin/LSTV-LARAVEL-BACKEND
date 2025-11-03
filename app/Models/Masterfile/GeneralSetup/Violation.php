@@ -8,5 +8,3 @@ class Violation extends Model
 {
     protected $fillable = ['name'];
 }
-
-

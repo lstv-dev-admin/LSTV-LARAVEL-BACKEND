@@ -8,5 +8,3 @@ class CivilStatus extends Model
 {
     protected $fillable = ['name'];
 }
-
-

@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Http\Requests\Utilities\UserFiles;
+
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
+class CreateUserRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'username' => 'required|string|unique:users,username',
+            'user_type_id' => 'required|exists:user_types,id',
+            'first_name' => 'required|string',
+            'middle_name' => 'nullable|string',
+            'last_name' => 'required|string',
+            'email' => 'nullable|email|unique:users,email',
+        ];
+    }
+
+    /**
+     * Get the validation error messages.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'username.required' => 'Username field is required',
+            'username.unique' => 'Username already exists',
+            'user_type_id.required' => 'User type field is required',
+            'user_type_id.exists' => 'Selected user type does not exist',
+            'first_name.required' => 'First name field is required',
+            'last_name.required' => 'Last name field is required',
+            'email.email' => 'Email must be a valid email address',
+            'email.unique' => 'Email already exists',
+        ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @return void
+     *
+     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(
+            response()->json([
+                'status' => 'error',
+                'message' => $validator->errors()
+            ], 422)
+        );
+    }
+}

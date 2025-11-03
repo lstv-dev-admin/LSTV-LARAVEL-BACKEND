@@ -8,5 +8,3 @@ class LicenseType extends Model
 {
     protected $fillable = ['name'];
 }
-
-

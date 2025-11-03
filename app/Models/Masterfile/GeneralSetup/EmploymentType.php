@@ -8,5 +8,3 @@ class EmploymentType extends Model
 {
     protected $fillable = ['name'];
 }
-
-

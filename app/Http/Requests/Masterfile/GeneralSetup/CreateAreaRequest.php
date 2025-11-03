@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Masterfile\GeneralSetup;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateAreaRequest extends FormRequest
@@ -24,7 +24,7 @@ class CreateAreaRequest extends FormRequest
     {
         return [
             'name.required' => 'Area field is required',
-            'name.unique' => 'Area is already exist'
+            'name.unique'   => 'Area is already exist'
         ];
     }
 
@@ -32,7 +32,7 @@ class CreateAreaRequest extends FormRequest
     {
         throw new HttpResponseException(
             response()->json([
-                'status' => 'error',
+                'status'  => 'error',
                 'message' => $validator->errors()
             ], 422)
         );

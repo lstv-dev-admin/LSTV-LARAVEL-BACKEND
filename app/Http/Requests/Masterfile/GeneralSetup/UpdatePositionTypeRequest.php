@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Masterfile\GeneralSetup;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdatePositionTypeRequest extends FormRequest
@@ -17,6 +17,7 @@ class UpdatePositionTypeRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'position_type_id' => 'required|exists:position_types,id'
         ];
     }
 
@@ -24,6 +25,8 @@ class UpdatePositionTypeRequest extends FormRequest
     {
         return [
             'name.required' => 'Position type field is required',
+            'position_type_id.required' => 'Position type ID is required',
+            'position_type_id.exists' => 'Position type ID is not valid'
         ];
     }
 

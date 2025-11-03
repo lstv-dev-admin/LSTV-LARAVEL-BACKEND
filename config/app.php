@@ -120,11 +120,12 @@ return [
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
-        'store' => env('APP_MAINTENANCE_STORE', 'database'),
+        'store'  => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
     'providers' => Illuminate\Support\ServiceProvider::defaultProviders()->merge([
-        App\Providers\RepositoryServiceProvider::class,
+        App\Providers\RepositoryServiceProvider\MasterfileServiceProvider::class,
+        App\Providers\RepositoryServiceProvider\UtilitiesServiceProvider::class,
     ])->toArray(),
 
 ];
