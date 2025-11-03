@@ -16,11 +16,11 @@ class GetUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'page' => ['nullable', 'integer', 'min:1'],
-            'per_page' => ['nullable', 'integer', 'min:1', 'max:100'],
-            'sort_by' => ['nullable', 'string', 'in:id,username,user_type_id,first_name,middle_name,last_name,email'],
-            'sort_order' => ['nullable', 'string', 'in:asc,desc'],
-            'search' => ['nullable', 'string', 'max:255']
+            'page' => 'nullable|integer|min:1',
+            'per_page' => 'nullable|integer|min:1|max:100',
+            'sort_by' => 'nullable|string|in:id,username,user_type_id,first_name,middle_name,last_name,email',
+            'sort_order' => 'nullable|string|in:asc,desc',
+            'search' => 'nullable|string|max:255'
         ];
     }
 
