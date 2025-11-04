@@ -46,4 +46,14 @@ class UserFilesService
             return QueryResultHelper::error($e);
         }
     }
+
+    public function selectUsersColumns(array $payload)
+    {
+        try {
+            $data = $this->repository->selectUsersColumns($payload['columns'] ?? []);
+            return QueryResultHelper::successGet($data);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
 }

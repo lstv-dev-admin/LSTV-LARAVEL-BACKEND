@@ -2,9 +2,10 @@
 
 namespace App\Interfaces\Utilities;
 
-interface UserFilesInterface 
+interface UserFilesInterface
 {
     public function createUser($data);
     public function getUsers($filters);
     public function updateUser($id, $data);
+    public function selectUsersColumns(array $columns);
 }
