@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
             __DIR__.'/../routes/MasterFiles/Recruitment/index.php',
             __DIR__.'/../routes/MasterFiles/GeneralSetup/index.php',
 
+            // Pager
+            __DIR__.'/../routes/Generals/pager-route.php',
+
             // Other API routes
             __DIR__.'/../routes/masterfile_api.php',
         ],

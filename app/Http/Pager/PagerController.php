@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Pager\Controllers;
+namespace App\Http\Pager;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
