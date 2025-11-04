@@ -4,360 +4,383 @@ namespace App\Repositories\Masterfile;
 
 use App\Interfaces\Masterfile\GeneralSetupInterface;
 
+use App\Helpers\{
+    PaginationHelper,
+    MasterfileRecordIdHelper
+};
+
 use App\Models\Masterfile\GeneralSetup\{
-    Area,
-    BloodType,
-    Citizenship,
-    City,
-    CivilStatus,
-    Country,
-    EmploymentType,
-    Language,
-    LicenseType,
-    MembershipType,
-    Nationality,
-    PositionType,
-    Prefix,
-    Province,
-    Region,
-    RegionProvinceCity,
-    Religion,
-    Requirement,
-    School,
-    Skill,
-    Suffix,
-    Violation
+    MfArea,
+    MfAward,
+    MfBloodType,
+    MfCitizenship,
+    MfCity,
+    MfCivilStatus,
+    MfCountry,
+    MfEmploymentType,
+    MfLanguage,
+    MfLicenseType,
+    MfMembershipType,
+    MfNationality,
+    MfPositionType,
+    MfPrefix,
+    MfProvince,
+    MfRegion,
+    MfReligion,
+    MfRequirement,
+    MfSchool,
+    MfSkill,
+    MfSuffix,
+    MfViolation,
 };
 
 class GeneralSetupRepository implements GeneralSetupInterface
 {
-    public function createArea($data)
+    public function createMfArea($data)
     {
-        return Area::create($data);
+        $data['area_id'] = MasterfileRecordIdHelper::getNextSeries(MfArea::getMasterfileCode());
+        return MfArea::create($data);
     }
 
-    public function getAreas()
+    public function getMfAreas($filters)
     {
-        return Area::all();
+        $searchableColumns = ['area_desc'];
+        return PaginationHelper::render(MfArea::class, $filters, $searchableColumns);
     }
 
-    public function updateArea($id, $data)
+    public function updateMfArea($id, $data)
     {
-        Area::findOrFail($id)->update($data);
+        MfArea::findOrFail($id)->update($data);
+        return MfArea::findOrFail($id);
     }
 
-    public function createBloodType($data)
+    public function createMfAward($data)
     {
-        return BloodType::create($data);
+        $data['award_id'] = MasterfileRecordIdHelper::getNextSeries(MfAward::getMasterfileCode());
+        return MfAward::create($data);
     }
 
-    public function getBloodTypes()
+    public function getMfAwards($filters)
     {
-        return BloodType::all();
+        $searchableColumns = ['award_desc'];
+        return PaginationHelper::render(MfAward::class, $filters, $searchableColumns);
     }
 
-    public function updateBloodType($id, $data)
+    public function updateMfAward($id, $data)
     {
-        BloodType::findOrFail($id)->update($data);
+        MfAward::findOrFail($id)->update($data);
+        return MfAward::findOrFail($id);
     }
 
-    public function createCitizenship($data)
+    public function createMfBloodType($data)
     {
-        return Citizenship::create($data);
+        $data['blood_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfBloodType::getMasterfileCode());
+        return MfBloodType::create($data);
     }
 
-    public function getCitizenships()
+    public function getMfBloodTypes($filters)
     {
-        return Citizenship::all();
+        $searchableColumns = ['blood_type_desc'];
+        return PaginationHelper::render(MfBloodType::class, $filters, $searchableColumns);
     }
 
-    public function updateCitizenship($id, $data)
+    public function updateMfBloodType($id, $data)
     {
-        Citizenship::findOrFail($id)->update($data);
+        MfBloodType::findOrFail($id)->update($data);
+        return MfBloodType::findOrFail($id);
     }
 
-    public function createCity($data)
+    public function createMfCitizenship($data)
     {
-        return City::create($data);
+        $data['citizenship_id'] = MasterfileRecordIdHelper::getNextSeries(MfCitizenship::getMasterfileCode());
+        return MfCitizenship::create($data);
     }
 
-    public function getCities()
+    public function getMfCitizenships($filters)
     {
-        return City::all();
+        $searchableColumns = ['citizenship_desc'];
+        return PaginationHelper::render(MfCitizenship::class, $filters, $searchableColumns);
     }
 
-    public function updateCity($id, $data)
+    public function updateMfCitizenship($id, $data)
     {
-        City::findOrFail($id)->update($data);
+        MfCitizenship::findOrFail($id)->update($data);
+        return MfCitizenship::findOrFail($id);
     }
 
-    public function createCivilStatus($data)
+    public function createMfCity($data)
     {
-        return CivilStatus::create($data);
+        $data['city_id'] = MasterfileRecordIdHelper::getNextSeries(MfCity::getMasterfileCode());
+        return MfCity::create($data);
     }
 
-    public function getCivilStatuses()
+    public function getMfCities($filters)
     {
-        return CivilStatus::all();
+        $searchableColumns = ['city_desc'];
+        return PaginationHelper::render(MfCity::class, $filters, $searchableColumns);
     }
 
-    public function updateCivilStatus($id, $data)
+    public function updateMfCity($id, $data)
     {
-        CivilStatus::findOrFail($id)->update($data);
+        MfCity::findOrFail($id)->update($data);
+        return MfCity::findOrFail($id);
     }
 
-    public function createCountry($data)
+    public function createMfCivilStatus($data)
     {
-        return Country::create($data);
+        $data['civil_status_id'] = MasterfileRecordIdHelper::getNextSeries(MfCivilStatus::getMasterfileCode());
+        return MfCivilStatus::create($data);
     }
 
-    public function getCountries()
+    public function getMfCivilStatuses($filters)
     {
-        return Country::all();
+        $searchableColumns = ['civil_status_desc'];
+        return PaginationHelper::render(MfCivilStatus::class, $filters, $searchableColumns);
     }
 
-    public function updateCountry($id, $data)
+    public function updateMfCivilStatus($id, $data)
     {
-        Country::findOrFail($id)->update($data);
+        MfCivilStatus::findOrFail($id)->update($data);
+        return MfCivilStatus::findOrFail($id);
     }
 
-    public function createEmploymentType($data)
-    {
-        return EmploymentType::create($data);
+    public function createMfCountry($data) {
+        $data['country_id'] = MasterfileRecordIdHelper::getNextSeries(MfCountry::getMasterfileCode());
+        return MfCountry::create($data);
     }
 
-    public function getEmploymentTypes()
-    {
-        return EmploymentType::all();
+    public function getMfCountries($filters) {
+        $searchableColumns = ['country_desc'];
+        return PaginationHelper::render(MfCountry::class, $filters, $searchableColumns);
     }
 
-    public function updateEmploymentType($id, $data)
-    {
-        EmploymentType::findOrFail($id)->update($data);
+    public function updateMfCountry($id, $data) {
+        MfCountry::findOrFail($id)->update($data);
+        return MfCountry::findOrFail($id);
     }
 
-    public function createLanguage($data)
-    {
-        return Language::create($data);
+    public function createMfEmploymentType($data) {
+        $data['employment_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfEmploymentType::getMasterfileCode());
+        return MfEmploymentType::create($data);
     }
 
-    public function getLanguages()
-    {
-        return Language::all();
+    public function getMfEmploymentTypes($filters) {
+        $searchableColumns = ['employment_type_desc'];
+        return PaginationHelper::render(MfEmploymentType::class, $filters, $searchableColumns);
     }
 
-    public function updateLanguage($id, $data)
-    {
-        Language::findOrFail($id)->update($data);
+    public function updateMfEmploymentType($id, $data) {
+        MfEmploymentType::findOrFail($id)->update($data);
+        return MfEmploymentType::findOrFail($id);
     }
 
-    public function createLicenseType($data)
-    {
-        return LicenseType::create($data);
+    public function createMfLanguage($data) {
+        $data['language_id'] = MasterfileRecordIdHelper::getNextSeries(MfLanguage::getMasterfileCode());
+        return MfLanguage::create($data);
     }
 
-    public function getLicenseTypes()
-    {
-        return LicenseType::all();
+    public function getMfLanguages($filters) {
+        $searchableColumns = ['language_desc'];
+        return PaginationHelper::render(MfLanguage::class, $filters, $searchableColumns);
     }
 
-    public function updateLicenseType($id, $data)
-    {
-        LicenseType::findOrFail($id)->update($data);
+    public function updateMfLanguage($id, $data) {
+        MfLanguage::findOrFail($id)->update($data);
+        return MfLanguage::findOrFail($id);
     }
 
-    public function createMembershipType($data)
-    {
-        return MembershipType::create($data);
+    public function createMfLicenseType($data) {
+        $data['license_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfLicenseType::getMasterfileCode());
+        return MfLicenseType::create($data);
     }
 
-    public function getMembershipTypes()
-    {
-        return MembershipType::all();
+    public function getMfLicenseTypes($filters) {
+        $searchableColumns = ['license_type_desc'];
+        return PaginationHelper::render(MfLicenseType::class, $filters, $searchableColumns);
     }
 
-    public function updateMembershipType($id, $data)
-    {
-        MembershipType::findOrFail($id)->update($data);
+    public function updateMfLicenseType($id, $data) {
+        MfLicenseType::findOrFail($id)->update($data);
+        return MfLicenseType::findOrFail($id);
     }
 
-    public function createNationality($data)
-    {
-        return Nationality::create($data);
+    public function createMfMembershipType($data) {
+        $data['membership_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfMembershipType::getMasterfileCode());
+        return MfMembershipType::create($data);
     }
 
-    public function getNationalities()
-    {
-        return Nationality::all();
+    public function getMfMembershipTypes($filters) {
+        $searchableColumns = ['membership_type_desc'];
+        return PaginationHelper::render(MfMembershipType::class, $filters, $searchableColumns);
     }
 
-    public function updateNationality($id, $data)
-    {
-        Nationality::findOrFail($id)->update($data);
+    public function updateMfMembershipType($id, $data) {
+        MfMembershipType::findOrFail($id)->update($data);
+        return MfMembershipType::findOrFail($id);
     }
 
-    public function createPositionType($data)
-    {
-        return PositionType::create($data);
+    public function createMfNationality($data) {
+        $data['nationality_id'] = MasterfileRecordIdHelper::getNextSeries(MfNationality::getMasterfileCode());
+        return MfNationality::create($data);
     }
 
-    public function getPositionTypes()
-    {
-        return PositionType::all();
+    public function getMfNationalities($filters) {
+        $searchableColumns = ['nationality_desc'];
+        return PaginationHelper::render(MfNationality::class, $filters, $searchableColumns);
     }
 
-    public function updatePositionType($id, $data)
-    {
-        PositionType::findOrFail($id)->update($data);
+    public function updateMfNationality($id, $data) {
+        MfNationality::findOrFail($id)->update($data);
+        return MfNationality::findOrFail($id);
     }
 
-    public function createPrefix($data)
-    {
-        return Prefix::create($data);
+    public function createMfPositionType($data) {
+        $data['position_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfPositionType::getMasterfileCode());
+        return MfPositionType::create($data);
     }
 
-    public function getPrefixes()
-    {
-        return Prefix::all();
+    public function getMfPositionTypes($filters) {
+        $searchableColumns = ['position_type_desc'];
+        return PaginationHelper::render(MfPositionType::class, $filters, $searchableColumns);
     }
 
-    public function updatePrefix($id, $data)
-    {
-        Prefix::findOrFail($id)->update($data);
+    public function updateMfPositionType($id, $data) {
+        MfPositionType::findOrFail($id)->update($data);
+        return MfPositionType::findOrFail($id);
     }
 
-    public function createProvince($data)
-    {
-        return Province::create($data);
+    public function createMfPrefix($data) {
+        $data['prefix_id'] = MasterfileRecordIdHelper::getNextSeries(MfPrefix::getMasterfileCode());
+        return MfPrefix::create($data);
     }
 
-    public function getProvinces()
-    {
-        return Province::all();
+    public function getMfPrefixes($filters) {
+        $searchableColumns = ['prefix_desc'];
+        return PaginationHelper::render(MfPrefix::class, $filters, $searchableColumns);
     }
 
-    public function updateProvince($id, $data)
-    {
-        Province::findOrFail($id)->update($data);
+    public function updateMfPrefix($id, $data) {
+        MfPrefix::findOrFail($id)->update($data);
+        return MfPrefix::findOrFail($id);
     }
 
-    public function createRegion($data)
-    {
-        return Region::create($data);
+    public function createMfProvince($data) {
+        $data['province_id'] = MasterfileRecordIdHelper::getNextSeries(MfProvince::getMasterfileCode());
+        return MfProvince::create($data);
     }
 
-    public function getRegions()
-    {
-        return Region::all();
+    public function getMfProvinces($filters) {
+        $searchableColumns = ['province_desc'];
+        return PaginationHelper::render(MfProvince::class, $filters, $searchableColumns);
     }
 
-    public function updateRegion($id, $data)
-    {
-        Region::findOrFail($id)->update($data);
+    public function updateMfProvince($id, $data) {
+        MfProvince::findOrFail($id)->update($data);
+        return MfProvince::findOrFail($id);
     }
 
-    public function createRegionProvinceCity($data)
-    {
-        return RegionProvinceCity::create($data);
+    public function createMfRegion($data) {
+        $data['region_id'] = MasterfileRecordIdHelper::getNextSeries(MfRegion::getMasterfileCode());
+        return MfRegion::create($data);
     }
 
-    public function getRegionProvinceCities()
-    {
-        return RegionProvinceCity::all();
+    public function getMfRegions($filters) {
+        $searchableColumns = ['region_desc'];
+        return PaginationHelper::render(MfRegion::class, $filters, $searchableColumns);
     }
 
-    public function updateRegionProvinceCity($id, $data)
-    {
-        RegionProvinceCity::findOrFail($id)->update($data);
+    public function updateMfRegion($id, $data) {
+        MfRegion::findOrFail($id)->update($data);
+        return MfRegion::findOrFail($id);
     }
 
-    public function createReligion($data)
-    {
-        return Religion::create($data);
+    public function createMfReligion($data) {
+        $data['religion_id'] = MasterfileRecordIdHelper::getNextSeries(MfReligion::getMasterfileCode());
+        return MfReligion::create($data);
     }
 
-    public function getReligions()
-    {
-        return Religion::all();
+    public function getMfReligions($filters) {
+        $searchableColumns = ['religion_desc'];
+        return PaginationHelper::render(MfReligion::class, $filters, $searchableColumns);
     }
 
-    public function updateReligion($id, $data)
-    {
-        Religion::findOrFail($id)->update($data);
+    public function updateMfReligion($id, $data) {
+        MfReligion::findOrFail($id)->update($data);
+        return MfReligion::findOrFail($id);
     }
 
-    public function createRequirement($data)
-    {
-        return Requirement::create($data);
+    public function createMfRequirement($data) {
+        $data['requirement_id'] = MasterfileRecordIdHelper::getNextSeries(MfRequirement::getMasterfileCode());
+        return MfRequirement::create($data);
     }
 
-    public function getRequirements()
-    {
-        return Requirement::all();
+    public function getMfRequirements($filters) {
+        $searchableColumns = ['requirement_desc'];
+        return PaginationHelper::render(MfRequirement::class, $filters, $searchableColumns);
     }
 
-    public function updateRequirement($id, $data)
-    {
-        Requirement::findOrFail($id)->update($data);
+    public function updateMfRequirement($id, $data) {
+        MfRequirement::findOrFail($id)->update($data);
+        return MfRequirement::findOrFail($id);
     }
 
-    public function createSchool($data)
-    {
-        return School::create($data);
+    public function createMfSchool($data) {
+        $data['school_id'] = MasterfileRecordIdHelper::getNextSeries(MfSchool::getMasterfileCode());
+        return MfSchool::create($data);
     }
 
-    public function getSchools()
-    {
-        return School::all();
+    public function getMfSchools($filters) {
+        $searchableColumns = ['school_desc'];
+        return PaginationHelper::render(MfSchool::class, $filters, $searchableColumns);
     }
 
-    public function updateSchool($id, $data)
-    {
-        School::findOrFail($id)->update($data);
+    public function updateMfSchool($id, $data) {
+        MfSchool::findOrFail($id)->update($data);
+        return MfSchool::findOrFail($id);
     }
 
-    public function createSkill($data)
-    {
-        return Skill::create($data);
+    public function createMfSkill($data) {
+        $data['skill_id'] = MasterfileRecordIdHelper::getNextSeries(MfSkill::getMasterfileCode());
+        return MfSkill::create($data);
     }
 
-    public function getSkills()
-    {
-        return Skill::all();
+    public function getMfSkills($filters) {
+        $searchableColumns = ['skill_desc'];
+        return PaginationHelper::render(MfSkill::class, $filters, $searchableColumns);
     }
 
-    public function updateSkill($id, $data)
-    {
-        Skill::findOrFail($id)->update($data);
+    public function updateMfSkill($id, $data) {
+        MfSkill::findOrFail($id)->update($data);
+        return MfSkill::findOrFail($id);
     }
 
-    public function createSuffix($data)
-    {
-        return Suffix::create($data);
+    public function createMfSuffix($data) {
+        $data['suffix_id'] = MasterfileRecordIdHelper::getNextSeries(MfSuffix::getMasterfileCode());
+        return MfSuffix::create($data);
     }
 
-    public function getSuffixes()
-    {
-        return Suffix::all();
+    public function getMfSuffixes($filters) {
+        $searchableColumns = ['suffix_desc'];
+        return PaginationHelper::render(MfSuffix::class, $filters, $searchableColumns);
     }
 
-    public function updateSuffix($id, $data)
-    {
-        Suffix::findOrFail($id)->update($data);
+    public function updateMfSuffix($id, $data) {
+        MfSuffix::findOrFail($id)->update($data);
+        return MfSuffix::findOrFail($id);
     }
 
-    public function createViolation($data)
-    {
-        return Violation::create($data);
+    public function createMfViolation($data) {
+        $data['violation_id'] = MasterfileRecordIdHelper::getNextSeries(MfViolation::getMasterfileCode());
+        return MfViolation::create($data);
     }
 
-    public function getViolations()
-    {
-        return Violation::all();
+    public function getMfViolations($filters) {
+        $searchableColumns = ['violation_desc'];
+        return PaginationHelper::render(MfViolation::class, $filters, $searchableColumns);
     }
 
-    public function updateViolation($id, $data)
-    {
-        Violation::findOrFail($id)->update($data);
+    public function updateMfViolation($id, $data) {
+        MfViolation::findOrFail($id)->update($data);
+        return MfViolation::findOrFail($id);
     }
 }

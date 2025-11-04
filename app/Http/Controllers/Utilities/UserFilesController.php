@@ -13,7 +13,6 @@ use App\Http\Requests\Utilities\UserFiles\{
     GetUserRequest,
     UpdateUserRequest
 };
-use App\Http\Requests\Utilities\UserFiles\SelectUserColumnsRequest;
 
 class UserFilesController extends Controller
 {
@@ -39,8 +38,13 @@ class UserFilesController extends Controller
         return ResponseHelper::respond($this->service->updateUser($id, $request->validated()));
     }
 
-    public function selectUsersColumns(SelectUserColumnsRequest $request)
+    public function getUserTypes()
     {
-        return ResponseHelper::respond($this->service->selectUsersColumns($request->validated()));
+        return ResponseHelper::respond($this->service->getUserTypes());
+    }
+
+    public function getStatuses()
+    {
+        return ResponseHelper::respond($this->service->getStatuses());
     }
 }

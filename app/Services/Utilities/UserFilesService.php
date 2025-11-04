@@ -20,8 +20,8 @@ class UserFilesService
     public function createUser($data)
     {
         try {
-            $this->repository->createUser($data);
-            return QueryResultHelper::successCreate('user');
+            $data = $this->repository->createUser($data);
+            return QueryResultHelper::successCreate('user', $data);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -31,7 +31,7 @@ class UserFilesService
     {
         try {
             $data = $this->repository->getUsers($filters);
-            return QueryResultHelper::successGet($data);
+            return QueryResultHelper::successGet('Users', $data);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -40,18 +40,26 @@ class UserFilesService
     public function updateUser($id, $data)
     {
         try {
-            $this->repository->updateUser($id, $data);
-            return QueryResultHelper::successUpdate('user');
+            $updatedData = $this->repository->updateUser($id, $data);
+            return QueryResultHelper::successUpdate('user', $updatedData);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function selectUsersColumns(array $payload)
-    {
+    public function getUserTypes() {
         try {
-            $data = $this->repository->selectUsersColumns($payload['columns'] ?? []);
-            return QueryResultHelper::successGet($data);
+            $data = $this->repository->getUserTypes();
+            return QueryResultHelper::successGet('User types', $data);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getStatuses() {
+        try {
+            $data = $this->repository->getStatuses();
+            return QueryResultHelper::successGet('Statuses', $data);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }

@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Masterfile\GeneralSetupController;
 
 Route::controller(GeneralSetupController::class)->group(function () {
     Route::prefix('masterfile/general-setup')->group(function () {
-        Route::post('area', 'createArea');
-        Route::get('area', 'getAreas');
-        Route::put('area/{id}', 'updateArea');
+        Route::post('area', 'createMfArea');
+        Route::get('area', 'getMfAreas');
+        Route::put('area/{id}', 'updateMfArea');
 
         Route::post('blood-type', 'createBloodType');
         Route::get('blood-type', 'getBloodTypes');

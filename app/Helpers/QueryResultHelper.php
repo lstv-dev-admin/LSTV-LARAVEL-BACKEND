@@ -6,34 +6,37 @@ use Throwable;
 
 class QueryResultHelper
 {
-    public static function successCreate(string $entity): array
+    public static function successCreate(string $entity, $data): array
     {
         return [
-            'status'  => 'success',
-            'message' => "New {$entity} added successfully"
+            'status'  => true,
+            'message' => "New {$entity} Added successfully",
+            'data' => $data
         ];
     }
 
-    public static function successGet($data): array
+    public static function successGet($entity, $data): array
     {
         return [
-            'status' => 'success',
+            'status' => true,
+            'message' => "{$entity} Fetched Successfully",
             'data'   => $data
         ];
     }
 
-    public static function successUpdate(string $entity): array
+    public static function successUpdate(string $entity, $updatedData): array
     {
         return [
-            'status'  => 'success',
-            'message' => "{$entity} updated successfully"
+            'status'  => true,
+            'message' => "{$entity} Updated Successfully",
+            'data' => $updatedData
         ];
     }
 
     public static function error(Throwable $e): array
     {
         return [
-            'status'  => 'error',
+            'status'  => false,
             'message' => $e->getMessage()
         ];
     }
