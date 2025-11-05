@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateCitizenshipRequest extends FormRequest
+class UpdateMfPositionTypeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateCitizenshipRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'position_type_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Citizenship field is required'
+            'position_type_desc.required' => 'Position type description is required',
         ];
     }
 

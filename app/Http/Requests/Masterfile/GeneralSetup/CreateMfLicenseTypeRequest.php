@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateSchoolRequest extends FormRequest
+class CreateMfLicenseTypeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateSchoolRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'license_type_desc' => 'required|unique:mf_license_types,license_type_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'School field is required',
+            'license_type_desc.required' => 'License type description is required',
+            'license_type_desc.unique' => 'License type description already exist'
         ];
     }
 
@@ -32,7 +33,7 @@ class UpdateSchoolRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

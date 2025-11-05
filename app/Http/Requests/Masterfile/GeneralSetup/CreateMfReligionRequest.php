@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdatePositionTypeRequest extends FormRequest
+class CreateMfReligionRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,17 +16,15 @@ class UpdatePositionTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'position_type_id' => 'required|exists:position_types,id'
+            'religion_desc' => 'required|unique:mf_religions,religion_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Position type field is required',
-            'position_type_id.required' => 'Position type ID is required',
-            'position_type_id.exists' => 'Position type ID is not valid'
+            'religion_desc.required' => 'Religion description is required',
+            'religion_desc.unique' => 'Religion description already exist'
         ];
     }
 
@@ -35,7 +33,7 @@ class UpdatePositionTypeRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateCityRequest extends FormRequest
+class UpdateMfLicenseTypeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'license_type_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'City field is required'
+            'license_type_desc.required' => 'License type description is required',
         ];
     }
 

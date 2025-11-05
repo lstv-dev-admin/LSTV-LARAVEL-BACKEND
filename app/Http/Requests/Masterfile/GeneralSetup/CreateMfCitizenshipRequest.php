@@ -23,8 +23,8 @@ class CreateMfCitizenshipRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'area_desc.required' => 'Citizenship description is required',
-            'area_desc.unique' => 'Citizenship description already exist'
+            'citizenship_desc.required' => 'Citizenship description is required',
+            'citizenship_desc.unique' => 'Citizenship description already exist'
         ];
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateMfAreaRequest extends FormRequest
+class CreateMfLanguageRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateMfAreaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'area_desc' => 'required',
+            'language_desc' => 'required|unique:mf_languages,language_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'area_desc.required' => 'Area description is required',
+            'language_desc.required' => 'Language description is required',
+            'language_desc.unique' => 'Language description already exist'
         ];
     }
 

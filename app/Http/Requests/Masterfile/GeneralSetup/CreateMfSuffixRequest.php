@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateSuffixRequest extends FormRequest
+class CreateMfSuffixRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateSuffixRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'suffix_desc' => 'required|unique:mf_suffixes,suffix_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Suffix field is required',
+            'suffix_desc.required' => 'Suffix description is required',
+            'suffix_desc.unique' => 'Suffix description already exist'
         ];
     }
 
@@ -32,7 +33,7 @@ class UpdateSuffixRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

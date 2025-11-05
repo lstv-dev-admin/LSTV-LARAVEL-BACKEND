@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateLicenseTypeRequest extends FormRequest
+class CreateMfCivilStatusRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateLicenseTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'civil_status_desc' => 'required|unique:mf_civil_statuses,civil_status_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'License type field is required',
+            'civil_status_desc.required' => 'Civil status description is required',
+            'civil_status_desc.unique' => 'Civil status description already exist'
         ];
     }
 
@@ -32,7 +33,7 @@ class UpdateLicenseTypeRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

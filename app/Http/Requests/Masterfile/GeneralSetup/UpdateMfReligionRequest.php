@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateRequirementRequest extends FormRequest
+class UpdateMfReligionRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateRequirementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'religion_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Requirement field is required',
+            'religion_desc.required' => 'Religion description is required',
         ];
     }
 
@@ -32,7 +32,7 @@ class UpdateRequirementRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

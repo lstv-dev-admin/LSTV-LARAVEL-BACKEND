@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateCivilStatusRequest extends FormRequest
+class UpdateMfSuffixRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateCivilStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'suffix_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Civil status field is required'
+            'suffix_desc.required' => 'Suffix description is required',
         ];
     }
 

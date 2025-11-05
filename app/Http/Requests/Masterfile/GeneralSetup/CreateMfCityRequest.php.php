@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateMfAreaRequest extends FormRequest
+class CreateMfCityRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateMfAreaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'area_desc' => 'required',
+            'city_desc' => 'required|unique:mf_cities,city_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'area_desc.required' => 'Area description is required',
+            'city_desc.required' => 'City description is required',
+            'city_desc.unique' => 'City description already exist'
         ];
     }
 

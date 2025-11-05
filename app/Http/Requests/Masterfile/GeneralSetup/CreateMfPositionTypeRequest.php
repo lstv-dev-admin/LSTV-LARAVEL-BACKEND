@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateCountryRequest extends FormRequest
+class CreateMfPositionTypeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateCountryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'position_type_desc' => 'required|unique:mf_position_types,position_type_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Country field is required'
+            'position_type_desc.required' => 'Position type description is required',
+            'position_type_desc.unique' => 'Position type description already exist'
         ];
     }
 

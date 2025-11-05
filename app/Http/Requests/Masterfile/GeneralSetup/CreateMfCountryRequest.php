@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateRegionRequest extends FormRequest
+class CreateMfCountryRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateRegionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'country_desc' => 'required|unique:mf_countries,country_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Region field is required',
+            'country_desc.required' => 'Country description is required',
+            'country_desc.unique' => 'Country description already exist'
         ];
     }
 
@@ -32,7 +33,7 @@ class UpdateRegionRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateBloodTypeRequest extends FormRequest
+class UpdateMfPrefixRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateBloodTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'prefix_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Blood type field is required'
+            'prefix_desc.required' => 'Prefix description is required',
         ];
     }
 

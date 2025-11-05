@@ -10,7 +10,7 @@ class QueryResultHelper
     {
         return [
             'status'  => true,
-            'message' => "New {$entity} Added successfully",
+            'message' => "New {$entity} added successfully",
             'data' => $data
         ];
     }
@@ -19,7 +19,7 @@ class QueryResultHelper
     {
         return [
             'status' => true,
-            'message' => "{$entity} Fetched Successfully",
+            'message' => "{$entity} fetched successfully",
             'data'   => $data
         ];
     }
@@ -28,8 +28,16 @@ class QueryResultHelper
     {
         return [
             'status'  => true,
-            'message' => "{$entity} Updated Successfully",
+            'message' => "{$entity} updated successfully",
             'data' => $updatedData
+        ];
+    }
+
+    public static function successDelete(string $entity): array
+    {
+        return [
+            'status'  => true,
+            'message' => "{$entity} deleted successfully",
         ];
     }
 

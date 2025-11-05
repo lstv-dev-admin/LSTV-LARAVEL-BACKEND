@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateMembershipTypeRequest extends FormRequest
+class CreateMfSkillRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateMembershipTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'skill_desc' => 'required|unique:mf_skills,skill_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Membership type field is required',
+            'skill_desc.required' => 'Skill description is required',
+            'skill_desc.unique' => 'Skill description already exist'
         ];
     }
 
@@ -32,7 +33,7 @@ class UpdateMembershipTypeRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

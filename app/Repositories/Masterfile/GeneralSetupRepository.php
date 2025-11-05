@@ -54,6 +54,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfArea::findOrFail($id);
     }
 
+    public function deleteMfArea($id)
+    {
+        return MfArea::delete(MfArea::findOrFail($id));
+    }
+
     public function createMfAward($data)
     {
         $data['award_id'] = MasterfileRecordIdHelper::getNextSeries(MfAward::getMasterfileCode());
@@ -70,6 +75,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     {
         MfAward::findOrFail($id)->update($data);
         return MfAward::findOrFail($id);
+    }
+
+    public function deleteMfAward($id)
+    {
+        return MfAward::delete(MfAward::findOrFail($id));
     }
 
     public function createMfBloodType($data)
@@ -90,6 +100,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfBloodType::findOrFail($id);
     }
 
+    public function deleteMfBloodType($id)
+    {
+        return MfBloodType::delete(MfBloodType::findOrFail($id));
+    }
+
     public function createMfCitizenship($data)
     {
         $data['citizenship_id'] = MasterfileRecordIdHelper::getNextSeries(MfCitizenship::getMasterfileCode());
@@ -106,6 +121,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     {
         MfCitizenship::findOrFail($id)->update($data);
         return MfCitizenship::findOrFail($id);
+    }
+
+    public function deleteMfCitizenship($id)
+    {
+        return MfCitizenship::delete(MfCitizenship::findOrFail($id));
     }
 
     public function createMfCity($data)
@@ -126,6 +146,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfCity::findOrFail($id);
     }
 
+    public function deleteMfCity($id)
+    {
+        return MfCity::delete(MfCity::findOrFail($id));
+    }
+
     public function createMfCivilStatus($data)
     {
         $data['civil_status_id'] = MasterfileRecordIdHelper::getNextSeries(MfCivilStatus::getMasterfileCode());
@@ -144,6 +169,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfCivilStatus::findOrFail($id);
     }
 
+    public function deleteMfCivilStatus($id)
+    {
+        return MfCivilStatus::delete(MfCivilStatus::findOrFail($id));
+    }
+
     public function createMfCountry($data) {
         $data['country_id'] = MasterfileRecordIdHelper::getNextSeries(MfCountry::getMasterfileCode());
         return MfCountry::create($data);
@@ -157,6 +187,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfCountry($id, $data) {
         MfCountry::findOrFail($id)->update($data);
         return MfCountry::findOrFail($id);
+    }
+
+    public function deleteMfCountry($id)
+    {
+        return MfCountry::delete(MfCountry::findOrFail($id));
     }
 
     public function createMfEmploymentType($data) {
@@ -174,6 +209,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfEmploymentType::findOrFail($id);
     }
 
+    public function deleteEmploymentType($id)
+    {
+        return MfEmploymentType::delete(MfEmploymentType::findOrFail($id));
+    }
+
     public function createMfLanguage($data) {
         $data['language_id'] = MasterfileRecordIdHelper::getNextSeries(MfLanguage::getMasterfileCode());
         return MfLanguage::create($data);
@@ -187,6 +227,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfLanguage($id, $data) {
         MfLanguage::findOrFail($id)->update($data);
         return MfLanguage::findOrFail($id);
+    }
+
+    public function deleteMfLanguage($id)
+    {
+        return MfLanguage::delete(MfLanguage::findOrFail($id));
     }
 
     public function createMfLicenseType($data) {
@@ -204,6 +249,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfLicenseType::findOrFail($id);
     }
 
+    public function deleteMfLicenseTaype($id)
+    {
+        return MfLicenseType::delete(MfLicenseType::findOrFail($id));
+    }
+
     public function createMfMembershipType($data) {
         $data['membership_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfMembershipType::getMasterfileCode());
         return MfMembershipType::create($data);
@@ -217,6 +267,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfMembershipType($id, $data) {
         MfMembershipType::findOrFail($id)->update($data);
         return MfMembershipType::findOrFail($id);
+    }
+
+    public function deleteMfMembershipType($id)
+    {
+        return MfMembershipType::delete(MfMembershipType::findOrFail($id));
     }
 
     public function createMfNationality($data) {
@@ -234,6 +289,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfNationality::findOrFail($id);
     }
 
+    public function deleteMfNationality($id)
+    {
+        return MfNationality::delete(MfNationality::findOrFail($id));
+    }
+
     public function createMfPositionType($data) {
         $data['position_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfPositionType::getMasterfileCode());
         return MfPositionType::create($data);
@@ -247,6 +307,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfPositionType($id, $data) {
         MfPositionType::findOrFail($id)->update($data);
         return MfPositionType::findOrFail($id);
+    }
+
+    public function deleteMfPositionType($id)
+    {
+        return MfPositionType::delete(MfPositionType::findOrFail($id));
     }
 
     public function createMfPrefix($data) {
@@ -264,6 +329,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfPrefix::findOrFail($id);
     }
 
+    public function deleteMfPrefix($id)
+    {
+        return MfPrefix::delete(MfPrefix::findOrFail($id));
+    }
+
     public function createMfProvince($data) {
         $data['province_id'] = MasterfileRecordIdHelper::getNextSeries(MfProvince::getMasterfileCode());
         return MfProvince::create($data);
@@ -277,6 +347,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfProvince($id, $data) {
         MfProvince::findOrFail($id)->update($data);
         return MfProvince::findOrFail($id);
+    }
+
+    public function deleteMfProvince($id)
+    {
+        return MfProvince::delete(MfProvince::findOrFail($id));
     }
 
     public function createMfRegion($data) {
@@ -294,6 +369,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfRegion::findOrFail($id);
     }
 
+    public function deleteMfRegion($id)
+    {
+        return MfRegion::delete(MfRegion::findOrFail($id));
+    }
+
     public function createMfReligion($data) {
         $data['religion_id'] = MasterfileRecordIdHelper::getNextSeries(MfReligion::getMasterfileCode());
         return MfReligion::create($data);
@@ -307,6 +387,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfReligion($id, $data) {
         MfReligion::findOrFail($id)->update($data);
         return MfReligion::findOrFail($id);
+    }
+
+    public function deleteMfReligion($id)
+    {
+        return MfReligion::delete(MfReligion::findOrFail($id));
     }
 
     public function createMfRequirement($data) {
@@ -324,6 +409,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfRequirement::findOrFail($id);
     }
 
+    public function deleteMfRequirement($id)
+    {
+        return MfRequirement::delete(MfRequirement::findOrFail($id));
+    }
+
     public function createMfSchool($data) {
         $data['school_id'] = MasterfileRecordIdHelper::getNextSeries(MfSchool::getMasterfileCode());
         return MfSchool::create($data);
@@ -337,6 +427,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfSchool($id, $data) {
         MfSchool::findOrFail($id)->update($data);
         return MfSchool::findOrFail($id);
+    }
+
+    public function deleteMfSchool($id)
+    {
+        return MfSchool::delete(MfSchool::findOrFail($id));
     }
 
     public function createMfSkill($data) {
@@ -354,6 +449,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfSkill::findOrFail($id);
     }
 
+    public function deleteMfSkill($id)
+    {
+        return MfSkill::delete(MfSkill::findOrFail($id));
+    }
+
     public function createMfSuffix($data) {
         $data['suffix_id'] = MasterfileRecordIdHelper::getNextSeries(MfSuffix::getMasterfileCode());
         return MfSuffix::create($data);
@@ -369,6 +469,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfSuffix::findOrFail($id);
     }
 
+    public function deleteMfSuffix($id)
+    {
+        return MfSuffix::delete(MfSuffix::findOrFail($id));
+    }
+
     public function createMfViolation($data) {
         $data['violation_id'] = MasterfileRecordIdHelper::getNextSeries(MfViolation::getMasterfileCode());
         return MfViolation::create($data);
@@ -382,5 +487,10 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function updateMfViolation($id, $data) {
         MfViolation::findOrFail($id)->update($data);
         return MfViolation::findOrFail($id);
+    }
+
+    public function deleteMfViolation($id)
+    {
+        return MfViolation::delete(MfViolation::findOrFail($id));
     }
 }

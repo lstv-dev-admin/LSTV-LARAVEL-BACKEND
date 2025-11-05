@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateMfAreaRequest extends FormRequest
+class UpdateMfNationalityRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateMfAreaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'area_desc' => 'required',
+            'nationality_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'area_desc.required' => 'Area description is required',
+            'nationality_desc.required' => 'Nationality description is required',
         ];
     }
 

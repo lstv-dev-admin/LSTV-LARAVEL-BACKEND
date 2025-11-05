@@ -42,6 +42,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfArea($id)
+    {
+        $this->repository->deleteMfArea($id);
+        return 'Area';
+    }
+
     public function createMfAward($data)
     {
         try {
@@ -65,6 +71,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfAward($id)
+    {
+        $this->repository->deleteMfAward($id);
+        return 'Award';
     }
 
     public function createMfBloodType($data)
@@ -92,6 +104,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfBloodType($id)
+    {
+        $this->repository->deleteMfBloodType($id);
+        return 'Blood Type';
+    }
+
     public function createMfCitizenship($data)
     {
         try {
@@ -115,6 +133,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfCitizenship($id)
+    {
+        $this->repository->deleteMfCitizenship($id);
+        return 'Citizenship';
     }
 
     public function createMfCity($data)
@@ -142,6 +166,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfCity($id)
+    {
+        $this->repository->deleteMfCity($id);
+        return 'City';
+    }
+
     public function createMfCivilStatus($data)
     {
         try {
@@ -165,6 +195,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfCivilStatus($id)
+    {
+        $this->repository->deleteMfCivilStatus($id);
+        return 'Civil Status';
     }
 
     public function createMfCountry($data)
@@ -192,6 +228,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfCountry($id)
+    {
+        $this->repository->deleteMfCountry($id);
+        return 'Country';
+    }
+
     public function createMfEmploymentType($data)
     {
         try {
@@ -215,6 +257,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfEmploymentType($id)
+    {
+        $this->repository->deleteMfEmploymentType($id);
+        return 'Employment Type';
     }
 
     public function createMfLanguage($data)
@@ -242,6 +290,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfLanguage($id)
+    {
+        $this->repository->deleteMfLanguage($id);
+        return 'Language';
+    }
+
     public function createMfLicenseType($data)
     {
         try {
@@ -265,6 +319,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfLicenseType($id)
+    {
+        $this->repository->deleteMfLicenseType($id);
+        return '';
     }
 
     public function createMfMembershipType($data)
@@ -292,6 +352,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfMembershipType($id)
+    {
+        $this->repository->deleteMfMembershipType($id);
+        return '';
+    }
+
     public function createMfNationality($data)
     {
         try {
@@ -315,6 +381,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfNationality($id)
+    {
+        $this->repository->deleteMfNationality($id);
+        return '';
     }
 
     public function createMfPositionType($data)
@@ -342,6 +414,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfPositionType($id)
+    {
+        $this->repository->deleteMfPositionType($id);
+        return '';
+    }
+
     public function createMfPrefix($data)
     {
         try {
@@ -365,6 +443,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfPrefix($id)
+    {
+        $this->repository->deleteMfPrefix($id);
+        return 'Prefix';
     }
 
     public function createMfProvince($data)
@@ -392,6 +476,12 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfProvince($id)
+    {
+        $this->repository->deleteMfProvince($id);
+        return 'Province';
+    }
+
     public function createMfRegion($data)
     {
         try {
@@ -415,6 +505,12 @@ class GeneralSetupService
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfRegion($id)
+    {
+        $this->repository->deleteMfRegion($id);
+        return 'Region';
     }
 
     public function createMfReligion($data)
@@ -442,6 +538,11 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfReligion($id)
+    {
+        $this->repository->deleteMfReligion($id);
+        return 'Religion';
+    }
 
     public function createMfRequirement($data)
     {
@@ -468,6 +569,11 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfRequirement($id)
+    {
+        $this->repository->deleteMfRequirement($id);
+        return 'Requirement';
+    }
 
     public function createMfSchool($data)
     {
@@ -494,6 +600,11 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfSchool($id)
+    {
+        $this->repository->deleteMfSchool($id);
+        return '';
+    }
 
     public function createMfSkill($data)
     {
@@ -520,6 +631,11 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfSkill($id)
+    {
+        $this->repository->deleteMfSkill($id);
+        return '';
+    }
 
     public function createMfSuffix($data)
     {
@@ -546,6 +662,11 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfSuffix($id)
+    {
+        $this->repository->deleteMfSuffix($id);
+        return 'Suffix';
+    }
 
     public function createMfViolation($data)
     {
@@ -572,4 +693,9 @@ class GeneralSetupService
         }
     }
 
+    public function deleteMfViolation($id)
+    {
+        $this->repository->deleteMfViolation($id);
+        return 'Violation';
+    }
 }

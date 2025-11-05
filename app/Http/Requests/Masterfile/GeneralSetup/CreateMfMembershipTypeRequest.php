@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateViolationRequest extends FormRequest
+class CreateMfMembershipTypeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,15 @@ class UpdateViolationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'membership_type_desc' => 'required|unique:mf_membership_types,membership_type_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Violation field is required',
+            'membership_type_desc.required' => 'Membership type description is required',
+            'membership_type_desc.unique' => 'Membership type description already exist'
         ];
     }
 
@@ -32,7 +33,7 @@ class UpdateViolationRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

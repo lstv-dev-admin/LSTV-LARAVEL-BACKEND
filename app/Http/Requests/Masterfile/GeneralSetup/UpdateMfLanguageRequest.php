@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateRegionProvinceCityRequest extends FormRequest
+class UpdateMfLanguageRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateRegionProvinceCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'language_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Region Province City field is required',
+            'language_desc.required' => 'Language description is required',
         ];
     }
 
@@ -32,7 +32,7 @@ class UpdateRegionProvinceCityRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

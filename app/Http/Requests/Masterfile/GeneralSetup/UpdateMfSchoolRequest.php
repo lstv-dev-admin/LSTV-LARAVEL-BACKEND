@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateEmploymentTypeRequest extends FormRequest
+class UpdateMfSchoolRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateEmploymentTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'school_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Employment type field is required'
+            'school_desc.required' => 'School description is required',
         ];
     }
 

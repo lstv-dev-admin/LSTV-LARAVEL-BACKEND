@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdatePrefixRequest extends FormRequest
+class UpdateMfViolationRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdatePrefixRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'violation_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Prefix field is required',
+            'violation_desc.required' => 'Violation description is required',
         ];
     }
 
@@ -32,7 +32,7 @@ class UpdatePrefixRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateSkillRequest extends FormRequest
+class UpdateMfCitizenshipRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,14 +16,14 @@ class UpdateSkillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'citizenship_desc' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Skill field is required',
+            'citizenship_desc.required' => 'Citizenship description is required',
         ];
     }
 
@@ -32,7 +32,7 @@ class UpdateSkillRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'status'  => 'error',
-                'message' => $validator->errors(),
+                'message' => $validator->errors()
             ], 422)
         );
     }

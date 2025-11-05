@@ -10,89 +10,89 @@ Route::controller(GeneralSetupController::class)->group(function () {
         Route::get('area', 'getMfAreas');
         Route::put('area/{id}', 'updateMfArea');
 
-        Route::post('blood-type', 'createBloodType');
-        Route::get('blood-type', 'getBloodTypes');
-        Route::put('blood-type/{id}', 'updateBloodType');
+        Route::post('award', 'createMfAward');
+        Route::get('award', 'getMfAwards');
+        Route::put('award/{id}', 'updateMfAward');
 
-        Route::post('citizenship', 'createCitizenship');
-        Route::get('citizenship', 'getCitizenships');
-        Route::put('citizenship/{id}', 'updateCitizenship');
+        Route::post('blood-type', 'createMfBloodType');
+        Route::get('blood-type', 'getMfBloodTypes');
+        Route::put('blood-type/{id}', 'updateMfBloodType');
 
-        Route::post('city', 'createCity');
-        Route::get('city', 'getCities');
-        Route::put('city/{id}', 'updateCity');
+        Route::post('citizenship', 'createMfCitizenship');
+        Route::get('citizenship', 'getMfCitizenships');
+        Route::put('citizenship/{id}', 'updateMfCitizenship');
 
-        Route::post('civil-status', 'createCivilStatus');
-        Route::get('civil-status', 'getCivilStatuses');
-        Route::put('civil-status/{id}', 'updateCivilStatus');
+        Route::post('city', 'createMfCity');
+        Route::get('city', 'getMfCities');
+        Route::put('city/{id}', 'updateMfCity');
 
-        Route::post('country', 'createCountry');
-        Route::get('country', 'getCountries');
-        Route::put('country/{id}', 'updateCountry');
+        Route::post('civil-status', 'createMfCivilStatus');
+        Route::get('civil-status', 'getMfCivilStatuses');
+        Route::put('civil-status/{id}', 'updateMfCivilStatus');
 
-        Route::post('employment-type', 'createEmploymentType');
-        Route::get('employment-type', 'getEmploymentTypes');
-        Route::put('employment-type/{id}', 'updateEmploymentType');
+        Route::post('country', 'createMfCountry');
+        Route::get('country', 'getMfCountries');
+        Route::put('country/{id}', 'updateMfCountry');
 
-        Route::post('language', 'createLanguage');
-        Route::get('language', 'getLanguages');
-        Route::put('language/{id}', 'updateLanguage');
+        Route::post('employment-type', 'createMfEmploymentType');
+        Route::get('employment-type', 'getMfEmploymentTypes');
+        Route::put('employment-type/{id}', 'updateMfEmploymentType');
 
-        Route::post('license-type', 'createLicenseType');
-        Route::get('license-type', 'getLicenseTypes');
-        Route::put('license-type/{id}', 'updateLicenseType');
+        Route::post('language', 'createMfLanguage');
+        Route::get('language', 'getMfLanguages');
+        Route::put('language/{id}', 'updateMfLanguage');
 
-        Route::post('membership-type', 'createMembershipType');
-        Route::get('membership-type', 'getMembershipTypes');
-        Route::put('membership-type/{id}', 'updateMembershipType');
+        Route::post('license-type', 'createMfLicenseType');
+        Route::get('license-type', 'getMfLicenseTypes');
+        Route::put('license-type/{id}', 'updateMfLicenseType');
 
-        Route::post('nationality', 'createNationality');
-        Route::get('nationality', 'getNationalities');
-        Route::put('nationality/{id}', 'updateNationality');
+        Route::post('membership-type', 'createMfMembershipType');
+        Route::get('membership-type', 'getMfMembershipTypes');
+        Route::put('membership-type/{id}', 'updateMfMembershipType');
 
-        Route::post('position-type', 'createPositionType');
-        Route::get('position-type', 'getPositionTypes');
-        Route::put('position-type/{id}', 'updatePositionType');
+        Route::post('nationality', 'createMfNationality');
+        Route::get('nationality', 'getMfNationalities');
+        Route::put('nationality/{id}', 'updateMfNationality');
 
-        Route::post('prefix', 'createPrefix');
-        Route::get('prefix', 'getPrefixes');
-        Route::put('prefix/{id}', 'updatePrefix');
+        Route::post('position-type', 'createMfPositionType');
+        Route::get('position-type', 'getMfPositionTypes');
+        Route::put('position-type/{id}', 'updateMfPositionType');
 
-        Route::post('province', 'createProvince');
-        Route::get('province', 'getProvinces');
-        Route::put('province/{id}', 'updateProvince');
+        Route::post('prefix', 'createMfPrefix');
+        Route::get('prefix', 'getMfPrefixes');
+        Route::put('prefix/{id}', 'updateMfPrefix');
 
-        Route::post('region', 'createRegion');
-        Route::get('region', 'getRegions');
-        Route::put('region/{id}', 'updateRegion');
+        Route::post('province', 'createMfProvince');
+        Route::get('province', 'getMfProvinces');
+        Route::put('province/{id}', 'updateMfProvince');
 
-        Route::post('region-province-city', 'createRegionProvinceCity');
-        Route::get('region-province-city', 'getRegionProvinceCities');
-        Route::put('region-province-city/{id}', 'updateRegionProvinceCity');
+        Route::post('region', 'createMfRegion');
+        Route::get('region', 'getMfRegions');
+        Route::put('region/{id}', 'updateMfRegion');
 
-        Route::post('religion', 'createReligion');
-        Route::get('religion', 'getReligions');
-        Route::put('religion/{id}', 'updateReligion');
+        Route::post('religion', 'createMfReligion');
+        Route::get('religion', 'getMfReligions');
+        Route::put('religion/{id}', 'updateMfReligion');
 
-        Route::post('requirement', 'createRequirement');
-        Route::get('requirement', 'getRequirements');
-        Route::put('requirement/{id}', 'updateRequirement');
+        Route::post('requirement', 'createMfRequirement');
+        Route::get('requirement', 'getMfRequirements');
+        Route::put('requirement/{id}', 'updateMfRequirement');
 
-        Route::post('school', 'createSchool');
-        Route::get('school', 'getSchools');
-        Route::put('school/{id}', 'updateSchool');
+        Route::post('school', 'createMfSchool');
+        Route::get('school', 'getMfSchools');
+        Route::put('school/{id}', 'updateMfSchool');
 
-        Route::post('skill', 'createSkill');
-        Route::get('skill', 'getSkills');
-        Route::put('skill/{id}', 'updateSkill');
+        Route::post('skill', 'createMfSkill');
+        Route::get('skill', 'getMfSkills');
+        Route::put('skill/{id}', 'updateMfSkill');
 
-        Route::post('suffix', 'createSuffix');
-        Route::get('suffix', 'getSuffixes');
-        Route::put('suffix/{id}', 'updateSuffix');
+        Route::post('suffix', 'createMfSuffix');
+        Route::get('suffix', 'getMfSuffixes');
+        Route::put('suffix/{id}', 'updateMfSuffix');
 
-        Route::post('violation', 'createViolation');
-        Route::get('violation', 'getViolations');
-        Route::put('violation/{id}', 'updateViolation');
+        Route::post('violation', 'createMfViolation');
+        Route::get('violation', 'getMfViolations');
+        Route::put('violation/{id}', 'updateMfViolation');
     });
 });
 
