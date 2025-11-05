@@ -10,6 +10,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         api: [
             // MasterFiles
+            __DIR__.'/../routes/utilities-api.php',
             __DIR__.'/../routes/MasterFiles/Employees/index.php',
             __DIR__.'/../routes/MasterFiles/CompanyDetails/index.php',
             __DIR__.'/../routes/MasterFiles/Recruitment/index.php',

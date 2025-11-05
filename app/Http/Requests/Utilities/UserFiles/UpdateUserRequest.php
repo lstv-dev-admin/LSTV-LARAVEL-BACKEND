@@ -16,12 +16,13 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required|string|unique:users,username',
+            'username' => 'required|string',
             'user_type_id' => 'required|exists:user_types,id',
             'first_name' => 'required|string',
             'middle_name' => 'nullable|string',
             'last_name' => 'required|string',
-            'email' => 'nullable|email|unique:users,email,'
+            'email' => 'nullable|email',
+            'status_id' => 'required|exists:statuses,id'
         ];
     }
 
@@ -29,13 +30,13 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'username.required' => 'Username field is required',
-            'username.unique' => 'Username already exists',
             'user_type_id.required' => 'User type field is required',
             'user_type_id.exists' => 'Selected user type does not exist',
             'first_name.required' => 'First name field is required',
             'last_name.required' => 'Last name field is required',
             'email.email' => 'Email must be a valid email address',
-            'email.unique' => 'Email already exists',
+            'status_id.required' => 'Status field is required',
+            'status_id.exists' => 'Selected status does not exist', 
         ];
     }
 

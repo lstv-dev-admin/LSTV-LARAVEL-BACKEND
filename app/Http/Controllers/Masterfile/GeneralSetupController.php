@@ -8,51 +8,53 @@ use App\Services\Masterfile\GeneralSetupService;
 
 use App\Helpers\ResponseHelper;
 
+use App\Http\Requests\PaginationRequest;
+
 use App\Http\Requests\Masterfile\GeneralSetup\{
-    CreateAreaRequest,
-    CreateBloodTypeRequest,
-    CreateCitizenshipRequest,
-    CreateCityRequest,
-    CreateCivilStatusRequest,
-    CreateCountryRequest,
-    CreateEmploymentTypeRequest,
-    CreateLanguageRequest,
-    CreateLicenseTypeRequest,
-    CreateMembershipTypeRequest,
-    CreateNationalityRequest,
-    CreatePositionTypeRequest,
-    CreatePrefixRequest,
-    CreateProvinceRequest,
-    CreateRegionProvinceCityRequest,
-    CreateRegionRequest,
-    CreateReligionRequest,
-    CreateRequirementRequest,
-    CreateSchoolRequest,
-    CreateSkillRequest,
-    CreateSuffixRequest,
-    CreateViolationRequest,
-    UpdateAreaRequest,
-    UpdateBloodTypeRequest,
-    UpdateCitizenshipRequest,
-    UpdateCityRequest,
-    UpdateCivilStatusRequest,
-    UpdateCountryRequest,
-    UpdateEmploymentTypeRequest,
-    UpdateLanguageRequest,
-    UpdateLicenseTypeRequest,
-    UpdateMembershipTypeRequest,
-    UpdateNationalityRequest,
-    UpdatePositionTypeRequest,
-    UpdatePrefixRequest,
-    UpdateProvinceRequest,
-    UpdateRegionProvinceCityRequest,
-    UpdateRegionRequest,
-    UpdateReligionRequest,
-    UpdateRequirementRequest,
-    UpdateSchoolRequest,
-    UpdateSkillRequest,
-    UpdateSuffixRequest,
-    UpdateViolationRequest
+    CreateMfAreaRequest,
+    UpdateMfAreaRequest,
+    CreateMfAwardRequest,
+    UpdateMfAwardRequest,
+    CreateMfBloodTypeRequest,
+    UpdateMfBloodTypeRequest,
+    CreateMfCitizenshipRequest,
+    UpdateMfCitizenshipRequest,
+    CreateMfCityRequest,
+    UpdateMfCityRequest,
+    CreateMfCivilStatusRequest,
+    UpdateMfCivilStatusRequest,
+    CreateMfCountryRequest,
+    UpdateMfCountryRequest,
+    CreateMfEmploymentTypeRequest,
+    UpdateMfEmploymentTypeRequest,
+    CreateMfLanguageRequest,
+    UpdateMfLanguageRequest,
+    CreateMfLicenseTypeRequest,
+    UpdateMfLicenseTypeRequest,
+    CreateMfMembershipTypeRequest,
+    UpdateMfMembershipTypeRequest,
+    CreateMfNationalityRequest,
+    UpdateMfNationalityRequest,
+    CreateMfPositionTypeRequest,
+    UpdateMfPositionTypeRequest,
+    CreateMfPrefixRequest,
+    UpdateMfPrefixRequest,
+    CreateMfProvinceRequest,
+    UpdateMfProvinceRequest,
+    CreateMfRegionRequest,
+    UpdateMfRegionRequest,
+    CreateMfReligionRequest,
+    UpdateMfReligionRequest,
+    CreateMfRequirementRequest,
+    UpdateMfRequirementRequest,
+    CreateMfSchoolRequest,
+    UpdateMfSchoolRequest,
+    CreateMfSkillRequest,
+    UpdateMfSkillRequest,
+    CreateMfSuffixRequest,
+    UpdateMfSuffixRequest,
+    CreateMfViolationRequest,
+    UpdateMfViolationRequest,
 };
 
 class GeneralSetupController extends Controller
@@ -64,333 +66,353 @@ class GeneralSetupController extends Controller
         $this->service = $service;
     }
 
-    public function createArea(CreateAreaRequest $request)
+    public function createMfArea(CreateMfAreaRequest $request)
     {
-        return ResponseHelper::respond($this->service->createArea($request->validated()));
+        return ResponseHelper::respond($this->service->createMfArea($request->validated()));
     }
 
-    public function getAreas()
+    public function getMfAreas(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getAreas());
+        return ResponseHelper::respond($this->service->getMfAreas($filters));
     }
 
-    public function updateArea(string $id, UpdateAreaRequest $request)
+    public function updateMfArea(string $id, UpdateMfAreaRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateArea($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfArea($id, $request->validated()));
     }
 
-    public function createBloodType(CreateBloodTypeRequest $request)
+    public function createMfAward(CreateMfAwardRequest $request)
     {
-        return ResponseHelper::respond($this->service->createBloodType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfAward($request->validated()));
     }
 
-    public function getBloodTypes()
+    public function getMfAwards(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getBloodTypes());
+        return ResponseHelper::respond($this->service->getMfAwards($filters));
     }
 
-    public function updateBloodType(string $id, UpdateBloodTypeRequest $request)
+    public function updateMfAward(string $id, UpdateMfAwardRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateBloodType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfAward($id, $request->validated()));
     }
 
-    public function createCitizenship(CreateCitizenshipRequest $request)
+
+    public function createMfBloodType(CreateMfBloodTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCitizenship($request->validated()));
+        return ResponseHelper::respond($this->service->createMfBloodType($request->validated()));
     }
 
-    public function getCitizenships()
+    public function getMfBloodTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getCitizenships());
+        return ResponseHelper::respond($this->service->getMfBloodTypes($filters));
     }
 
-    public function updateCitizenship(string $id, UpdateCitizenshipRequest $request)
+    public function updateMfBloodType(string $id, UpdateMfBloodTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateCitizenship($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfBloodType($id, $request->validated()));
     }
+
 
-    public function createCity(CreateCityRequest $request)
+    public function createMfCitizenship(CreateMfCitizenshipRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCity($request->validated()));
+        return ResponseHelper::respond($this->service->createMfCitizenship($request->validated()));
     }
 
-    public function getCities()
+    public function getMfCitizenships(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getCities());
+        return ResponseHelper::respond($this->service->getMfCitizenships($filters));
     }
 
-    public function updateCity(string $id, UpdateCityRequest $request)
+    public function updateMfCitizenship(string $id, UpdateMfCitizenshipRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateCity($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfCitizenship($id, $request->validated()));
     }
 
-    public function createCivilStatus(CreateCivilStatusRequest $request)
+
+    public function createMfCity(CreateMfCityRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCivilStatus($request->validated()));
+        return ResponseHelper::respond($this->service->createMfCity($request->validated()));
     }
 
-    public function getCivilStatuses()
+    public function getMfCities(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getCivilStatuses());
+        return ResponseHelper::respond($this->service->getMfCities($filters));
     }
 
-    public function updateCivilStatus(string $id, UpdateCivilStatusRequest $request)
+    public function updateMfCity(string $id, UpdateMfCityRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateCivilStatus($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfCity($id, $request->validated()));
     }
 
-    public function createCountry(CreateCountryRequest $request)
+
+    public function createMfCivilStatus(CreateMfCivilStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCountry($request->validated()));
+        return ResponseHelper::respond($this->service->createMfCivilStatus($request->validated()));
     }
 
-    public function getCountries()
+    public function getMfCivilStatuses(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getCountries());
+        return ResponseHelper::respond($this->service->getMfCivilStatuses($filters));
     }
 
-    public function updateCountry(string $id, UpdateCountryRequest $request)
+    public function updateMfCivilStatus(string $id, UpdateMfCivilStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateCountry($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfCivilStatus($id, $request->validated()));
     }
+
 
-    public function createEmploymentType(CreateEmploymentTypeRequest $request)
+    public function createMfCountry(CreateMfCountryRequest $request)
     {
-        return ResponseHelper::respond($this->service->createEmploymentType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfCountry($request->validated()));
     }
 
-    public function getEmploymentTypes()
+    public function getMfCountries(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getEmploymentTypes());
+        return ResponseHelper::respond($this->service->getMfCountries($filters));
     }
 
-    public function updateEmploymentType(string $id, UpdateEmploymentTypeRequest $request)
+    public function updateMfCountry(string $id, UpdateMfCountryRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateEmploymentType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfCountry($id, $request->validated()));
     }
 
-    public function createLanguage(CreateLanguageRequest $request)
+
+    public function createMfEmploymentType(CreateMfEmploymentTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createLanguage($request->validated()));
+        return ResponseHelper::respond($this->service->createMfEmploymentType($request->validated()));
     }
 
-    public function getLanguages()
+    public function getMfEmploymentTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getLanguages());
+        return ResponseHelper::respond($this->service->getMfEmploymentTypes($filters));
     }
 
-    public function updateLanguage(string $id, UpdateLanguageRequest $request)
+    public function updateMfEmploymentType(string $id, UpdateMfEmploymentTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateLanguage($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfEmploymentType($id, $request->validated()));
     }
+
 
-    public function createLicenseType(CreateLicenseTypeRequest $request)
+    public function createMfLanguage(CreateMfLanguageRequest $request)
     {
-        return ResponseHelper::respond($this->service->createLicenseType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfLanguage($request->validated()));
     }
 
-    public function getLicenseTypes()
+    public function getMfLanguages(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getLicenseTypes());
+        return ResponseHelper::respond($this->service->getMfLanguages($filters));
     }
 
-    public function updateLicenseType(string $id, UpdateLicenseTypeRequest $request)
+    public function updateMfLanguage(string $id, UpdateMfLanguageRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateLicenseType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfLanguage($id, $request->validated()));
     }
 
-    public function createMembershipType(CreateMembershipTypeRequest $request)
+
+    public function createMfLicenseType(CreateMfLicenseTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createMembershipType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfLicenseType($request->validated()));
     }
 
-    public function getMembershipTypes()
+    public function getMfLicenseTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getMembershipTypes());
+        return ResponseHelper::respond($this->service->getMfLicenseTypes($filters));
     }
 
-    public function updateMembershipType(string $id, UpdateMembershipTypeRequest $request)
+    public function updateMfLicenseType(string $id, UpdateMfLicenseTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateMembershipType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfLicenseType($id, $request->validated()));
     }
 
-    public function createNationality(CreateNationalityRequest $request)
+
+    public function createMfMembershipType(CreateMfMembershipTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createNationality($request->validated()));
+        return ResponseHelper::respond($this->service->createMfMembershipType($request->validated()));
     }
 
-    public function getNationalities()
+    public function getMfMembershipTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getNationalities());
+        return ResponseHelper::respond($this->service->getMfMembershipTypes($filters));
     }
 
-    public function updateNationality(string $id, UpdateNationalityRequest $request)
+    public function updateMfMembershipType(string $id, UpdateMfMembershipTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateNationality($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfMembershipType($id, $request->validated()));
     }
+
 
-    public function createPositionType(CreatePositionTypeRequest $request)
+    public function createMfNationality(CreateMfNationalityRequest $request)
     {
-        return ResponseHelper::respond($this->service->createPositionType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfNationality($request->validated()));
     }
 
-    public function getPositionTypes()
+    public function getMfNationalities(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getPositionTypes());
+        return ResponseHelper::respond($this->service->getMfNationalities($filters));
     }
 
-    public function updatePositionType(string $id, UpdatePositionTypeRequest $request)
+    public function updateMfNationality(string $id, UpdateMfNationalityRequest $request)
     {
-        return ResponseHelper::respond($this->service->updatePositionType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfNationality($id, $request->validated()));
     }
 
-    public function createPrefix(CreatePrefixRequest $request)
+
+    public function createMfPositionType(CreateMfPositionTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createPrefix($request->validated()));
+        return ResponseHelper::respond($this->service->createMfPositionType($request->validated()));
     }
 
-    public function getPrefixes()
+    public function getMfPositionTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getPrefixes());
+        return ResponseHelper::respond($this->service->getMfPositionTypes($filters));
     }
 
-    public function updatePrefix(string $id, UpdatePrefixRequest $request)
+    public function updateMfPositionType(string $id, UpdateMfPositionTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updatePrefix($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfPositionType($id, $request->validated()));
     }
+
 
-    public function createProvince(CreateProvinceRequest $request)
+    public function createMfPrefix(CreateMfPrefixRequest $request)
     {
-        return ResponseHelper::respond($this->service->createProvince($request->validated()));
+        return ResponseHelper::respond($this->service->createMfPrefix($request->validated()));
     }
 
-    public function getProvinces()
+    public function getMfPrefixes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getProvinces());
+        return ResponseHelper::respond($this->service->getMfPrefixes($filters));
     }
 
-    public function updateProvince(string $id, UpdateProvinceRequest $request)
+    public function updateMfPrefix(string $id, UpdateMfPrefixRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateProvince($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfPrefix($id, $request->validated()));
     }
 
-    public function createRegion(CreateRegionRequest $request)
+
+    public function createMfProvince(CreateMfProvinceRequest $request)
     {
-        return ResponseHelper::respond($this->service->createRegion($request->validated()));
+        return ResponseHelper::respond($this->service->createMfProvince($request->validated()));
     }
 
-    public function getRegions()
+    public function getMfProvinces(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getRegions());
+        return ResponseHelper::respond($this->service->getMfProvinces($filters));
     }
 
-    public function updateRegion(string $id, UpdateRegionRequest $request)
+    public function updateMfProvince(string $id, UpdateMfProvinceRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateRegion($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfProvince($id, $request->validated()));
     }
 
-    public function createRegionProvinceCity(CreateRegionProvinceCityRequest $request)
+
+    public function createMfRegion(CreateMfRegionRequest $request)
     {
-        return ResponseHelper::respond($this->service->createRegionProvinceCity($request->validated()));
+        return ResponseHelper::respond($this->service->createMfRegion($request->validated()));
     }
 
-    public function getRegionProvinceCities()
+    public function getMfRegions(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getRegionProvinceCities());
+        return ResponseHelper::respond($this->service->getMfRegions($filters));
     }
 
-    public function updateRegionProvinceCity(string $id, UpdateRegionProvinceCityRequest $request)
+    public function updateMfRegion(string $id, UpdateMfRegionRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateRegionProvinceCity($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfRegion($id, $request->validated()));
     }
+
 
-    public function createReligion(CreateReligionRequest $request)
+    public function createMfReligion(CreateMfReligionRequest $request)
     {
-        return ResponseHelper::respond($this->service->createReligion($request->validated()));
+        return ResponseHelper::respond($this->service->createMfReligion($request->validated()));
     }
 
-    public function getReligions()
+    public function getMfReligions(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getReligions());
+        return ResponseHelper::respond($this->service->getMfReligions($filters));
     }
 
-    public function updateReligion(string $id, UpdateReligionRequest $request)
+    public function updateMfReligion(string $id, UpdateMfReligionRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateReligion($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfReligion($id, $request->validated()));
     }
 
-    public function createRequirement(CreateRequirementRequest $request)
+
+    public function createMfRequirement(CreateMfRequirementRequest $request)
     {
-        return ResponseHelper::respond($this->service->createRequirement($request->validated()));
+        return ResponseHelper::respond($this->service->createMfRequirement($request->validated()));
     }
 
-    public function getRequirements()
+    public function getMfRequirements(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getRequirements());
+        return ResponseHelper::respond($this->service->getMfRequirements($filters));
     }
 
-    public function updateRequirement(string $id, UpdateRequirementRequest $request)
+    public function updateMfRequirement(string $id, UpdateMfRequirementRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateRequirement($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfRequirement($id, $request->validated()));
     }
+
 
-    public function createSchool(CreateSchoolRequest $request)
+    public function createMfSchool(CreateMfSchoolRequest $request)
     {
-        return ResponseHelper::respond($this->service->createSchool($request->validated()));
+        return ResponseHelper::respond($this->service->createMfSchool($request->validated()));
     }
 
-    public function getSchools()
+    public function getMfSchools(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getSchools());
+        return ResponseHelper::respond($this->service->getMfSchools($filters));
     }
 
-    public function updateSchool(string $id, UpdateSchoolRequest $request)
+    public function updateMfSchool(string $id, UpdateMfSchoolRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateSchool($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfSchool($id, $request->validated()));
     }
 
-    public function createSkill(CreateSkillRequest $request)
+
+    public function createMfSkill(CreateMfSkillRequest $request)
     {
-        return ResponseHelper::respond($this->service->createSkill($request->validated()));
+        return ResponseHelper::respond($this->service->createMfSkill($request->validated()));
     }
 
-    public function getSkills()
+    public function getMfSkills(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getSkills());
+        return ResponseHelper::respond($this->service->getMfSkills($filters));
     }
 
-    public function updateSkill(string $id, UpdateSkillRequest $request)
+    public function updateMfSkill(string $id, UpdateMfSkillRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateSkill($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfSkill($id, $request->validated()));
     }
 
-    public function createSuffix(CreateSuffixRequest $request)
+
+    public function createMfSuffix(CreateMfSuffixRequest $request)
     {
-        return ResponseHelper::respond($this->service->createSuffix($request->validated()));
+        return ResponseHelper::respond($this->service->createMfSuffix($request->validated()));
     }
 
-    public function getSuffixes()
+    public function getMfSuffixes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getSuffixes());
+        return ResponseHelper::respond($this->service->getMfSuffixes($filters));
     }
 
-    public function updateSuffix(string $id, UpdateSuffixRequest $request)
+    public function updateMfSuffix(string $id, UpdateMfSuffixRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateSuffix($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfSuffix($id, $request->validated()));
     }
+
 
-    public function createViolation(CreateViolationRequest $request)
+    public function createMfViolation(CreateMfViolationRequest $request)
     {
-        return ResponseHelper::respond($this->service->createViolation($request->validated()));
+        return ResponseHelper::respond($this->service->createMfViolation($request->validated()));
     }
 
-    public function getViolations()
+    public function getMfViolations(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getViolations());
+        return ResponseHelper::respond($this->service->getMfViolations($filters));
     }
 
-    public function updateViolation(string $id, UpdateViolationRequest $request)
+    public function updateMfViolation(string $id, UpdateMfViolationRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateViolation($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfViolation($id, $request->validated()));
     }
 }

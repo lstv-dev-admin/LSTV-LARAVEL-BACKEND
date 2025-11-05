@@ -17,553 +17,685 @@ class GeneralSetupService
         $this->repository = $repository;
     }
 
-    public function createArea($newArea)
+    public function createMfArea($data)
     {
         try {
-            $this->repository->createArea($newArea);
-            return QueryResultHelper::successCreate('area');
+            $res = $this->repository->createMfArea($data);
+            return QueryResultHelper::successCreate('Area', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getAreas()
+    public function getMfAreas($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getAreas());
+        return QueryResultHelper::successGet('Area', $this->repository->getMfAreas($filters));
     }
 
-    public function updateArea($id, $updatedArea)
+    public function updateMfArea($id, $data)
     {
         try {
-            $this->repository->updateArea($id, $updatedArea);
-            return QueryResultHelper::successUpdate('area');
+            $res = $this->repository->updateMfArea($id, $data);
+            return QueryResultHelper::successUpdate('Area', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createBloodType($newBloodType)
+    public function deleteMfArea($id)
+    {
+        $this->repository->deleteMfArea($id);
+        return 'Area';
+    }
+
+    public function createMfAward($data)
     {
         try {
-            $this->repository->createBloodType($newBloodType);
-            return QueryResultHelper::successCreate('blood type');
+            $res = $this->repository->createMfAward($data);
+            return QueryResultHelper::successCreate('Award', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getBloodTypes()
+    public function getMfAwards($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getBloodTypes());
+        return QueryResultHelper::successGet('Award', $this->repository->getMfAwards($filters));
     }
 
-    public function updateBloodType($id, $updatedBloodType)
+    public function updateMfAward($id, $data)
     {
         try {
-            $this->repository->updateBloodType($id, $updatedBloodType);
-            return QueryResultHelper::successUpdate('blood type');
+            $res = $this->repository->updateMfAward($id, $data);
+            return QueryResultHelper::successUpdate('Award', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createCitizenship($newCitizenship)
+    public function deleteMfAward($id)
+    {
+        $this->repository->deleteMfAward($id);
+        return 'Award';
+    }
+
+    public function createMfBloodType($data)
     {
         try {
-            $this->repository->createCitizenship($newCitizenship);
-            return QueryResultHelper::successCreate('citizenship');
+            $res = $this->repository->createMfBloodType($data);
+            return QueryResultHelper::successCreate('Blood Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getCitizenships()
+    public function getMfBloodTypes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getCitizenships());
+        return QueryResultHelper::successGet('Blood Type', $this->repository->getMfBloodTypes($filters));
     }
 
-    public function updateCitizenship($id, $updatedCitizenship)
+    public function updateMfBloodType($id, $data)
     {
         try {
-            $this->repository->updateCitizenship($id, $updatedCitizenship);
-            return QueryResultHelper::successUpdate('citizenship');
+            $res = $this->repository->updateMfBloodType($id, $data);
+            return QueryResultHelper::successUpdate('Blood Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createCity($newCity)
+    public function deleteMfBloodType($id)
+    {
+        $this->repository->deleteMfBloodType($id);
+        return 'Blood Type';
+    }
+
+    public function createMfCitizenship($data)
     {
         try {
-            $this->repository->createCity($newCity);
-            return QueryResultHelper::successCreate('city');
+            $res = $this->repository->createMfCitizenship($data);
+            return QueryResultHelper::successCreate('Citizenship', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getCities()
+    public function getMfCitizenships($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getCities());
+        return QueryResultHelper::successGet('Citizenship', $this->repository->getMfCitizenships($filters));
     }
 
-    public function updateCity($id, $updatedCity)
+    public function updateMfCitizenship($id, $data)
     {
         try {
-            $this->repository->updateCity($id, $updatedCity);
-            return QueryResultHelper::successUpdate('city');
+            $res = $this->repository->updateMfCitizenship($id, $data);
+            return QueryResultHelper::successUpdate('Citizenship', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createCivilStatus($newCivilStatus)
+    public function deleteMfCitizenship($id)
+    {
+        $this->repository->deleteMfCitizenship($id);
+        return 'Citizenship';
+    }
+
+    public function createMfCity($data)
     {
         try {
-            $this->repository->createCivilStatus($newCivilStatus);
-            return QueryResultHelper::successCreate('civil status');
+            $res = $this->repository->createMfCity($data);
+            return QueryResultHelper::successCreate('City', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getCivilStatuses()
+    public function getMfCities($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getCivilStatuses());
+        return QueryResultHelper::successGet('City', $this->repository->getMfCitizenships($filters));
     }
 
-    public function updateCivilStatus($id, $updatedCivilStatus)
+    public function updateMfCity($id, $data)
     {
         try {
-            $this->repository->updateCivilStatus($id, $updatedCivilStatus);
-            return QueryResultHelper::successUpdate('civil status');
+            $res = $this->repository->updateMfCity($id, $data);
+            return QueryResultHelper::successUpdate('City', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createCountry($newCountry)
+    public function deleteMfCity($id)
+    {
+        $this->repository->deleteMfCity($id);
+        return 'City';
+    }
+
+    public function createMfCivilStatus($data)
     {
         try {
-            $this->repository->createCountry($newCountry);
-            return QueryResultHelper::successCreate('country');
+            $res = $this->repository->createMfCivilStatus($data);
+            return QueryResultHelper::successCreate('Civil Status', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getCountries()
+    public function getMfCivilStatuses($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getCountries());
+        return QueryResultHelper::successGet('Civil Status', $this->repository->getMfCivilStatuses($filters));
     }
 
-    public function updateCountry($id, $updatedCountry)
+    public function updateMfCivilStatus($id, $data)
     {
         try {
-            $this->repository->updateCountry($id, $updatedCountry);
-            return QueryResultHelper::successUpdate('country');
+            $res = $this->repository->updateMfCivilStatus($id, $data);
+            return QueryResultHelper::successUpdate('Civil Status', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createEmploymentType($newEmploymentType)
+    public function deleteMfCivilStatus($id)
+    {
+        $this->repository->deleteMfCivilStatus($id);
+        return 'Civil Status';
+    }
+
+    public function createMfCountry($data)
     {
         try {
-            $this->repository->createEmploymentType($newEmploymentType);
-            return QueryResultHelper::successCreate('employment type');
+            $res = $this->repository->createMfCountry($data);
+            return QueryResultHelper::successCreate('Country', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getEmploymentTypes()
+    public function getMfCountries($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getEmploymentTypes());
+        return QueryResultHelper::successGet('Country', $this->repository->getMfCountries($filters));
     }
 
-    public function updateEmploymentType($id, $updatedEmploymentType)
+    public function updateMfCountry($id, $data)
     {
         try {
-            $this->repository->updateEmploymentType($id, $updatedEmploymentType);
-            return QueryResultHelper::successUpdate('employment type');
+            $res = $this->repository->updateMfCountry($id, $data);
+            return QueryResultHelper::successUpdate('Country', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createLanguage($newLanguage)
+    public function deleteMfCountry($id)
+    {
+        $this->repository->deleteMfCountry($id);
+        return 'Country';
+    }
+
+    public function createMfEmploymentType($data)
     {
         try {
-            $this->repository->createLanguage($newLanguage);
-            return QueryResultHelper::successCreate('language');
+            $res = $this->repository->createMfEmploymentType($data);
+            return QueryResultHelper::successCreate('Employment Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getLanguages()
+    public function getMfEmploymentTypes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getLanguages());
+        return QueryResultHelper::successGet('Employment Type', $this->repository->getMfEmploymentTypes($filters));
     }
 
-    public function updateLanguage($id, $updatedLanguage)
+    public function updateMfEmploymentType($id, $data)
     {
         try {
-            $this->repository->updateLanguage($id, $updatedLanguage);
-            return QueryResultHelper::successUpdate('language');
+            $res = $this->repository->updateMfEmploymentType($id, $data);
+            return QueryResultHelper::successUpdate('Employment Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createLicenseType($newLicenseType)
+    public function deleteMfEmploymentType($id)
+    {
+        $this->repository->deleteMfEmploymentType($id);
+        return 'Employment Type';
+    }
+
+    public function createMfLanguage($data)
     {
         try {
-            $this->repository->createLicenseType($newLicenseType);
-            return QueryResultHelper::successCreate('license type');
+            $res = $this->repository->createMfLanguage($data);
+            return QueryResultHelper::successCreate('Language', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getLicenseTypes()
+    public function getMfLanguages($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getLicenseTypes());
+        return QueryResultHelper::successGet('Language', $this->repository->getMfLanguages($filters));
     }
 
-    public function updateLicenseType($id, $updatedLicenseType)
+    public function updateMfLanguage($id, $data)
     {
         try {
-            $this->repository->updateLicenseType($id, $updatedLicenseType);
-            return QueryResultHelper::successUpdate('license type');
+            $res = $this->repository->updateMfLanguage($id, $data);
+            return QueryResultHelper::successUpdate('Language', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createMembershipType($newMembershipType)
+    public function deleteMfLanguage($id)
+    {
+        $this->repository->deleteMfLanguage($id);
+        return 'Language';
+    }
+
+    public function createMfLicenseType($data)
     {
         try {
-            $this->repository->createMembershipType($newMembershipType);
-            return QueryResultHelper::successCreate('membership type');
+            $res = $this->repository->createMfLicenseType($data);
+            return QueryResultHelper::successCreate('License Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getMembershipTypes()
+    public function getMfLicenseTypes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getMembershipTypes());
+        return QueryResultHelper::successGet('License Type', $this->repository->getMfLicenseTypes($filters));
     }
 
-    public function updateMembershipType($id, $updatedMembershipType)
+    public function updateMfLicenseType($id, $data)
     {
         try {
-            $this->repository->updateMembershipType($id, $updatedMembershipType);
-            return QueryResultHelper::successUpdate('membership type');
+            $res = $this->repository->updateMfLicenseType($id, $data);
+            return QueryResultHelper::successUpdate('License Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createNationality($newNationality)
+    public function deleteMfLicenseType($id)
+    {
+        $this->repository->deleteMfLicenseType($id);
+        return '';
+    }
+
+    public function createMfMembershipType($data)
     {
         try {
-            $this->repository->createNationality($newNationality);
-            return QueryResultHelper::successCreate('nationality');
+            $res = $this->repository->createMfMembershipType($data);
+            return QueryResultHelper::successCreate('Membership Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getNationalities()
+    public function getMfMembershipTypes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getNationalities());
+        return QueryResultHelper::successGet('Membership Type', $this->repository->getMfMembershipTypes($filters));
     }
 
-    public function updateNationality($id, $updatedNationality)
+    public function updateMfMembershipType($id, $data)
     {
         try {
-            $this->repository->updateNationality($id, $updatedNationality);
-            return QueryResultHelper::successUpdate('nationality');
+            $res = $this->repository->updateMfMembershipType($id, $data);
+            return QueryResultHelper::successUpdate('Membership Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createPositionType($newPositionType)
+    public function deleteMfMembershipType($id)
+    {
+        $this->repository->deleteMfMembershipType($id);
+        return '';
+    }
+
+    public function createMfNationality($data)
     {
         try {
-            $this->repository->createPositionType($newPositionType);
-            return QueryResultHelper::successCreate('position type');
+            $res = $this->repository->createMfNationality($data);
+            return QueryResultHelper::successCreate('Nationality', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getPositionTypes()
+    public function getMfNationalities($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getPositionTypes());
+        return QueryResultHelper::successGet('Nationality', $this->repository->getMfNationalities($filters));
     }
 
-    public function updatePositionType($id, $updatedPositionType)
+    public function updateMfNationality($id, $data)
     {
         try {
-            $this->repository->updatePositionType($id, $updatedPositionType);
-            return QueryResultHelper::successUpdate('position type');
+            $res = $this->repository->updateMfNationality($id, $data);
+            return QueryResultHelper::successUpdate('Nationality', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createPrefix($newPrefix)
+    public function deleteMfNationality($id)
+    {
+        $this->repository->deleteMfNationality($id);
+        return '';
+    }
+
+    public function createMfPositionType($data)
     {
         try {
-            $this->repository->createPrefix($newPrefix);
-            return QueryResultHelper::successCreate('prefix');
+            $res = $this->repository->createMfPositionType($data);
+            return QueryResultHelper::successCreate('Position Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getPrefixes()
+    public function getMfPositionTypes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getPrefixes());
+        return QueryResultHelper::successGet('Position Type', $this->repository->getMfPositionTypes($filters));
     }
 
-    public function updatePrefix($id, $updatedPrefix)
+    public function updateMfPositionType($id, $data)
     {
         try {
-            $this->repository->updatePrefix($id, $updatedPrefix);
-            return QueryResultHelper::successUpdate('prefix');
+            $res = $this->repository->updateMfPositionType($id, $data);
+            return QueryResultHelper::successUpdate('Position Type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createProvince($newProvince)
+    public function deleteMfPositionType($id)
+    {
+        $this->repository->deleteMfPositionType($id);
+        return '';
+    }
+
+    public function createMfPrefix($data)
     {
         try {
-            $this->repository->createProvince($newProvince);
-            return QueryResultHelper::successCreate('province');
+            $res = $this->repository->createMfPrefix($data);
+            return QueryResultHelper::successCreate('Prefix', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getProvinces()
+    public function getMfPrefixes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getProvinces());
+        return QueryResultHelper::successGet('Prefix', $this->repository->getMfPrefixes($filters));
     }
 
-    public function updateProvince($id, $updatedProvince)
+    public function updateMfPrefix($id, $data)
     {
         try {
-            $this->repository->updateProvince($id, $updatedProvince);
-            return QueryResultHelper::successUpdate('province');
+            $res = $this->repository->updateMfPrefix($id, $data);
+            return QueryResultHelper::successUpdate('Prefix', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createRegion($newRegion)
+    public function deleteMfPrefix($id)
+    {
+        $this->repository->deleteMfPrefix($id);
+        return 'Prefix';
+    }
+
+    public function createMfProvince($data)
     {
         try {
-            $this->repository->createRegion($newRegion);
-            return QueryResultHelper::successCreate('region');
+            $res = $this->repository->createMfProvince($data);
+            return QueryResultHelper::successCreate('Province', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getRegions()
+    public function getMfProvinces($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getRegions());
+        return QueryResultHelper::successGet('Province', $this->repository->getMfProvinces($filters));
     }
 
-    public function updateRegion($id, $updatedRegion)
+    public function updateMfProvince($id, $data)
     {
         try {
-            $this->repository->updateRegion($id, $updatedRegion);
-            return QueryResultHelper::successUpdate('region');
+            $res = $this->repository->updateMfProvince($id, $data);
+            return QueryResultHelper::successUpdate('Province', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createRegionProvinceCity($newRegionProvinceCity)
+    public function deleteMfProvince($id)
+    {
+        $this->repository->deleteMfProvince($id);
+        return 'Province';
+    }
+
+    public function createMfRegion($data)
     {
         try {
-            $this->repository->createRegionProvinceCity($newRegionProvinceCity);
-            return QueryResultHelper::successCreate('region province city');
+            $res = $this->repository->createMfRegion($data);
+            return QueryResultHelper::successCreate('Region', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getRegionProvinceCities()
+    public function getMfRegions($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getRegionProvinceCities());
+        return QueryResultHelper::successGet('Region', $this->repository->getMfRegions($filters));
     }
 
-    public function updateRegionProvinceCity($id, $updatedRegionProvinceCity)
+    public function updateMfRegion($id, $data)
     {
         try {
-            $this->repository->updateRegionProvinceCity($id, $updatedRegionProvinceCity);
-            return QueryResultHelper::successUpdate('region province city');
+            $res = $this->repository->updateMfRegion($id, $data);
+            return QueryResultHelper::successUpdate('Region', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createReligion($newReligion)
+    public function deleteMfRegion($id)
+    {
+        $this->repository->deleteMfRegion($id);
+        return 'Region';
+    }
+
+    public function createMfReligion($data)
     {
         try {
-            $this->repository->createReligion($newReligion);
-            return QueryResultHelper::successCreate('religion');
+            $res = $this->repository->createMfReligion($data);
+            return QueryResultHelper::successCreate('Religion', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getReligions()
+    public function getMfReligions($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getReligions());
+        return QueryResultHelper::successGet('Religion', $this->repository->getMfReligions($filters));
     }
 
-    public function updateReligion($id, $updatedReligion)
+    public function updateMfReligion($id, $data)
     {
         try {
-            $this->repository->updateReligion($id, $updatedReligion);
-            return QueryResultHelper::successUpdate('religion');
+            $res = $this->repository->updateMfReligion($id, $data);
+            return QueryResultHelper::successUpdate('Religion', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createRequirement($newRequirement)
+    public function deleteMfReligion($id)
+    {
+        $this->repository->deleteMfReligion($id);
+        return 'Religion';
+    }
+
+    public function createMfRequirement($data)
     {
         try {
-            $this->repository->createRequirement($newRequirement);
-            return QueryResultHelper::successCreate('requirement');
+            $res = $this->repository->createMfRequirement($data);
+            return QueryResultHelper::successCreate('Requirement', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getRequirements()
+    public function getMfRequirements($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getRequirements());
+        return QueryResultHelper::successGet('Requirement', $this->repository->getMfRequirements($filters));
     }
 
-    public function updateRequirement($id, $updatedRequirement)
+    public function updateMfRequirement($id, $data)
     {
         try {
-            $this->repository->updateRequirement($id, $updatedRequirement);
-            return QueryResultHelper::successUpdate('requirement');
+            $res = $this->repository->updateMfRequirement($id, $data);
+            return QueryResultHelper::successUpdate('Requirement', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createSchool($newSchool)
+    public function deleteMfRequirement($id)
+    {
+        $this->repository->deleteMfRequirement($id);
+        return 'Requirement';
+    }
+
+    public function createMfSchool($data)
     {
         try {
-            $this->repository->createSchool($newSchool);
-            return QueryResultHelper::successCreate('school');
+            $res = $this->repository->createMfSchool($data);
+            return QueryResultHelper::successCreate('School', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getSchools()
+    public function getMfSchools($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getSchools());
+        return QueryResultHelper::successGet('School', $this->repository->getMfSchools($filters));
     }
 
-    public function updateSchool($id, $updatedSchool)
+    public function updateMfSchool($id, $data)
     {
         try {
-            $this->repository->updateSchool($id, $updatedSchool);
-            return QueryResultHelper::successUpdate('school');
+            $res = $this->repository->updateMfSchool($id, $data);
+            return QueryResultHelper::successUpdate('School', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createSkill($newSkill)
+    public function deleteMfSchool($id)
+    {
+        $this->repository->deleteMfSchool($id);
+        return '';
+    }
+
+    public function createMfSkill($data)
     {
         try {
-            $this->repository->createSkill($newSkill);
-            return QueryResultHelper::successCreate('skill');
+            $res = $this->repository->createMfSkill($data);
+            return QueryResultHelper::successCreate('Skill', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getSkills()
+    public function getMfSkills($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getSkills());
+        return QueryResultHelper::successGet('Skill', $this->repository->getMfSkills($filters));
     }
 
-    public function updateSkill($id, $updatedSkill)
+    public function updateMfSkill($id, $data)
     {
         try {
-            $this->repository->updateSkill($id, $updatedSkill);
-            return QueryResultHelper::successUpdate('skill');
+            $res = $this->repository->updateMfSkill($id, $data);
+            return QueryResultHelper::successUpdate('Skill', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createSuffix($newSuffix)
+    public function deleteMfSkill($id)
+    {
+        $this->repository->deleteMfSkill($id);
+        return '';
+    }
+
+    public function createMfSuffix($data)
     {
         try {
-            $this->repository->createSuffix($newSuffix);
-            return QueryResultHelper::successCreate('suffix');
+            $res = $this->repository->createMfSuffix($data);
+            return QueryResultHelper::successCreate('Suffix', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getSuffixes()
+    public function getMfSuffixes($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getSuffixes());
+        return QueryResultHelper::successGet('Suffix', $this->repository->getMfSuffixes($filters));
     }
 
-    public function updateSuffix($id, $updatedSuffix)
+    public function updateMfSuffix($id, $data)
     {
         try {
-            $this->repository->updateSuffix($id, $updatedSuffix);
-            return QueryResultHelper::successUpdate('suffix');
+            $res = $this->repository->updateMfSuffix($id, $data);
+            return QueryResultHelper::successUpdate('Suffix', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function createViolation($newViolation)
+    public function deleteMfSuffix($id)
+    {
+        $this->repository->deleteMfSuffix($id);
+        return 'Suffix';
+    }
+
+    public function createMfViolation($data)
     {
         try {
-            $this->repository->createViolation($newViolation);
-            return QueryResultHelper::successCreate('violation');
+            $res = $this->repository->createMfViolation($data);
+            return QueryResultHelper::successCreate('Violation', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
     }
 
-    public function getViolations()
+    public function getMfViolations($filters)
     {
-        return QueryResultHelper::successGet($this->repository->getViolations());
+        return QueryResultHelper::successGet('Violation', $this->repository->getMfViolations($filters));
     }
 
-    public function updateViolation($id, $updatedViolation)
+    public function updateMfViolation($id, $data)
     {
         try {
-            $this->repository->updateViolation($id, $updatedViolation);
-            return QueryResultHelper::successUpdate('violation');
+            $res = $this->repository->updateMfViolation($id, $data);
+            return QueryResultHelper::successUpdate('Violation', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
+    }
+
+    public function deleteMfViolation($id)
+    {
+        $this->repository->deleteMfViolation($id);
+        return 'Violation';
     }
 }
