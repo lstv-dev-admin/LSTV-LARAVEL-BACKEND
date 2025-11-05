@@ -56,7 +56,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfArea($id)
     {
-        return MfArea::delete(MfArea::findOrFail($id));
+        return MfArea::findOrFail($id)->delete();
     }
 
     public function createMfAward($data)
@@ -79,7 +79,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfAward($id)
     {
-        return MfAward::delete(MfAward::findOrFail($id));
+        return MfAward::findOrFail($id)->delete();
     }
 
     public function createMfBloodType($data)
@@ -102,7 +102,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfBloodType($id)
     {
-        return MfBloodType::delete(MfBloodType::findOrFail($id));
+        return MfBloodType::findOrFail($id)->delete();
     }
 
     public function createMfCitizenship($data)
@@ -125,7 +125,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfCitizenship($id)
     {
-        return MfCitizenship::delete(MfCitizenship::findOrFail($id));
+        return MfCitizenship::findOrFail($id)->delete();
     }
 
     public function createMfCity($data)
@@ -148,7 +148,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfCity($id)
     {
-        return MfCity::delete(MfCity::findOrFail($id));
+        return MfCity::findOrFail($id)->delete();
     }
 
     public function createMfCivilStatus($data)
@@ -171,7 +171,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfCivilStatus($id)
     {
-        return MfCivilStatus::delete(MfCivilStatus::findOrFail($id));
+        return MfCivilStatus::findOrFail($id)->delete();
     }
 
     public function createMfCountry($data) {
@@ -191,7 +191,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfCountry($id)
     {
-        return MfCountry::delete(MfCountry::findOrFail($id));
+        return MfCountry::findOrFail($id)->delete();
     }
 
     public function createMfEmploymentType($data) {
@@ -209,9 +209,9 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfEmploymentType::findOrFail($id);
     }
 
-    public function deleteEmploymentType($id)
+    public function deleteMfEmploymentType($id)
     {
-        return MfEmploymentType::delete(MfEmploymentType::findOrFail($id));
+        return MfEmploymentType::findOrFail($id)->delete();
     }
 
     public function createMfLanguage($data) {
@@ -231,7 +231,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfLanguage($id)
     {
-        return MfLanguage::delete(MfLanguage::findOrFail($id));
+        return MfLanguage::findOrFail($id)->delete();
     }
 
     public function createMfLicenseType($data) {
@@ -249,9 +249,9 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfLicenseType::findOrFail($id);
     }
 
-    public function deleteMfLicenseTaype($id)
+    public function deleteMfLicenseType($id)
     {
-        return MfLicenseType::delete(MfLicenseType::findOrFail($id));
+        return MfLicenseType::findOrFail($id)->delete();
     }
 
     public function createMfMembershipType($data) {
@@ -271,7 +271,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfMembershipType($id)
     {
-        return MfMembershipType::delete(MfMembershipType::findOrFail($id));
+        return MfMembershipType::findOrFail($id)->delete();
     }
 
     public function createMfNationality($data) {
@@ -291,7 +291,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfNationality($id)
     {
-        return MfNationality::delete(MfNationality::findOrFail($id));
+        return MfNationality::findOrFail($id)->delete();
     }
 
     public function createMfPositionType($data) {
@@ -311,7 +311,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfPositionType($id)
     {
-        return MfPositionType::delete(MfPositionType::findOrFail($id));
+        return MfPositionType::findOrFail($id)->delete();
     }
 
     public function createMfPrefix($data) {
@@ -331,7 +331,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfPrefix($id)
     {
-        return MfPrefix::delete(MfPrefix::findOrFail($id));
+        return MfPrefix::findOrFail($id)->delete();
     }
 
     public function createMfProvince($data) {
@@ -351,7 +351,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfProvince($id)
     {
-        return MfProvince::delete(MfProvince::findOrFail($id));
+        return MfProvince::findOrFail($id)->delete();
     }
 
     public function createMfRegion($data) {
@@ -371,7 +371,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfRegion($id)
     {
-        return MfRegion::delete(MfRegion::findOrFail($id));
+        return MfRegion::findOrFail($id)->delete();
     }
 
     public function createMfReligion($data) {
@@ -391,7 +391,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfReligion($id)
     {
-        return MfReligion::delete(MfReligion::findOrFail($id));
+        return MfReligion::findOrFail($id)->delete();
     }
 
     public function createMfRequirement($data) {
@@ -411,7 +411,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfRequirement($id)
     {
-        return MfRequirement::delete(MfRequirement::findOrFail($id));
+        return MfRequirement::findOrFail($id)->delete();
     }
 
     public function createMfSchool($data) {
@@ -431,7 +431,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfSchool($id)
     {
-        return MfSchool::delete(MfSchool::findOrFail($id));
+        return MfSchool::findOrFail($id)->delete();
     }
 
     public function createMfSkill($data) {
@@ -451,7 +451,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfSkill($id)
     {
-        return MfSkill::delete(MfSkill::findOrFail($id));
+        return MfSkill::findOrFail($id)->delete();
     }
 
     public function createMfSuffix($data) {
@@ -471,7 +471,7 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfSuffix($id)
     {
-        return MfSuffix::delete(MfSuffix::findOrFail($id));
+        return MfSuffix::findOrFail($id)->delete();
     }
 
     public function createMfViolation($data) {
@@ -491,6 +491,6 @@ class GeneralSetupRepository implements GeneralSetupInterface
 
     public function deleteMfViolation($id)
     {
-        return MfViolation::delete(MfViolation::findOrFail($id));
+        return MfViolation::findOrFail($id)->delete();
     }
 }

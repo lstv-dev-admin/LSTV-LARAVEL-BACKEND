@@ -45,7 +45,7 @@ class GeneralSetupService
     public function deleteMfArea($id)
     {
         $this->repository->deleteMfArea($id);
-        return 'Area';
+        return QueryResultHelper::successDelete('Area');
     }
 
     public function createMfAward($data)
@@ -76,7 +76,7 @@ class GeneralSetupService
     public function deleteMfAward($id)
     {
         $this->repository->deleteMfAward($id);
-        return 'Award';
+        return QueryResultHelper::successDelete('Award');
     }
 
     public function createMfBloodType($data)
@@ -107,7 +107,7 @@ class GeneralSetupService
     public function deleteMfBloodType($id)
     {
         $this->repository->deleteMfBloodType($id);
-        return 'Blood Type';
+        return QueryResultHelper::successDelete('Blood type');
     }
 
     public function createMfCitizenship($data)
@@ -138,7 +138,7 @@ class GeneralSetupService
     public function deleteMfCitizenship($id)
     {
         $this->repository->deleteMfCitizenship($id);
-        return 'Citizenship';
+        return QueryResultHelper::successDelete('Citizenship');
     }
 
     public function createMfCity($data)
@@ -169,7 +169,7 @@ class GeneralSetupService
     public function deleteMfCity($id)
     {
         $this->repository->deleteMfCity($id);
-        return 'City';
+        return QueryResultHelper::successDelete('City');
     }
 
     public function createMfCivilStatus($data)
@@ -200,7 +200,7 @@ class GeneralSetupService
     public function deleteMfCivilStatus($id)
     {
         $this->repository->deleteMfCivilStatus($id);
-        return 'Civil Status';
+        return QueryResultHelper::successDelete('Civil status');
     }
 
     public function createMfCountry($data)
@@ -231,7 +231,7 @@ class GeneralSetupService
     public function deleteMfCountry($id)
     {
         $this->repository->deleteMfCountry($id);
-        return 'Country';
+        return QueryResultHelper::successDelete('Country');
     }
 
     public function createMfEmploymentType($data)
@@ -262,7 +262,7 @@ class GeneralSetupService
     public function deleteMfEmploymentType($id)
     {
         $this->repository->deleteMfEmploymentType($id);
-        return 'Employment Type';
+        return QueryResultHelper::successDelete('Employment type');
     }
 
     public function createMfLanguage($data)
@@ -293,7 +293,7 @@ class GeneralSetupService
     public function deleteMfLanguage($id)
     {
         $this->repository->deleteMfLanguage($id);
-        return 'Language';
+        return QueryResultHelper::successDelete('Language');
     }
 
     public function createMfLicenseType($data)
@@ -324,7 +324,7 @@ class GeneralSetupService
     public function deleteMfLicenseType($id)
     {
         $this->repository->deleteMfLicenseType($id);
-        return '';
+        return QueryResultHelper::successDelete('License type');
     }
 
     public function createMfMembershipType($data)
@@ -355,7 +355,7 @@ class GeneralSetupService
     public function deleteMfMembershipType($id)
     {
         $this->repository->deleteMfMembershipType($id);
-        return '';
+        return QueryResultHelper::successDelete('Membership type');
     }
 
     public function createMfNationality($data)
@@ -386,7 +386,7 @@ class GeneralSetupService
     public function deleteMfNationality($id)
     {
         $this->repository->deleteMfNationality($id);
-        return '';
+        return QueryResultHelper::successDelete('Nationality');
     }
 
     public function createMfPositionType($data)
@@ -417,7 +417,7 @@ class GeneralSetupService
     public function deleteMfPositionType($id)
     {
         $this->repository->deleteMfPositionType($id);
-        return '';
+        return QueryResultHelper::successDelete('Position type');
     }
 
     public function createMfPrefix($data)
@@ -448,7 +448,7 @@ class GeneralSetupService
     public function deleteMfPrefix($id)
     {
         $this->repository->deleteMfPrefix($id);
-        return 'Prefix';
+        return QueryResultHelper::successDelete('Prefix');
     }
 
     public function createMfProvince($data)
@@ -479,7 +479,7 @@ class GeneralSetupService
     public function deleteMfProvince($id)
     {
         $this->repository->deleteMfProvince($id);
-        return 'Province';
+        return QueryResultHelper::successDelete('Province');
     }
 
     public function createMfRegion($data)
@@ -510,7 +510,7 @@ class GeneralSetupService
     public function deleteMfRegion($id)
     {
         $this->repository->deleteMfRegion($id);
-        return 'Region';
+        return QueryResultHelper::successDelete('Region');
     }
 
     public function createMfReligion($data)
@@ -541,7 +541,7 @@ class GeneralSetupService
     public function deleteMfReligion($id)
     {
         $this->repository->deleteMfReligion($id);
-        return 'Religion';
+        return QueryResultHelper::successDelete('Region');
     }
 
     public function createMfRequirement($data)
@@ -572,7 +572,7 @@ class GeneralSetupService
     public function deleteMfRequirement($id)
     {
         $this->repository->deleteMfRequirement($id);
-        return 'Requirement';
+        return QueryResultHelper::successDelete('Requirement');
     }
 
     public function createMfSchool($data)
@@ -603,7 +603,7 @@ class GeneralSetupService
     public function deleteMfSchool($id)
     {
         $this->repository->deleteMfSchool($id);
-        return '';
+        return QueryResultHelper::successDelete('School');
     }
 
     public function createMfSkill($data)
@@ -634,7 +634,7 @@ class GeneralSetupService
     public function deleteMfSkill($id)
     {
         $this->repository->deleteMfSkill($id);
-        return '';
+        return QueryResultHelper::successDelete('Skill');
     }
 
     public function createMfSuffix($data)
@@ -665,7 +665,7 @@ class GeneralSetupService
     public function deleteMfSuffix($id)
     {
         $this->repository->deleteMfSuffix($id);
-        return 'Suffix';
+        return QueryResultHelper::successDelete('Suffix');
     }
 
     public function createMfViolation($data)
@@ -696,6 +696,6 @@ class GeneralSetupService
     public function deleteMfViolation($id)
     {
         $this->repository->deleteMfViolation($id);
-        return 'Violation';
+        return QueryResultHelper::successDelete('Violation');
     }
 }

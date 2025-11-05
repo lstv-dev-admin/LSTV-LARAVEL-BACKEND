@@ -81,6 +81,11 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfArea($id, $request->validated()));
     }
 
+    public function deleteMfArea($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfArea($id));
+    }
+
     public function createMfAward(CreateMfAwardRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfAward($request->validated()));
@@ -96,6 +101,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfAward($id, $request->validated()));
     }
 
+    public function deleteMfAward($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfAward($id));
+    }
 
     public function createMfBloodType(CreateMfBloodTypeRequest $request)
     {
@@ -112,6 +121,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfBloodType($id, $request->validated()));
     }
 
+    public function deleteMfBloodType($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfBloodType($id));
+    }
 
     public function createMfCitizenship(CreateMfCitizenshipRequest $request)
     {
@@ -128,6 +141,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfCitizenship($id, $request->validated()));
     }
 
+    public function deleteMfCitizenship($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfCitizenship($id));
+    }
 
     public function createMfCity(CreateMfCityRequest $request)
     {
@@ -144,6 +161,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfCity($id, $request->validated()));
     }
 
+    public function deleteMfCity($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfCity($id));
+    }
 
     public function createMfCivilStatus(CreateMfCivilStatusRequest $request)
     {
@@ -160,6 +181,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfCivilStatus($id, $request->validated()));
     }
 
+    public function deleteMfCivilStatus($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfCivilStatus($id));
+    }
 
     public function createMfCountry(CreateMfCountryRequest $request)
     {
@@ -176,6 +201,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfCountry($id, $request->validated()));
     }
 
+    public function deleteMfCountry($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfCountry($id));
+    }
 
     public function createMfEmploymentType(CreateMfEmploymentTypeRequest $request)
     {
@@ -192,6 +221,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfEmploymentType($id, $request->validated()));
     }
 
+    public function deleteMfEmploymentType($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfEmploymentType($id));
+    }
 
     public function createMfLanguage(CreateMfLanguageRequest $request)
     {
@@ -208,6 +241,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfLanguage($id, $request->validated()));
     }
 
+    public function deleteMfLanguage($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfLanguage($id));
+    }
 
     public function createMfLicenseType(CreateMfLicenseTypeRequest $request)
     {
@@ -224,6 +261,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfLicenseType($id, $request->validated()));
     }
 
+    public function deleteMfLicenseType($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfLicenseType($id));
+    }
 
     public function createMfMembershipType(CreateMfMembershipTypeRequest $request)
     {
@@ -240,6 +281,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfMembershipType($id, $request->validated()));
     }
 
+    public function deleteMfMembershipType($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfMembershipType($id));
+    }
 
     public function createMfNationality(CreateMfNationalityRequest $request)
     {
@@ -256,6 +301,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfNationality($id, $request->validated()));
     }
 
+    public function deleteMfNationality($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfNationality($id));
+    }
 
     public function createMfPositionType(CreateMfPositionTypeRequest $request)
     {
@@ -272,6 +321,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfPositionType($id, $request->validated()));
     }
 
+    public function deleteMfPositionType($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfPositionType($id));
+    }
 
     public function createMfPrefix(CreateMfPrefixRequest $request)
     {
@@ -288,6 +341,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfPrefix($id, $request->validated()));
     }
 
+    public function deleteMfPrefix($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfPrefix($id));
+    }
 
     public function createMfProvince(CreateMfProvinceRequest $request)
     {
@@ -304,6 +361,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfProvince($id, $request->validated()));
     }
 
+    public function deleteMfProvince($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfProvince($id));
+    }
 
     public function createMfRegion(CreateMfRegionRequest $request)
     {
@@ -320,6 +381,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfRegion($id, $request->validated()));
     }
 
+    public function deleteMfRegion($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfRegion($id));
+    }
 
     public function createMfReligion(CreateMfReligionRequest $request)
     {
@@ -336,6 +401,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfReligion($id, $request->validated()));
     }
 
+    public function deleteMfReligion($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfReligion($id));
+    }
 
     public function createMfRequirement(CreateMfRequirementRequest $request)
     {
@@ -352,6 +421,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfRequirement($id, $request->validated()));
     }
 
+    public function deleteMfRequirement($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfRequirement($id));
+    }
 
     public function createMfSchool(CreateMfSchoolRequest $request)
     {
@@ -368,6 +441,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfSchool($id, $request->validated()));
     }
 
+    public function deleteMfSchool($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfSchool($id));
+    }
 
     public function createMfSkill(CreateMfSkillRequest $request)
     {
@@ -384,6 +461,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfSkill($id, $request->validated()));
     }
 
+    public function deleteMfSkill($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfSkill($id));
+    }
 
     public function createMfSuffix(CreateMfSuffixRequest $request)
     {
@@ -400,6 +481,10 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->updateMfSuffix($id, $request->validated()));
     }
 
+    public function deleteMfSuffix($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfSuffix($id));
+    }
 
     public function createMfViolation(CreateMfViolationRequest $request)
     {
@@ -414,5 +499,10 @@ class GeneralSetupController extends Controller
     public function updateMfViolation(string $id, UpdateMfViolationRequest $request)
     {
         return ResponseHelper::respond($this->service->updateMfViolation($id, $request->validated()));
+    }
+
+    public function deleteMfViolation($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfViolation($id));
     }
 }
