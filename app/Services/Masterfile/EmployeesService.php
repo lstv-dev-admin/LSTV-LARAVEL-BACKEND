@@ -4,6 +4,8 @@ namespace App\Services\Masterfile;
 
 use App\Interfaces\Masterfile\EmployeesInterface;
 
+use App\Helpers\QueryResultHelper;
+
 use Exception;
 
 class EmployeesService
@@ -15,484 +17,499 @@ class EmployeesService
         $this->repository = $repository;
     }
 
-    public function createDepartment($newDepartment)
+    public function createMfBranch($data)
     {
         try {
-            $this->repository->createDepartment($newDepartment);
-            return $this->onSuccessCreate('department');
+            $res = $this->repository->createMfBranch($data);
+            return QueryResultHelper::successCreate('Branch', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function getDepartments()
+    public function getMfBranches($filters)
     {
-        return $this->onSuccessGet($this->repository->getDepartments());
+        return QueryResultHelper::successGet('Area', $this->repository->getMfBranches($filters));
     }
 
-    public function updateDepartment($id, $updatedDepartment)
+    public function updateMfBranch($id, $data)
     {
         try {
-            $this->repository->updateDepartment($id, $updatedDepartment);
-            return  $this->onSuccessUpdate('department');
+            $res = $this->repository->updateMfBranch($id, $data);
+            return QueryResultHelper::successUpdate('Branch', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function createSubDepartment($data)
+    public function deleteMfBranch($id)
+    {
+        $this->repository->deleteMfBranch($id);
+        return QueryResultHelper::successDelete('Branch');
+    }
+
+    public function createMfCivilServiceEligibility($data)
     {
         try {
-            $this->repository->createSubDepartment($data);
-            return $this->onSuccessCreate('sub department');
+            $res = $this->repository->createMfCivilServiceEligibility($data);
+            return QueryResultHelper::successCreate('Civil service eligibility', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
-    }
-    public function getSubDepartments()
-    {
-        return $this->onSuccessGet($this->repository->getSubDepartments());
-    }
-
-    public function updateSubDepartment($id, $data)
-    {
-        try {
-            $this->repository->updateSubDepartment($id, $data);
-            return $this->onSuccessUpdate('sub department');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createDivision($data)
-    {
-        try {
-            $this->repository->createDivision($data);
-            return $this->onSuccessCreate('division');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getDivisions()
-    {
-        return $this->onSuccessGet($this->repository->getDivisions());
-    }
-
-    public function updateDivision($id, $data)
-    {
-        try {
-            $this->repository->updateDivision($id, $data);
-            return $this->onSuccessUpdate('division');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createBranch($data)
-    {
-        try {
-            $this->repository->createBranch($data);
-            return $this->onSuccessCreate('branch');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getBranches()
-    {
-        return $this->onSuccessGet($this->repository->getBranches());
-    }
-
-    public function updateBranch($id, $data)
-    {
-        try {
-            $this->repository->updateBranch($id, $data);
-            return $this->onSuccessUpdate('branch');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createEmploymentStatus($data)
-    {
-        try {
-            $this->repository->createEmploymentStatus($data);
-            return $this->onSuccessCreate('employment status');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getEmploymentStatuses()
-    {
-        return $this->onSuccessGet($this->repository->getEmploymentStatuses());
-    }
-
-    public function updateEmploymentStatus($id, $data)
-    {
-        try {
-            $this->repository->updateEmploymentStatus($id, $data);
-            return $this->onSuccessUpdate('employment status');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createJobRankLevel($data)
-    {
-        try {
-            $this->repository->createJobRankLevel($data);
-            return $this->onSuccessCreate('job rank level');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getJobRankLevels()
-    {
-        return $this->onSuccessGet($this->repository->getJobRankLevels());
-    }
-
-    public function updateJobRankLevel($id, $data)
-    {
-        try {
-            $this->repository->updateJobRankLevel($id, $data);
-            return $this->onSuccessUpdate('job rank level');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createProficiencyLevel($data)
-    {
-        try {
-            $this->repository->createProficiencyLevel($data);
-            return $this->onSuccessCreate('proficiency level');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getProficiencyLevels()
-    {
-        return $this->onSuccessGet($this->repository->getProficiencyLevels());
-    }
-
-    public function updateProficiencyLevel($id, $data)
-    {
-        try {
-            $this->repository->updateProficiencyLevel($id, $data);
-            return $this->onSuccessUpdate('proficiency level');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createSeparationReason($data)
-    {
-        try {
-            $this->repository->createSeparationReason($data);
-            return $this->onSuccessCreate('separation reason');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getSeparationReasons()
-    {
-        return $this->onSuccessGet($this->repository->getSeparationReasons());
-    }
-
-    public function updateSeparationReason($id, $data)
-    {
-        try {
-            $this->repository->updateSeparationReason($id, $data);
-            return $this->onSuccessUpdate('separation reason');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createIncidentType($data)
-    {
-        try {
-            $this->repository->createIncidentType($data);
-            return $this->onSuccessCreate('incident type');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getIncidentTypes()
-    {
-        return $this->onSuccessGet($this->repository->getIncidentTypes());
-    }
-
-    public function updateIncidentType($id, $data)
-    {
-        try {
-            $this->repository->updateIncidentType($id, $data);
-            return $this->onSuccessUpdate('incident type');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createExperienceLevel($data)
-    {
-        try {
-            $this->repository->createExperienceLevel($data);
-            return $this->onSuccessCreate('experience level');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getExperienceLevels()
-    {
-        return $this->onSuccessGet($this->repository->getExperienceLevels());
-    }
-
-    public function updateExperienceLevel($id, $data)
-    {
-        try {
-            $this->repository->updateExperienceLevel($id, $data);
-            return $this->onSuccessUpdate('experience level');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createCivilServiceEligibility($data)
-    {
-        try {
-            $this->repository->createCivilServiceEligibility($data);
-            return $this->onSuccessCreate('civil service eligibility');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getCivilServiceEligibilities()
-    {
-        return $this->onSuccessGet($this->repository->getCivilServiceEligibilities());
-    }
-
-    public function updateCivilServiceEligibility($id, $data)
-    {
-        try {
-            $this->repository->updateCivilServiceEligibility($id, $data);
-            return $this->onSuccessUpdate('civil service eligibility');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createCostCenter($data)
-    {
-        try {
-            $this->repository->createCostCenter($data);
-            return $this->onSuccessCreate('cost center');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getCostCenters()
-    {
-        return $this->onSuccessGet($this->repository->getCostCenters());
-    }
-
-    public function updateCostCenter($id, $data)
-    {
-        try {
-            $this->repository->updateCostCenter($id, $data);
-            return $this->onSuccessUpdate('cost center');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createCostCenterGroup($data)
-    {
-        try {
-            $this->repository->createCostCenterGroup($data);
-            return $this->onSuccessCreate('cost center group');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getCostCenterGroups()
-    {
-        return $this->onSuccessGet($this->repository->getCostCenterGroups());
-    }
-
-    public function updateCostCenterGroup($id, $data)
-    {
-        try {
-            $this->repository->updateCostCenterGroup($id, $data);
-            return $this->onSuccessUpdate('cost center group');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createEmployeeStatus($data)
-    {
-        try {
-            $this->repository->createEmployeeStatus($data);
-            return $this->onSuccessCreate('employee status');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getEmployeeStatuses()
-    {
-        return $this->onSuccessGet($this->repository->getEmployeeStatuses());
-    }
-
-    public function updateEmployeeStatus($id, $data)
-    {
-        try {
-            $this->repository->updateEmployeeStatus($id, $data);
-            return $this->onSuccessUpdate('employee status');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createNonPayrollBenefit($data)
-    {
-        try {
-            $this->repository->createNonPayrollBenefit($data);
-            return $this->onSuccessCreate('non payroll benefit');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getNonPayrollBenefits()
-    {
-        return $this->onSuccessGet($this->repository->getNonPayrollBenefits());
-    }
-
-    public function updateNonPayrollBenefit($id, $data)
-    {
-        try {
-            $this->repository->updateNonPayrollBenefit($id, $data);
-            return $this->onSuccessUpdate('non payroll benefit');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createMedicalExamType($data)
-    {
-        try {
-            $this->repository->createMedicalExamType($data);
-            return $this->onSuccessCreate('medical exam type');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getMedicalExamTypes()
-    {
-        return $this->onSuccessGet($this->repository->getMedicalExamTypes());
-    }
-
-    public function updateMedicalExamType($id, $data)
-    {
-        try {
-            $this->repository->updateMedicalExamType($id, $data);
-            return $this->onSuccessUpdate('medical exam type');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createMedicalConditionType($data)
-    {
-        try {
-            $this->repository->createMedicalConditionType($data);
-            return $this->onSuccessCreate('medical condition type');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getMedicalConditionTypes()
-    {
-        return $this->onSuccessGet($this->repository->getMedicalConditionTypes());
-    }
-
-    public function updateMedicalConditionType($id, $data)
-    {
-        try {
-            $this->repository->updateMedicalConditionType($id, $data);
-            return $this->onSuccessUpdate('medical condition type');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function createPosition($data)
-    {
-        try {
-            $this->repository->createPosition($data);
-            return $this->onSuccessCreate('position');
-        } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-
-    public function getPositions()
-    {
-        return $this->onSuccessGet($this->repository->getPositions());
     }
     
-    public function updatePosition($id, $data)
+    public function getMfCivilServiceEligibilities($filters)
+    {
+        return QueryResultHelper::successGet('Civil service eligibility', $this->repository->getMfCivilServiceEligibilities($filters));
+    }
+
+    public function updateMfCivilServiceEligibility($id, $data)
     {
         try {
-            $this->repository->updatePosition($id, $data);
-            return $this->onSuccessUpdate('position');
+            $res = $this->repository->updateMfCivilServiceEligibility($id, $data);
+            return QueryResultHelper::successUpdate('Civil service eligibility', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    private function onSuccessCreate(string $entity)
+    public function deleteMfCivilServiceEligibility($id)
     {
-        return [
-            'status'  => 'success',
-            'message' => "New {$entity} added successfully"
-        ];
+        $this->repository->deleteMfCivilServiceEligibility($id);
+        return QueryResultHelper::successDelete('Civil service eligibility');
     }
 
-    private function onSuccessGet($data)
+    public function createMfCostCenter($data)
     {
-        return [
-            'status' => 'success',
-            'data'   => $data
-        ];
+        try {
+            $res = $this->repository->createMfCostCenter($data);
+            return QueryResultHelper::successCreate('Cost center', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
     }
 
-    private function onSuccessUpdate(string $entity)
+    public function getMfCostCenters($filters)
     {
-        return [
-            'status'  => 'success',
-            'message' => "{$entity} updated successfully"
-        ];
+        return QueryResultHelper::successGet('Cost center', $this->repository->getMfCostCenters($filters));
     }
 
-    private function onError($e)
+    public function updateMfCostCenter($id, $data)
     {
-        return [
-            'status'  => 'error',
-            'message' => $e->getMessage()
-        ];
+        try {
+            $res = $this->repository->updateMfCostCenter($id, $data);
+            return QueryResultHelper::successUpdate('Cost center', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfCostCenter($id)
+    {
+        $this->repository->deleteMfCostCenter($id);
+        return QueryResultHelper::successDelete('Cost center');
+    }
+
+    public function createMfCostCenterGroup($data)
+    {
+        try {
+            $res = $this->repository->createMfCostCenterGroup($data);
+            return QueryResultHelper::successCreate('Cost center group', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfCostCenterGroups($filters)
+    {
+        return QueryResultHelper::successGet('Cost center group', $this->repository->getMfCostCenterGroups($filters));
+    }
+
+    public function updateMfCostCenterGroup($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfCostCenterGroup($id, $data);
+            return QueryResultHelper::successUpdate('Cost center group', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfCostCenterGroup($id)
+    {
+        $this->repository->deleteMfCostCenterGroup($id);
+        return QueryResultHelper::successDelete('Cost center group');
+    }
+
+    public function createMfDepartment($data)
+    {
+        try {
+            $res = $this->repository->createMfDepartment($data);
+            return QueryResultHelper::successCreate('Department', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfDepartments($filters)
+    {
+        return QueryResultHelper::successGet('Department', $this->repository->getMfDepartments($filters));
+    }
+
+    public function updateMfDepartment($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfDepartment($id, $data);
+            return QueryResultHelper::successUpdate('Department', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfDepartment($id)
+    {
+        $this->repository->deleteMfDepartment($id);
+        return QueryResultHelper::successDelete('Department');
+    }
+
+    public function createMfDivision($data)
+    {
+        try {
+            $res = $this->repository->createMfDivision($data);
+            return QueryResultHelper::successCreate('Division', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfDivisions($filters)
+    {
+        return QueryResultHelper::successGet('Division', $this->repository->getMfDivisions($filters));
+    }
+
+    public function updateMfDivision($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfDivision($id, $data);
+            return QueryResultHelper::successUpdate('Division', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfDivision($id)
+    {
+        $this->repository->deleteMfDivision($id);
+        return QueryResultHelper::successDelete('Division');
+    }
+
+    public function createMfEmployeeStatus($data)
+    {
+        try {
+            $res = $this->repository->createMfEmployeeStatus($data);
+            return QueryResultHelper::successCreate('Employee status', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfEmployeeStatuses($filters)
+    {
+        return QueryResultHelper::successGet('Employee status', $this->repository->getMfEmployeeStatuses($filters));
+    }
+
+    public function updateMfEmployeeStatus($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfEmployeeStatus($id, $data);
+            return QueryResultHelper::successUpdate('Employee status', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfEmployeeStatus($id)
+    {
+        $this->repository->deleteMfEmployeeStatus($id);
+        return QueryResultHelper::successDelete('Employee status');
+    }
+
+    public function createMfEmploymentStatus($data)
+    {
+        try {
+            $res = $this->repository->createMfEmploymentStatus($data);
+            return QueryResultHelper::successCreate('Employment status', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfEmploymentStatuses($filters)
+    {
+        return QueryResultHelper::successGet('Employment status', $this->repository->getMfEmploymentStatuses($filters));
+    }
+
+    public function updateMfEmploymentStatus($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfEmploymentStatus($id, $data);
+            return QueryResultHelper::successUpdate('Employment status', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfEmploymentStatus($id)
+    {
+        $this->repository->deleteMfEmploymentStatus($id);
+        return QueryResultHelper::successDelete('Employment status');
+    }
+
+    public function createMfExperienceLevel($data)
+    {
+        try {
+            $res = $this->repository->createMfExperienceLevel($data);
+            return QueryResultHelper::successCreate('Experience level', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfExperienceLevels($filters)
+    {
+        return QueryResultHelper::successGet('Experience level', $this->repository->getMfExperienceLevels($filters));
+    }
+
+    public function updateMfExperienceLevel($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfExperienceLevel($id, $data);
+            return QueryResultHelper::successUpdate('Experience level', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+    public function deleteMfExperienceLevel($id)
+    {
+        $this->repository->deleteMfExperienceLevel($id);
+        return QueryResultHelper::successDelete('Experience level');
+    }
+
+    public function createMfIncidentType($data)
+    {
+        try {
+            $res = $this->repository->createMfIncidentType($data);
+            return QueryResultHelper::successCreate('Incident type', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfIncidentTypes($filters)
+    {
+        return QueryResultHelper::successGet('Incident type', $this->repository->getMfIncidentTypes($filters));
+    }
+
+    public function updateMfIncidentType($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfIncidentType($id, $data);
+            return QueryResultHelper::successUpdate('Incident type', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfIncidentType($id)
+    {
+        $this->repository->deleteMfIncidentType($id);
+        return QueryResultHelper::successDelete('Incident type');
+    }
+
+    public function createMfJobRankLevel($data)
+    {
+        try {
+            $res = $this->repository->createMfJobRankLevel($data);
+            return QueryResultHelper::successCreate('Job rank level', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfJobRankLevels($filters)
+    {
+        return QueryResultHelper::successGet('Job rank level', $this->repository->getMfJobRankLevels($filters));
+    }
+
+    public function updateMfJobRankLevel($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfJobRankLevel($id, $data);
+            return QueryResultHelper::successUpdate('Job rank level', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfJobRankLevel($id)
+    {
+        $this->repository->deleteMfJobRankLevel($id);
+        return QueryResultHelper::successDelete('Job rank level');
+    }
+
+    public function createMfMedicalConditionType($data)
+    {
+        try {
+            $res = $this->repository->createMfMedicalConditionType($data);
+            return QueryResultHelper::successCreate('Medical condition type', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfMedicalConditionTypes($filters)
+    {
+        return QueryResultHelper::successGet('Medical condition type', $this->repository->getMfMedicalConditionTypes($filters));
+    }
+
+    public function updateMfMedicalConditionType($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfMedicalConditionType($id, $data);
+            return QueryResultHelper::successUpdate('Medical condition type', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfMedicalConditionType($id)
+    {
+        $this->repository->deleteMfMedicalConditionType($id);
+        return QueryResultHelper::successDelete('Medical condition type');
+    }
+
+    public function createMfMedicalExamType($data)
+    {
+        try {
+            $res = $this->repository->createMfMedicalExamType($data);
+            return QueryResultHelper::successCreate('Medical exam type', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfMedicalExamTypes($filters)
+    {
+        return QueryResultHelper::successGet('Medical exam type', $this->repository->getMfMedicalExamTypes($filters));
+    }
+
+    public function updateMfMedicalExamType($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfMedicalExamType($id, $data);
+            return QueryResultHelper::successUpdate('Medical exam type', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfMedicalExamType($id)
+    {
+        $this->repository->deleteMfMedicalExamType($id);
+        return QueryResultHelper::successDelete('Medical exam type');
+    }
+    
+    public function createMfNonPayrollBenefit($data)
+    {
+        try {
+            $res = $this->repository->createMfNonPayrollBenefit($data);
+            return QueryResultHelper::successCreate('Non payroll benefit', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+    
+    
+    public function getMfNonPayrollBenefits($filters)
+    {
+        return QueryResultHelper::successGet('Non payroll benefit', $this->repository->getMfNonPayrollBenefits($filters));
+    }
+
+    public function updateMfNonPayrollBenefit($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfNonPayrollBenefit($id, $data);
+            return QueryResultHelper::successUpdate('Non payroll benefit', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfNonPayrollBenefit($id)
+    {
+        $this->repository->deleteMfNonPayrollBenefit($id);
+        return QueryResultHelper::successDelete('Non payroll benefit');
+    }
+    
+    public function createMfProficiencyLevel($data)
+    {
+        try {
+            $res = $this->repository->createMfProficiencyLevel($data);
+            return QueryResultHelper::successCreate('Proficiency level', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfProficiencyLevels($filters)
+    {
+        return QueryResultHelper::successGet('Proficiency level', $this->repository->getMfProficiencyLevels($filters));
+    }
+
+    public function updateMfProficiencyLevel($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfProficiencyLevel($id, $data);
+            return QueryResultHelper::successUpdate('Proficiency level', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfProficiencyLevel($id)
+    {
+        $this->repository->deleteMfProficiencyLevel($id);
+        return QueryResultHelper::successDelete('Proficiency level');
+    }
+
+    public function createMfSubDepartment($data)
+    {
+        try {
+            $res = $this->repository->createMfSubDepartment($data);
+            return QueryResultHelper::successCreate('Sub department', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfSubDepartments($filters)
+    {
+        return QueryResultHelper::successGet('Sub department', $this->repository->getMfSubDepartments($filters));
+    }
+
+    public function updateMfSubDepartment($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfSubDepartment($id, $data);
+            return QueryResultHelper::successUpdate('Sub department', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfSubDepartment($id)
+    {
+        $this->repository->deleteMfSubDepartment($id);
+        return QueryResultHelper::successDelete('Sub department');
     }
 }

@@ -5,77 +5,85 @@ use App\Http\Controllers\Masterfile\EmployeesController;
 
 Route::controller(EmployeesController::class)->group(function () {
     Route::prefix('masterfile/employees')->group(function () {
-        Route::post('department', 'createDepartment');
-        Route::get('department', 'getDepartments');
-        Route::put('department/{id}', 'updateDepartment');
+        Route::post('branch', 'createMfBranch');
+        Route::get('branch', 'getMfBranches');
+        Route::put('branch/{id}', 'updateMfBranch');
+        Route::delete('branch/{id}', 'deleteMfBranch');
 
-        Route::post('sub-department', 'createSubDepartment');
-        Route::get('sub-department', 'getSubDepartments');
-        Route::put('sub-department/{id}', 'updateSubDepartment');
+        Route::post('department', 'createMfDepartment');
+        Route::get('department', 'getMfDepartments');
+        Route::put('department/{id}', 'updateMfDepartment');
+        Route::delete('department/{id}', 'deleteMfDepartment');
 
-        Route::post('division', 'createDivision');
-        Route::get('division', 'getDivisions');
-        Route::put('division/{id}', 'updateDivision');
+        Route::post('sub-department', 'createMfSubDepartment');
+        Route::get('sub-department', 'getMfSubDepartments');
+        Route::put('sub-department/{id}', 'updateMfSubDepartment');
+        Route::delete('sub-department/{id}', 'deleteMfSubDepartment');
 
-        Route::post('branch', 'createBranch');
-        Route::get('branch', 'getBranches');
-        Route::put('branch/{id}', 'updateBranch');
+        Route::post('division', 'createMfDivision');
+        Route::get('division', 'getMfDivisions');
+        Route::put('division/{id}', 'updateMfDivision');
+        Route::delete('division/{id}', 'deleteMfDivision');
 
-        Route::post('employment-status', 'createEmploymentStatus');
-        Route::get('employment-status', 'getEmploymentStatuses');
-        Route::put('employment-status/{id}', 'updateEmploymentStatus');
+        Route::post('cost-center', 'createMfCostCenter');
+        Route::get('cost-center', 'getMfCostCenters');
+        Route::put('cost-center/{id}', 'updateMfCostCenter');
+        Route::delete('cost-center/{id}', 'deleteMfCostCenter');
 
-        Route::post('job-rank-level', 'createJobRankLevel');
-        Route::get('job-rank-level', 'getJobRankLevels');
-        Route::put('job-rank-level/{id}', 'updateJobRankLevel');
+        Route::post('cost-center-group', 'createMfCostCenterGroup');
+        Route::get('cost-center-group', 'getMfCostCenterGroups');
+        Route::put('cost-center-group/{id}', 'updateMfCostCenterGroup');
+        Route::delete('cost-center-group/{id}', 'deleteMfCostCenterGroup');
 
-        Route::post('proficiency-level', 'createProficiencyLevel');
-        Route::get('proficiency-level', 'getProficiencyLevels');
-        Route::put('proficiency-level/{id}', 'updateProficiencyLevel');
+        Route::post('employee-status', 'createMfEmployeeStatus');
+        Route::get('employee-status', 'getMfEmployeeStatuses');
+        Route::put('employee-status/{id}', 'updateMfEmployeeStatus');
+        Route::delete('employee-status/{id}', 'deleteMfEmployeeStatus');
 
-        Route::post('separation-reason', 'createSeparationReason');
-        Route::get('separation-reason', 'getSeparationReasons');
-        Route::put('separation-reason/{id}', 'updateSeparationReason');
+        Route::post('employment-status', 'createMfEmploymentStatus');
+        Route::get('employment-status', 'getMfEmploymentStatuses');
+        Route::put('employment-status/{id}', 'updateMfEmploymentStatus');
+        Route::delete('employment-status/{id}', 'deleteMfEmploymentStatus');
 
-        Route::post('incident-type', 'createIncidentType');
-        Route::get('incident-type', 'getIncidentTypes');
-        Route::put('incident-type/{id}', 'updateIncidentType');
+        Route::post('experience-level', 'createMfExperienceLevel');
+        Route::get('experience-level', 'getMfExperienceLevels');
+        Route::put('experience-level/{id}', 'updateMfExperienceLevel');
+        Route::delete('experience-level/{id}', 'deleteMfExperienceLevel');
 
-        Route::post('experience-level', 'createExperienceLevel');
-        Route::get('experience-level', 'getExperienceLevels');
-        Route::put('experience-level/{id}', 'updateExperienceLevel');
+        Route::post('incident-type', 'createMfIncidentType');
+        Route::get('incident-type', 'getMfIncidentTypes');
+        Route::put('incident-type/{id}', 'updateMfIncidentType');
+        Route::delete('incident-type/{id}', 'deleteMfIncidentType');
 
-        Route::post('civil-service-eligibility', 'createCivilServiceEligibility');
-        Route::get('civil-service-eligibility', 'getCivilServiceEligibilities');
-        Route::put('civil-service-eligibility/{id}', 'updateCivilServiceEligibility');
+        Route::post('job-rank-level', 'createMfJobRankLevel');
+        Route::get('job-rank-level', 'getMfJobRankLevels');
+        Route::put('job-rank-level/{id}', 'updateMfJobRankLevel');
+        Route::delete('job-rank-level/{id}', 'deleteMfJobRankLevel');
 
-        Route::post('cost-center', 'createCostCenter');
-        Route::get('cost-center', 'getCostCenters');
-        Route::put('cost-center/{id}', 'updateCostCenter');
+        Route::post('medical-condition-type', 'createMfMedicalConditionType');
+        Route::get('medical-condition-type', 'getMfMedicalConditionTypes');
+        Route::put('medical-condition-type/{id}', 'updateMfMedicalConditionType');
+        Route::delete('medical-condition-type/{id}', 'deleteMfMedicalConditionType');
 
-        Route::post('cost-center-group', 'createCostCenterGroup');
-        Route::get('cost-center-group', 'getCostCenterGroups');
-        Route::put('cost-center-group/{id}', 'updateCostCenterGroup');
+        Route::post('medical-exam-type', 'createMfMedicalExamType');
+        Route::get('medical-exam-type', 'getMfMedicalExamTypes');
+        Route::put('medical-exam-type/{id}', 'updateMfMedicalExamType');
+        Route::delete('medical-exam-type/{id}', 'deleteMfMedicalExamType');
 
-        Route::post('employee-status', 'createEmployeeStatus');
-        Route::get('employee-status', 'getEmployeeStatuses');
-        Route::put('employee-status/{id}', 'updateEmployeeStatus');
+        Route::post('non-payroll-benefit', 'createMfNonPayrollBenefit');
+        Route::get('non-payroll-benefit', 'getMfNonPayrollBenefits');
+        Route::put('non-payroll-benefit/{id}', 'updateMfNonPayrollBenefit');
+        Route::delete('non-payroll-benefit/{id}', 'deleteMfNonPayrollBenefit');
 
-        Route::post('non-payroll-benefit', 'createNonPayrollBenefit');
-        Route::get('non-payroll-benefit', 'getNonPayrollBenefits');
-        Route::put('non-payroll-benefit/{id}', 'updateNonPayrollBenefit');
+        Route::post('proficiency-level', 'createMfProficiencyLevel');
+        Route::get('proficiency-level', 'getMfProficiencyLevels');
+        Route::put('proficiency-level/{id}', 'updateMfProficiencyLevel');
+        Route::delete('proficiency-level/{id}', 'deleteMfProficiencyLevel');
 
-        Route::post('medical-exam-type', 'createMedicalExamType');
-        Route::get('medical-exam-type', 'getMedicalExamTypes');
-        Route::put('medical-exam-type/{id}', 'updateMedicalExamType');
-
-        Route::post('medical-condition-type', 'createMedicalConditionType');
-        Route::get('medical-condition-type', 'getMedicalConditionTypes');
-        Route::put('medical-condition-type/{id}', 'updateMedicalConditionType');
-
-        Route::post('position', 'createPosition');
-        Route::get('position', 'getPositions');
-        Route::put('position/{id}', 'updatePosition');
+        Route::post('civil-service-eligibility', 'createMfCivilServiceEligibility');
+        Route::get('civil-service-eligibility', 'getMfCivilServiceEligibilities');
+        Route::put('civil-service-eligibility/{id}', 'updateMfCivilServiceEligibility');
+        Route::delete('civil-service-eligibility/{id}', 'deleteMfCivilServiceEligibility');
     });
 });
 

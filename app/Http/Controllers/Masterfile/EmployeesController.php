@@ -6,46 +6,44 @@ use App\Helpers\ResponseHelper;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\Masterfile\Employees\{
-    CreateBranchRequest,
-    CreateCivilServiceEligibilityRequest,
-    CreateCostCenterGroupRequest,
-    CreateCostCenterRequest,
-    CreateDepartmentRequest,
-    CreateDivisionRequest,
-    CreateEmployeeStatusRequest,
-    CreateEmploymentStatusRequest,
-    CreateExperienceLevelRequest,
-    CreateIncidentTypeRequest,
-    CreateJobRankLevelRequest,
-    CreateMedicalConditionTypeRequest,
-    CreateMedicalExamTypeRequest,
-    CreateNonPayrollBenefitRequest,
-    CreatePositionRequest,
-    CreateProficiencyLevelRequest,
-    CreateSeparationReasonRequest,
-    CreateSubDepartmentRequest,
-    UpdateBranchRequest,
-    UpdateCivilServiceEligibilityRequest,
-    UpdateCostCenterGroupRequest,
-    UpdateCostCenterRequest,
-    UpdateDepartmentRequest,
-    UpdateDivisionRequest,
-    UpdateEmployeeStatusRequest,
-    UpdateEmploymentStatusRequest,
-    UpdateExperienceLevelRequest,
-    UpdateIncidentTypeRequest,
-    UpdateJobRankLevelRequest,
-    UpdateMedicalConditionTypeRequest,
-    UpdateMedicalExamTypeRequest,
-    UpdateNonPayrollBenefitRequest,
-    UpdatePositionRequest,
-    UpdateProficiencyLevelRequest,
-    UpdateSeparationReasonRequest,
-    UpdateSubDepartmentRequest
-};
-
 use App\Services\Masterfile\EmployeesService;
+
+use App\Http\Requests\PaginationRequest;
+
+use App\Http\Requests\Masterfile\Employees\{
+    CreateMfBranchRequest,
+    UpdateMfBranchRequest,
+    CreateMfDepartmentRequest,
+    UpdateMfDepartmentRequest,
+    CreateMfSubDepartmentRequest,
+    UpdateMfSubDepartmentRequest,
+    CreateMfDivisionRequest,
+    UpdateMfDivisionRequest,
+    CreateMfCostCenterRequest,
+    UpdateMfCostCenterRequest,
+    CreateMfCostCenterGroupRequest,
+    UpdateMfCostCenterGroupRequest,
+    CreateMfEmployeeStatusRequest,
+    UpdateMfEmployeeStatusRequest,
+    CreateMfEmploymentStatusRequest,
+    UpdateMfEmploymentStatusRequest,
+    CreateMfExperienceLevelRequest,
+    UpdateMfExperienceLevelRequest,
+    CreateMfIncidentTypeRequest,
+    UpdateMfIncidentTypeRequest,
+    CreateMfJobRankLevelRequest,
+    UpdateMfJobRankLevelRequest,
+    CreateMfMedicalConditionTypeRequest,
+    UpdateMfMedicalConditionTypeRequest,
+    CreateMfMedicalExamTypeRequest,
+    UpdateMfMedicalExamTypeRequest,
+    CreateMfNonPayrollBenefitRequest,
+    UpdateMfNonPayrollBenefitRequest,
+    CreateMfProficiencyLevelRequest,
+    UpdateMfProficiencyLevelRequest,
+    CreateMfCivilServiceEligibilityRequest,
+    UpdateMfCivilServiceEligibilityRequest,
+};
 
 class EmployeesController extends Controller
 {
@@ -56,273 +54,323 @@ class EmployeesController extends Controller
         $this->service = $service;
     }
 
-    public function createDepartment(CreateDepartmentRequest $request)
+    public function createMfBranch(CreateMfBranchRequest $request)
     {
-        return ResponseHelper::respond($this->service->createDepartment($request->validated()));
+        return ResponseHelper::respond($this->service->createMfBranch($request->validated()));
     }
 
-    public function getDepartments()
+    public function getMfBranches(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getDepartments());
+        return ResponseHelper::respond($this->service->getMfBranches($filters));
     }
 
-    public function updateDepartment(string $id, UpdateDepartmentRequest $request)
+    public function updateMfBranch(string $id, UpdateMfBranchRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateDepartment($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfBranch($id, $request->validated()));
     }
 
-    public function createSubDepartment(CreateSubDepartmentRequest $request)
+    public function deleteMfBranch(string $id)
     {
-        return ResponseHelper::respond($this->service->createSubDepartment($request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfBranch($id));
     }
 
-    public function getSubDepartments()
+    public function createMfDepartment(CreateMfDepartmentRequest $request)
     {
-        return ResponseHelper::respond($this->service->getSubDepartments());
+        return ResponseHelper::respond($this->service->createMfDepartment($request->validated()));
     }
 
-    public function updateSubDepartment(string $id, UpdateSubDepartmentRequest $request)
+    public function getMfDepartments(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->updateSubDepartment($id, $request->validated()));
+        return ResponseHelper::respond($this->service->getMfDepartments($filters));
     }
 
-    public function createDivision(CreateDivisionRequest $request)
+    public function updateMfDepartment(string $id, UpdateMfDepartmentRequest $request)
     {
-        return ResponseHelper::respond($this->service->createDivision($request->validated()));
+        return ResponseHelper::respond($this->service->updateMfDepartment($id, $request->validated()));
     }
 
-    public function getDivisions()
+    public function deleteMfDepartment(string $id)
     {
-        return ResponseHelper::respond($this->service->getDivisions());
+        return ResponseHelper::respond($this->service->deleteMfDepartment($id));
     }
 
-    public function updateDivision(string $id, UpdateDivisionRequest $request)
+    public function createMfSubDepartment(CreateMfSubDepartmentRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateDivision($id, $request->validated()));
+        return ResponseHelper::respond($this->service->createMfSubDepartment($request->validated()));
     }
 
-    public function createBranch(CreateBranchRequest $request)
+    public function getMfSubDepartments(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->createBranch($request->validated()));
+        return ResponseHelper::respond($this->service->getMfSubDepartments($filters));
     }
 
-    public function getBranches()
+    public function updateMfSubDepartment(string $id, UpdateMfSubDepartmentRequest $request)
     {
-        return ResponseHelper::respond($this->service->getBranches());
+        return ResponseHelper::respond($this->service->updateMfSubDepartment($id, $request->validated()));
     }
 
-    public function updateBranch(string $id, UpdateBranchRequest $request)
+    public function deleteMfSubDepartment(string $id)
     {
-        return ResponseHelper::respond($this->service->updateBranch($id, $request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfSubDepartment($id));
     }
 
-    public function createEmploymentStatus(CreateEmploymentStatusRequest $request)
+    public function createMfDivision(CreateMfDivisionRequest $request)
     {
-        return ResponseHelper::respond($this->service->createEmploymentStatus($request->validated()));
+        return ResponseHelper::respond($this->service->createMfDivision($request->validated()));
     }
 
-    public function getEmploymentStatuses()
+    public function getMfDivisions(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getEmploymentStatuses());
+        return ResponseHelper::respond($this->service->getMfDivisions($filters));
     }
 
-    public function updateEmploymentStatus(string $id, UpdateEmploymentStatusRequest $request)
+    public function updateMfDivision(string $id, UpdateMfDivisionRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateEmploymentStatus($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfDivision($id, $request->validated()));
     }
 
-    public function createJobRankLevel(CreateJobRankLevelRequest $request)
+    public function deleteMfDivision(string $id)
     {
-        return ResponseHelper::respond($this->service->createJobRankLevel($request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfDivision($id));
     }
 
-    public function getJobRankLevels()
+    public function createMfCostCenter(CreateMfCostCenterRequest $request)
     {
-        return ResponseHelper::respond($this->service->getJobRankLevels());
+        return ResponseHelper::respond($this->service->createMfCostCenter($request->validated()));
     }
 
-    public function updateJobRankLevel(string $id, UpdateJobRankLevelRequest $request)
+    public function getMfCostCenters(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->updateJobRankLevel($id, $request->validated()));
+        return ResponseHelper::respond($this->service->getMfCostCenters($filters));
     }
 
-    public function createProficiencyLevel(CreateProficiencyLevelRequest $request)
+    public function updateMfCostCenter(string $id, UpdateMfCostCenterRequest $request)
     {
-        return ResponseHelper::respond($this->service->createProficiencyLevel($request->validated()));
+        return ResponseHelper::respond($this->service->updateMfCostCenter($id, $request->validated()));
     }
 
-    public function getProficiencyLevels()
+    public function deleteMfCostCenter(string $id)
     {
-        return ResponseHelper::respond($this->service->getProficiencyLevels());
+        return ResponseHelper::respond($this->service->deleteMfCostCenter($id));
     }
 
-    public function updateProficiencyLevel(string $id, UpdateProficiencyLevelRequest $request)
+    public function createMfCostCenterGroup(CreateMfCostCenterGroupRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateProficiencyLevel($id, $request->validated()));
+        return ResponseHelper::respond($this->service->createMfCostCenterGroup($request->validated()));
     }
 
-    public function createSeparationReason(CreateSeparationReasonRequest $request)
+    public function getMfCostCenterGroups(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->createSeparationReason($request->validated()));
+        return ResponseHelper::respond($this->service->getMfCostCenterGroups($filters));
     }
 
-    public function getSeparationReasons()
+    public function updateMfCostCenterGroup(string $id, UpdateMfCostCenterGroupRequest $request)
     {
-        return ResponseHelper::respond($this->service->getSeparationReasons());
+        return ResponseHelper::respond($this->service->updateMfCostCenterGroup($id, $request->validated()));
     }
 
-    public function updateSeparationReason(string $id, UpdateSeparationReasonRequest $request)
+    public function deleteMfCostCenterGroup(string $id)
     {
-        return ResponseHelper::respond($this->service->updateSeparationReason($id, $request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfCostCenterGroup($id));
     }
 
-    public function createIncidentType(CreateIncidentTypeRequest $request)
+    public function createMfEmployeeStatus(CreateMfEmployeeStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->createIncidentType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfEmployeeStatus($request->validated()));
     }
 
-    public function getIncidentTypes()
+    public function getMfEmployeeStatuses(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getIncidentTypes());
+        return ResponseHelper::respond($this->service->getMfEmployeeStatuses($filters));
     }
 
-    public function updateIncidentType(string $id, UpdateIncidentTypeRequest $request)
+    public function updateMfEmployeeStatus(string $id, UpdateMfEmployeeStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateIncidentType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfEmployeeStatus($id, $request->validated()));
     }
 
-    public function createExperienceLevel(CreateExperienceLevelRequest $request)
+    public function deleteMfEmployeeStatus(string $id)
     {
-        return ResponseHelper::respond($this->service->createExperienceLevel($request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfEmployeeStatus($id));
     }
 
-    public function getExperienceLevels()
+    public function createMfEmploymentStatus(CreateMfEmploymentStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->getExperienceLevels());
+        return ResponseHelper::respond($this->service->createMfEmploymentStatus($request->validated()));
     }
 
-    public function updateExperienceLevel(string $id, UpdateExperienceLevelRequest $request)
+    public function getMfEmploymentStatuses(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->updateExperienceLevel($id, $request->validated()));
+        return ResponseHelper::respond($this->service->getMfEmploymentStatuses($filters));
     }
 
-    public function createCivilServiceEligibility(CreateCivilServiceEligibilityRequest $request)
+    public function updateMfEmploymentStatus(string $id, UpdateMfEmploymentStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCivilServiceEligibility($request->validated()));
+        return ResponseHelper::respond($this->service->updateMfEmploymentStatus($id, $request->validated()));
     }
 
-    public function getCivilServiceEligibilities()
+    public function deleteMfEmploymentStatus(string $id)
     {
-        return ResponseHelper::respond($this->service->getCivilServiceEligibilities());
+        return ResponseHelper::respond($this->service->deleteMfEmploymentStatus($id));
     }
 
-    public function updateCivilServiceEligibility(string $id, UpdateCivilServiceEligibilityRequest $request)
+    public function createMfExperienceLevel(CreateMfExperienceLevelRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateCivilServiceEligibility($id, $request->validated()));
+        return ResponseHelper::respond($this->service->createMfExperienceLevel($request->validated()));
     }
 
-    public function createCostCenter(CreateCostCenterRequest $request)
+    public function getMfExperienceLevels(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->createCostCenter($request->validated()));
+        return ResponseHelper::respond($this->service->getMfExperienceLevels($filters));
     }
 
-    public function getCostCenters()
+    public function updateMfExperienceLevel(string $id, UpdateMfExperienceLevelRequest $request)
     {
-        return ResponseHelper::respond($this->service->getCostCenters());
+        return ResponseHelper::respond($this->service->updateMfExperienceLevel($id, $request->validated()));
     }
 
-    public function updateCostCenter(string $id, UpdateCostCenterRequest $request)
+    public function deleteMfExperienceLevel(string $id)
     {
-        return ResponseHelper::respond($this->service->updateCostCenter($id, $request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfExperienceLevel($id));
     }
 
-    public function createCostCenterGroup(CreateCostCenterGroupRequest $request)
+    public function createMfIncidentType(CreateMfIncidentTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCostCenterGroup($request->validated()));
+        return ResponseHelper::respond($this->service->createMfIncidentType($request->validated()));
     }
 
-    public function getCostCenterGroups()
+    public function getMfIncidentTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getCostCenterGroups());
+        return ResponseHelper::respond($this->service->getMfIncidentTypes($filters));
     }
 
-    public function updateCostCenterGroup(string $id, UpdateCostCenterGroupRequest $request)
+    public function updateMfIncidentType(string $id, UpdateMfIncidentTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateCostCenterGroup($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfIncidentType($id, $request->validated()));
     }
 
-    public function createEmployeeStatus(CreateEmployeeStatusRequest $request)
+    public function deleteMfIncidentType(string $id)
     {
-        return ResponseHelper::respond($this->service->createEmployeeStatus($request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfIncidentType($id));
     }
 
-    public function getEmployeeStatuses()
+    public function createMfJobRankLevel(CreateMfJobRankLevelRequest $request)
     {
-        return ResponseHelper::respond($this->service->getEmployeeStatuses());
+        return ResponseHelper::respond($this->service->createMfJobRankLevel($request->validated()));
     }
 
-    public function updateEmployeeStatus(string $id, UpdateEmployeeStatusRequest $request)
+    public function getMfJobRankLevels(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->updateEmployeeStatus($id, $request->validated()));
+        return ResponseHelper::respond($this->service->getMfJobRankLevels($filters));
     }
 
-    public function createNonPayrollBenefit(CreateNonPayrollBenefitRequest $request)
+    public function updateMfJobRankLevel(string $id, UpdateMfJobRankLevelRequest $request)
     {
-        return ResponseHelper::respond($this->service->createNonPayrollBenefit($request->validated()));
+        return ResponseHelper::respond($this->service->updateMfJobRankLevel($id, $request->validated()));
     }
 
-    public function getNonPayrollBenefits()
+    public function deleteMfJobRankLevel(string $id)
     {
-        return ResponseHelper::respond($this->service->getNonPayrollBenefits());
+        return ResponseHelper::respond($this->service->deleteMfJobRankLevel($id));
     }
 
-    public function updateNonPayrollBenefit(string $id, UpdateNonPayrollBenefitRequest $request)
+    public function createMfMedicalConditionType(CreateMfMedicalConditionTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateNonPayrollBenefit($id, $request->validated()));
+        return ResponseHelper::respond($this->service->createMfMedicalConditionType($request->validated()));
     }
 
-    public function createMedicalExamType(CreateMedicalExamTypeRequest $request)
+    public function getMfMedicalConditionTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->createMedicalExamType($request->validated()));
+        return ResponseHelper::respond($this->service->getMfMedicalConditionTypes($filters));
     }
 
-    public function getMedicalExamTypes()
+    public function updateMfMedicalConditionType(string $id, UpdateMfMedicalConditionTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->getMedicalExamTypes());
+        return ResponseHelper::respond($this->service->updateMfMedicalConditionType($id, $request->validated()));
     }
 
-    public function updateMedicalExamType(string $id, UpdateMedicalExamTypeRequest $request)
+    public function deleteMfMedicalConditionType(string $id)
     {
-        return ResponseHelper::respond($this->service->updateMedicalExamType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfMedicalConditionType($id));
     }
 
-    public function createMedicalConditionType(CreateMedicalConditionTypeRequest $request)
+    public function createMfMedicalExamType(CreateMfMedicalExamTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->createMedicalConditionType($request->validated()));
+        return ResponseHelper::respond($this->service->createMfMedicalExamType($request->validated()));
     }
 
-    public function getMedicalConditionTypes()
+    public function getMfMedicalExamTypes(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getMedicalConditionTypes());
+        return ResponseHelper::respond($this->service->getMfMedicalExamTypes($filters));
     }
 
-    public function updateMedicalConditionType(string $id, UpdateMedicalConditionTypeRequest $request)
+    public function updateMfMedicalExamType(string $id, UpdateMfMedicalExamTypeRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateMedicalConditionType($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfMedicalExamType($id, $request->validated()));
     }
 
-    public function createPosition(CreatePositionRequest $request)
+    public function deleteMfMedicalExamType(string $id)
     {
-        return ResponseHelper::respond($this->service->createPosition($request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfMedicalExamType($id));
     }
 
-    public function getPositions()
+    public function createMfNonPayrollBenefit(CreateMfNonPayrollBenefitRequest $request)
     {
-        return ResponseHelper::respond($this->service->getPositions());
+        return ResponseHelper::respond($this->service->createMfNonPayrollBenefit($request->validated()));
     }
-    
-    public function updatePosition(string $id, UpdatePositionRequest $request)
+
+    public function getMfNonPayrollBenefits(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->updatePosition($id, $request->validated()));
+        return ResponseHelper::respond($this->service->getMfNonPayrollBenefits($filters));
+    }
+
+    public function updateMfNonPayrollBenefit(string $id, UpdateMfNonPayrollBenefitRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfNonPayrollBenefit($id, $request->validated()));
+    }
+
+    public function deleteMfNonPayrollBenefit(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfNonPayrollBenefit($id));
+    }
+
+    public function createMfProficiencyLevel(CreateMfProficiencyLevelRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfProficiencyLevel($request->validated()));
+    }
+
+    public function getMfProficiencyLevels(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfProficiencyLevels($filters));
+    }
+
+    public function updateMfProficiencyLevel(string $id, UpdateMfProficiencyLevelRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfProficiencyLevel($id, $request->validated()));
+    }
+
+    public function deleteMfProficiencyLevel(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfProficiencyLevel($id));
+    }
+
+    public function createMfCivilServiceEligibility(CreateMfCivilServiceEligibilityRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfCivilServiceEligibility($request->validated()));
+    }
+
+    public function getMfCivilServiceEligibilities(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfCivilServiceEligibilities($filters));
+    }
+
+    public function updateMfCivilServiceEligibility(string $id, UpdateMfCivilServiceEligibilityRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfCivilServiceEligibility($id, $request->validated()));
+    }
+
+    public function deleteMfCivilServiceEligibility(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfCivilServiceEligibility($id));
     }
 }
