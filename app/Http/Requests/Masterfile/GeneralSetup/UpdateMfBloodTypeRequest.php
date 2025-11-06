@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfBloodTypeRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfBloodTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blood_type_desc' => 'required',
+            'blood_type_desc' => ['required', Rule::unique('mf_blood_types', 'blood_type_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfBloodTypeRequest extends FormRequest
     {
         return [
             'blood_type_desc.required' => 'Blood type description is required',
+            'blood_type_desc.unique' => 'Blood type description already exist',
         ];
     }
 

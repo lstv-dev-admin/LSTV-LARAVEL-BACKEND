@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfSkillRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfSkillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'skill_desc' => 'required',
+            'skill_desc' => ['required', Rule::unique('mf_skills', 'skill_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfSkillRequest extends FormRequest
     {
         return [
             'skill_desc.required' => 'Skill description is required',
+            'skill_desc.unique' => 'Skill description already exist',
         ];
     }
 

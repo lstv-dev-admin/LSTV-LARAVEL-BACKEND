@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers\Masterfile;
 
+use App\Http\Controllers\Controller;
+
+use App\Services\Masterfile\RecruitmentService;
+
 use App\Helpers\ResponseHelper;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Masterfile\CompanyDetails\{
-    CreateOrganizationalChartRequest,
-    UpdateOrganizationalChartRequest
+use App\Http\Requests\Masterfile\Recruitment\{
+    CreateRecruitmentReasonRequest
 };
-use App\Http\Requests\Masterfile\Recruitment\CreateRecruitmentReasonRequest;
-use App\Http\Requests\Masterfile\Recruitment\UpdateRecruitmentReasonRequest;
-use App\Http\Requests\Masterfile\Recruitment\CreateJobVacancyStatusRequest;
-use App\Http\Requests\Masterfile\Recruitment\UpdateJobVacancyStatusRequest;
-use App\Http\Requests\Masterfile\Recruitment\CreateOtherQualificationRequest;
-use App\Http\Requests\Masterfile\Recruitment\UpdateOtherQualificationRequest;
-use App\Services\Masterfile\RecruitmentService;
 
 class RecruitmentController extends Controller
 {

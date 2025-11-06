@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfAreaRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfAreaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'area_desc' => 'required',
+            'area_desc' => ['required', Rule::unique('mf_areas', 'area_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfAreaRequest extends FormRequest
     {
         return [
             'area_desc.required' => 'Area description is required',
+            'area_desc.unique' => 'Area description already exist',
         ];
     }
 

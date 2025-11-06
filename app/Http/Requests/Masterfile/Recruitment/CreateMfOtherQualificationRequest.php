@@ -5,9 +5,8 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
-class UpdateMfMembershipTypeRequest extends FormRequest
+class CreateMfOtherQualificationRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,15 +16,15 @@ class UpdateMfMembershipTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'membership_type_desc' => ['required', Rule::unique('mf_membership_types', 'membership_type_desc')->ignore(request()->route('id'))],
+            'job_vacancy_status_desc' => 'required|unique:mf_job_vacancy_statuses,job_vacancy_status_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'membership_type_desc.required' => 'Membership type description is required',
-            'membership_type_desc.unique' => 'Membership type description already exist',
+            'job_vacancy_status_desc.required' => 'Job vacancy status description is required',
+            'job_vacancy_status_desc.unique' => 'Job vacancy status description already exist'
         ];
     }
 

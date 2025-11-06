@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfProficiencyLevelRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateMfProficiencyLevelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'proficiency_level_desc' => 'required',
+            'proficiency_level_desc' => ['required', Rule::unique('mf_proficiency_levels', 'proficiency_level_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -32,6 +33,7 @@ class UpdateMfProficiencyLevelRequest extends FormRequest
     {
         return [
             'proficiency_level_desc.required' => 'Proficiency level description is required',
+            'proficiency_level_desc.unique' => 'Proficiency level description already exists',
         ];
     }
 

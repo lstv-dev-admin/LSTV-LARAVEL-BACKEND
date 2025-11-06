@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfCostCenterRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateMfCostCenterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cost_center_desc' => 'required',
+            'cost_center_desc' => ['required', Rule::unique('mf_cost_centers', 'cost_center_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -32,6 +33,7 @@ class UpdateMfCostCenterRequest extends FormRequest
     {
         return [
             'cost_center_desc.required' => 'Cost center description is required',
+            'cost_center_desc.unique' => 'Cost center description already exists',
         ];
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfPrefixRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfPrefixRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'prefix_desc' => 'required',
+            'prefix_desc' => ['required', Rule::unique('mf_prefixes', 'prefix_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfPrefixRequest extends FormRequest
     {
         return [
             'prefix_desc.required' => 'Prefix description is required',
+            'prefix_desc.unique' => 'Prefix description already exist',
         ];
     }
 

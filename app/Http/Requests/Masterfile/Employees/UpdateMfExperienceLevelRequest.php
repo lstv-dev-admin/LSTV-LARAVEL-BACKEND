@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfExperienceLevelRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateMfExperienceLevelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'experience_level_desc' => 'required',
+            'experience_level_desc' => ['required', Rule::unique('mf_experience_levels', 'experience_level_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -32,6 +33,7 @@ class UpdateMfExperienceLevelRequest extends FormRequest
     {
         return [
             'experience_level_desc.required' => 'Experience level description is required',
+            'experience_level_desc.unique' => 'Experience level description already exists',
         ];
     }
 

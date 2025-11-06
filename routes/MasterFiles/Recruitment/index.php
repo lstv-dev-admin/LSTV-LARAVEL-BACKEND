@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Masterfile\RecruitmentController;
 
 Route::controller(RecruitmentController::class)->group(function () {

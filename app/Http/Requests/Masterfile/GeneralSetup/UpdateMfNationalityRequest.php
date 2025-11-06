@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfNationalityRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfNationalityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nationality_desc' => 'required',
+            'nationality_desc' => ['required', Rule::unique('mf_nationalities', 'nationality_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfNationalityRequest extends FormRequest
     {
         return [
             'nationality_desc.required' => 'Nationality description is required',
+            'nationality_desc.unique' => 'Nationality description already exist',
         ];
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfEmploymentStatusRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateMfEmploymentStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'employment_status_desc' => 'required',
+            'employment_status_desc' => ['required', Rule::unique('mf_employment_statuses', 'employment_status_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -32,6 +33,7 @@ class UpdateMfEmploymentStatusRequest extends FormRequest
     {
         return [
             'employment_status_desc.required' => 'Employment status description is required',
+            'employment_status_desc.unique' => 'Employment status description already exists',
         ];
     }
 

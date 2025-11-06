@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfProvinceRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfProvinceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'province_desc' => 'required',
+            'province_desc' => ['required', Rule::unique('mf_provinces', 'province_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfProvinceRequest extends FormRequest
     {
         return [
             'province_desc.required' => 'Province description is required',
+            'province_desc.unique' => 'Province description already exist',
         ];
     }
 

@@ -4,6 +4,8 @@ namespace App\Services\Masterfile;
 
 use App\Interfaces\Masterfile\RecruitmentInterface;
 
+use App\Helpers\QueryResultHelper;
+
 use Exception;
 
 class RecruitmentService
@@ -15,127 +17,127 @@ class RecruitmentService
         $this->repository = $repository;
     }
 
-    public function createOrganizationalChart($data)
+    public function createMfJobVacancyStatus($data)
     {
         try {
-            $this->repository->createOrganizationalChart($data);
-            return $this->onSuccessCreate('organizational chart');
+            $res = $this->repository->createMfJobVacancyStatus($data);
+            return QueryResultHelper::successCreate('job vacancy status', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-    public function getOrganizationalCharts()
-    {
-        return $this->onSuccessGet($this->repository->getOrganizationalCharts());
-    }
-    public function updateOrganizationalChart($id, $data)
-    {
-        try {
-            $this->repository->updateOrganizationalChart($id, $data);
-            return $this->onSuccessUpdate('organizational chart');
-        } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function createRecruitmentReason($data)
+    public function getMfJobVacancyStatuses($filters)
+    {
+        return QueryResultHelper::successGet('Job vacancy status', $this->repository->getMfJobVacancyStatuses($filters));
+    }
+
+    public function updateMfgetMfJobVacancyStatus($id, $data)
     {
         try {
-            $this->repository->createRecruitmentReason($data);
-            return $this->onSuccessCreate('recruitment reason');
+            $res = $this->repository->updateMfJobVacancyStatus($id, $data);
+            return QueryResultHelper::successUpdate('Job vacancy status', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-    public function getRecruitmentReasons()
-    {
-        return $this->onSuccessGet($this->repository->getRecruitmentReasons());
-    }
-    public function updateRecruitmentReason($id, $data)
-    {
-        try {
-            $this->repository->updateRecruitmentReason($id, $data);
-            return $this->onSuccessUpdate('recruitment reason');
-        } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function createJobVacancyStatus($data)
+    public function deleteMfJobVacancyStatus($id)
+    {
+        $this->repository->deleteMfJobVacancyStatus($id);
+        return QueryResultHelper::successDelete('Job vacancy status');
+    }
+
+    public function createMfOtherQualification($data)
     {
         try {
-            $this->repository->createJobVacancyStatus($data);
-            return $this->onSuccessCreate('job vacancy status');
+            $res = $this->repository->createMfOtherQualification($data);
+            return QueryResultHelper::successCreate('other qualification', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-    public function getJobVacancyStatuses()
-    {
-        return $this->onSuccessGet($this->repository->getJobVacancyStatuses());
-    }
-    public function updateJobVacancyStatus($id, $data)
-    {
-        try {
-            $this->repository->updateJobVacancyStatus($id, $data);
-            return $this->onSuccessUpdate('job vacancy status');
-        } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    public function createOtherQualification($data)
+    public function getMfOtherQualifications($filters)
+    {
+        return QueryResultHelper::successGet('Other qualification', $this->repository->getMfOtherQualifications($filters));
+    }
+
+    public function updateMfOtherQualification($id, $data)
     {
         try {
-            $this->repository->createOtherQualification($data);
-            return $this->onSuccessCreate('other qualification');
+            $res = $this->repository->updateMfOtherQualification($id, $data);
+            return QueryResultHelper::successUpdate('Other qualification', $res);
         } catch (Exception $e) {
-            return $this->onError($e);
-        }
-    }
-    public function getOtherQualifications()
-    {
-        return $this->onSuccessGet($this->repository->getOtherQualifications());
-    }
-    public function updateOtherQualification($id, $data)
-    {
-        try {
-            $this->repository->updateOtherQualification($id, $data);
-            return $this->onSuccessUpdate('other qualification');
-        } catch (Exception $e) {
-            return $this->onError($e);
+            return QueryResultHelper::error($e);
         }
     }
 
-    private function onSuccessCreate(string $entity)
+    public function deleteMfOtherQualification($id)
     {
-        return [
-            'status'  => 'success',
-            'message' => "New {$entity} added successfully"
-        ];
+        $this->repository->deleteMfOtherQualification($id);
+        return QueryResultHelper::successDelete('Other qualification');
     }
 
-    private function onSuccessGet($data)
+    public function createMfRecruitmentReason($data)
     {
-        return [
-            'status' => 'success',
-            'data'   => $data
-        ];
+        try {
+            $res = $this->repository->createMfRecruitmentReason($data);
+            return QueryResultHelper::successCreate('recruitment reason', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
     }
 
-    private function onSuccessUpdate(string $entity)
+    public function getMfRecruitmentReasons($filters)
     {
-        return [
-            'status'  => 'success',
-            'message' => "{$entity} updated successfully"
-        ];
+        return QueryResultHelper::successGet('Recruitment reason', $this->repository->getMfRecruitmentReasons($filters));
     }
 
-    private function onError($e)
+    public function updateMfRecruitmentReason($id, $data)
     {
-        return [
-            'status'  => 'error',
-            'message' => $e->getMessage()
-        ];
+        try {
+            $res = $this->repository->updateMfRecruitmentReason($id, $data);
+            return QueryResultHelper::successUpdate('Recruitment reason', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfRecruitmentReason($id)
+    {
+        $this->repository->deleteMfRecruitmentReason($id);
+        return QueryResultHelper::successDelete('Recruitment reason');
+    }
+
+    public function createMfSourceChannel($data)
+    {
+        try {
+            $res = $this->repository->createMfSourceChannel($data);
+            return QueryResultHelper::successCreate('source channel', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfSourceChannels($filters)
+    {
+        return QueryResultHelper::successGet('Source channel', $this->repository->getMfSourceChannels($filters));
+    }
+
+    public function updateMfSourceChannel($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfSourceChannel($id, $data);
+            return QueryResultHelper::successUpdate('Source channel', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfSourceChannel($id)
+    {
+        $this->repository->deleteMfSourceChannel($id);
+        return QueryResultHelper::successDelete('Source channel');
     }
 }

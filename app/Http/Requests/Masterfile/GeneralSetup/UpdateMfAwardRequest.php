@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfAwardRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfAwardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'award_desc' => 'required',
+            'award_desc' => ['required', Rule::unique('mf_awards', 'award_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfAwardRequest extends FormRequest
     {
         return [
             'award_desc.required' => 'Award description is required',
+            'award_desc.unique' => 'Award description already exist',
         ];
     }
 

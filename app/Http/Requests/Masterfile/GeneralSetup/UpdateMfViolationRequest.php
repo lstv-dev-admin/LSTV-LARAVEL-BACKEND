@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfViolationRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfViolationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'violation_desc' => 'required',
+            'violation_desc' => ['required', Rule::unique('mf_violations', 'violation_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfViolationRequest extends FormRequest
     {
         return [
             'violation_desc.required' => 'Violation description is required',
+            'violation_desc.unique' => 'Violation description already exist',
         ];
     }
 

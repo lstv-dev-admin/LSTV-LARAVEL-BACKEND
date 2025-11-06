@@ -5,6 +5,7 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateMfReligionRequest extends FormRequest
 {
@@ -16,7 +17,7 @@ class UpdateMfReligionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'religion_desc' => 'required',
+            'religion_desc' => ['required', Rule::unique('mf_religions', 'religion_desc')->ignore(request()->route('id'))],
         ];
     }
 
@@ -24,6 +25,7 @@ class UpdateMfReligionRequest extends FormRequest
     {
         return [
             'religion_desc.required' => 'Religion description is required',
+            'religion_desc.unique' => 'Religion description already exist',
         ];
     }
 
