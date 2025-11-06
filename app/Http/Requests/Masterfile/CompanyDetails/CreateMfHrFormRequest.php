@@ -24,7 +24,7 @@ class CreateMfHrFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'hr_form_desc' => 'required',
+            'hr_form_desc' => 'required|unique:mf_hr_forms,hr_form_desc',
             'file_attachment' => 'required|file|max:10240'
         ];
     }
@@ -33,6 +33,7 @@ class CreateMfHrFormRequest extends FormRequest
     {
         return [
             'hr_form_desc.required' => 'HR form description is required',
+            'hr_form_desc.unique' => 'HR form description already taken',
             'file_attachment.required' => 'Please upload file',
         ];
     }

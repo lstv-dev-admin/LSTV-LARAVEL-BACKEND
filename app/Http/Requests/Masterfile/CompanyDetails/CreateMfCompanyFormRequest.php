@@ -24,7 +24,7 @@ class CreateMfCompanyFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_form_desc' => 'required',
+            'company_form_desc' => 'required|unique:mf_company_forms,company_form_desc',
             'file_attachment' => 'required|file|max:10240'
         ];
     }
@@ -33,6 +33,7 @@ class CreateMfCompanyFormRequest extends FormRequest
     {
         return [
             'company_form_desc.required' => 'Company form description is required',
+            'company_form_desc.unique' => 'Company form description already exist',
             'file_attachment.required' => 'Please upload file',
         ];
     }

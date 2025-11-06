@@ -16,7 +16,7 @@ class UpdateMfOrganizationalChartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'organizational_chart_desc' => 'required',
+            'organizational_chart_desc' => 'required|unique:mf_organizational_charts,organizational_chart_desc',
         ];
     }
 
@@ -24,6 +24,7 @@ class UpdateMfOrganizationalChartRequest extends FormRequest
     {
         return [
             'organizational_chart_desc.required' => 'Organizational chart description is required',
+            'organizational_chart_desc.unique' => 'Organizational chart description already taken',
         ];
     }
 
