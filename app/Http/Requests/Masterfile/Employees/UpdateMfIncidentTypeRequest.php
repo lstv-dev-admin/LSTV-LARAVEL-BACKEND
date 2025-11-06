@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfIncidentTypeRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfIncidentTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'incident_type_desc' => ['required', Rule::unique('mf_incident_types', 'incident_type_desc')->ignore(request()->route('id'))],
+            'incident_type_desc' => 'required|unique:mf_incident_types,incident_type_desc',
         ];
     }
 

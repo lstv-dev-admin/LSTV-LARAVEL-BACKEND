@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfCostCenterGroupRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfCostCenterGroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cost_center_group_desc' => ['required', Rule::unique('mf_cost_center_groups', 'cost_center_group_desc')->ignore(request()->route('id'))],
+            'cost_center_group_desc' => 'required|unique:mf_cost_center_groups,cost_center_group_desc',
         ];
     }
 

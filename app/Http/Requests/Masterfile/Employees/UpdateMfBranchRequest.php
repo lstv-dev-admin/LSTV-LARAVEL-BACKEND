@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfBranchRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfBranchRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'branch_desc' => ['required', Rule::unique('mf_branches', 'branch_desc')->ignore(request()->route('id'))],
+            'branch_desc' => 'required|unique:mf_branches,branch_desc',
         ];
     }
 

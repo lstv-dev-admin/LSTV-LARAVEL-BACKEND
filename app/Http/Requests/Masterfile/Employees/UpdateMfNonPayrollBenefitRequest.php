@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfNonPayrollBenefitRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfNonPayrollBenefitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'non_payroll_benefit_desc' => ['required', Rule::unique('mf_non_payroll_benefits', 'non_payroll_benefit_desc')->ignore(request()->route('id'))],
+            'non_payroll_benefit_desc' => 'required|unique:mf_non_payroll_benefits,non_payroll_benefit_desc',
         ];
     }
 

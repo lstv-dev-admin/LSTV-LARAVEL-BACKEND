@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfMedicalConditionTypeRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfMedicalConditionTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'medical_condition_type_desc' => ['required', Rule::unique('mf_medical_condition_types', 'medical_condition_type_desc')->ignore(request()->route('id'))],
+            'medical_condition_type_desc' => 'required|unique:mf_medical_condition_types,medical_condition_type_desc',
         ];
     }
 

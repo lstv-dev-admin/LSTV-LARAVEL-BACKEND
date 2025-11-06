@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfSubDepartmentRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfSubDepartmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sub_department_desc' => ['required', Rule::unique('mf_sub_departments', 'sub_department_desc')->ignore(request()->route('id'))],
+            'sub_department_desc' => 'required|unique:mf_sub_departments,sub_department_desc',
         ];
     }
 

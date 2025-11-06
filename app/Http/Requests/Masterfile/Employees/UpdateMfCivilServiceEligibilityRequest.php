@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfCivilServiceEligibilityRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfCivilServiceEligibilityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'civil_service_eligibility_desc' => ['required', Rule::unique('mf_civil_service_eligibilities', 'civil_service_eligibility_desc')->ignore(request()->route('id'))],
+            'civil_service_eligibility_desc' => 'required|unique:mf_civil_service_eligibilities,civil_service_eligibility_desc',
         ];
     }
 

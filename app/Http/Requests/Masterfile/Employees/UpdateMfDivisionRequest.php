@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfDivisionRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfDivisionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'division_desc' => ['required', Rule::unique('mf_divisions', 'division_desc')->ignore(request()->route('id'))],
+            'division_desc' => 'required|unique:mf_divisions,division_desc',
         ];
     }
 

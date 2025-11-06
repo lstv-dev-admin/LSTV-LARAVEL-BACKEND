@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\Employees;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfJobRankLevelRequest extends FormRequest
 {
@@ -25,7 +24,7 @@ class UpdateMfJobRankLevelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'job_rank_level_desc' => ['required', Rule::unique('mf_job_rank_levels', 'job_rank_level_desc')->ignore(request()->route('id'))],
+            'job_rank_level_desc' => 'required|unique:mf_job_rank_levels,job_rank_level_desc',
         ];
     }
 
