@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfMembershipTypeRequest extends FormRequest
 {
@@ -17,7 +16,7 @@ class UpdateMfMembershipTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'membership_type_desc' => ['required', Rule::unique('mf_membership_types', 'membership_type_desc')->ignore(request()->route('id'))],
+            'membership_type_desc' => 'required|unique:mf_membership_types,membership_type_desc',
         ];
     }
 

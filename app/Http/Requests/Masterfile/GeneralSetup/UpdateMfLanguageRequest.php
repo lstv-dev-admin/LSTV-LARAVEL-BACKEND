@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfLanguageRequest extends FormRequest
 {
@@ -17,7 +16,7 @@ class UpdateMfLanguageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'language_desc' => ['required', Rule::unique('mf_languages', 'language_desc')->ignore(request()->route('id'))],
+            'language_desc' => 'required|unique:mf_languages,language_desc',
         ];
     }
 

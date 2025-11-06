@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfPositionTypeRequest extends FormRequest
 {
@@ -17,7 +16,7 @@ class UpdateMfPositionTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'position_type_desc' => ['required', Rule::unique('mf_position_types', 'position_type_desc')->ignore(request()->route('id'))],
+            'position_type_desc' => 'required|unique:mf_position_types,position_type_desc',
         ];
     }
 

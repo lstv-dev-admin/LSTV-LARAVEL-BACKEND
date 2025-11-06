@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfCountryRequest extends FormRequest
 {
@@ -17,7 +16,7 @@ class UpdateMfCountryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'country_desc' => ['required', Rule::unique('mf_countries', 'country_desc')->ignore(request()->route('id'))],
+            'country_desc' => 'required|unique:mf_countries,country_desc',
         ];
     }
 

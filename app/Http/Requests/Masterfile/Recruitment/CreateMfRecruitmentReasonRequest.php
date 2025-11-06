@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Masterfile\GeneralSetup;
+namespace App\Http\Requests\Masterfile\Recruitment;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateMfRecruitmentReasonRequest extends FormRequest
@@ -16,15 +16,15 @@ class CreateMfRecruitmentReasonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'job_vacancy_status_desc' => 'required|unique:mf_job_vacancy_statuses,job_vacancy_status_desc'
+            'recruitment_reason_desc' => 'required|unique:mf_recruitment_reasons,recruitment_reason_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'job_vacancy_status_desc.required' => 'Job vacancy status description is required',
-            'job_vacancy_status_desc.unique' => 'Job vacancy status description already exist'
+            'recruitment_reason_desc.required' => 'Recruitment reason description is required',
+            'recruitment_reason_desc.unique' => 'Recruitment reason description already exist'
         ];
     }
 

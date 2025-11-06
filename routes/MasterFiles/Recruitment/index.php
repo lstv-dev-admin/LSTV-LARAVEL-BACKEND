@@ -6,21 +6,25 @@ use App\Http\Controllers\Masterfile\RecruitmentController;
 
 Route::controller(RecruitmentController::class)->group(function () {
     Route::prefix('masterfile/recruitment')->group(function () {
-        Route::post('organizational-chart', 'createOrganizationalChart');
-        Route::get('organizational-chart', 'getOrganizationalChart');
-        Route::put('organizational-chart/{id}', 'updateOrganizationalChart');
+        Route::post('recruitment-reason', 'createMfRecruitmentReason');
+        Route::get('recruitment-reason', 'getMfRecruitmentReasons');
+        Route::put('recruitment-reason/{id}', 'updateMfRecruitmentReason');
+        Route::delete('recruitment-reason/{id}', 'deleteMfRecruitmentReason');
 
-        Route::post('recruitment-reason', 'createRecruitmentReason');
-        Route::get('recruitment-reason', 'getRecruitmentReasons');
-        Route::put('recruitment-reason/{id}', 'updateRecruitmentReason');
+        Route::post('job-vacancy-status', 'createMfJobVacancyStatus');
+        Route::get('job-vacancy-status', 'getMfJobVacancyStatuses');
+        Route::put('job-vacancy-status/{id}', 'updateMfJobVacancyStatus');
+        Route::delete('job-vacancy-status/{id}', 'deleteMfJobVacancyStatus');
 
-        Route::post('job-vacancy-status', 'createJobVacancyStatus');
-        Route::get('job-vacancy-status', 'getJobVacancyStatuses');
-        Route::put('job-vacancy-status/{id}', 'updateJobVacancyStatus');
+        Route::post('other-qualification', 'createMfOtherQualification');
+        Route::get('other-qualification', 'getMfOtherQualifications');
+        Route::put('other-qualification/{id}', 'updateMfOtherQualification');
+        Route::delete('other-qualification/{id}', 'deleteMfOtherQualification');
 
-        Route::post('other-qualification', 'createOtherQualification');
-        Route::get('other-qualification', 'getOtherQualifications');
-        Route::put('other-qualification/{id}', 'updateOtherQualification');
+        Route::post('job-vacancy-status', 'createMfJobVacancyStatus');
+        Route::get('job-vacancy-status', 'getMfJobVacancyStatuses');
+        Route::put('job-vacancy-status/{id}', 'updateMfJobVacancyStatus');
+        Route::delete('job-vacancy-status/{id}', 'deleteMfJobVacancyStatus');
     });
 });
 

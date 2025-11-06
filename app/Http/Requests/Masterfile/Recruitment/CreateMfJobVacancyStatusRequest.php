@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Masterfile\GeneralSetup;
+namespace App\Http\Requests\Masterfile\Recruitment;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateMfJobVacancyStatusRequest extends FormRequest

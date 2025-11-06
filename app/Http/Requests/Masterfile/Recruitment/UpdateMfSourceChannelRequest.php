@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Masterfile\GeneralSetup;
+namespace App\Http\Requests\Masterfile\Recruitment;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateMfBloodTypeRequest extends FormRequest
+class UpdateMfSourceChannelRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,15 +16,15 @@ class UpdateMfBloodTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blood_type_desc' => 'required|unique:mf_blood_types,blood_type_desc'
+            'source_channel_desc' => 'required|unique:mf_source_channels,source_channel_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'blood_type_desc.required' => 'Blood type description is required',
-            'blood_type_desc.unique' => 'Blood type description already exist',
+            'source_channel_desc.required' => 'Source channel description is required',
+            'source_channel_desc.unique' => 'Source channel description already exist',
         ];
     }
 

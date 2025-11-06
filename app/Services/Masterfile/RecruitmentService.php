@@ -32,7 +32,7 @@ class RecruitmentService
         return QueryResultHelper::successGet('Job vacancy status', $this->repository->getMfJobVacancyStatuses($filters));
     }
 
-    public function updateMfgetMfJobVacancyStatus($id, $data)
+    public function updateMfJobVacancyStatus($id, $data)
     {
         try {
             $res = $this->repository->updateMfJobVacancyStatus($id, $data);

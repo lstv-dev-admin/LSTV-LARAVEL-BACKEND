@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Masterfile\GeneralSetup;
+namespace App\Http\Requests\Masterfile\Recruitment;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateMfOtherQualificationRequest extends FormRequest
@@ -16,15 +16,15 @@ class CreateMfOtherQualificationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'job_vacancy_status_desc' => 'required|unique:mf_job_vacancy_statuses,job_vacancy_status_desc'
+            'other_qualification_desc' => 'required|unique:mf_other_qualifications,other_qualification_desc'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'job_vacancy_status_desc.required' => 'Job vacancy status description is required',
-            'job_vacancy_status_desc.unique' => 'Job vacancy status description already exist'
+            'other_qualification_desc.required' => 'Other qualification description is required',
+            'other_qualification_desc.unique' => 'Other qualification description already exist'
         ];
     }
 

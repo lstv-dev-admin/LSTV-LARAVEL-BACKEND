@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfCityRequest extends FormRequest
 {
@@ -17,7 +16,7 @@ class UpdateMfCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city_desc' => ['required', Rule::unique('mf_cities', 'city_desc')->ignore(request()->route('id'))],
+            'city_desc' => 'required|unique:mf_cities,city_desc',
         ];
     }
 

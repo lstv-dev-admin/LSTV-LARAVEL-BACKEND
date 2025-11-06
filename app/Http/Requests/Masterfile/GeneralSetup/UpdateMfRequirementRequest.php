@@ -5,7 +5,6 @@ namespace App\Http\Requests\Masterfile\GeneralSetup;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class UpdateMfRequirementRequest extends FormRequest
 {
@@ -17,7 +16,7 @@ class UpdateMfRequirementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'requirement_desc' => ['required', Rule::unique('mf_requirements', 'requirement_desc')->ignore(request()->route('id'))],
+            'requirement_desc' => 'required|unique:mf_requirements,requirement_desc',
         ];
     }
 

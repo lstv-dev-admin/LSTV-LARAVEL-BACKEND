@@ -8,8 +8,11 @@ use App\Services\Masterfile\RecruitmentService;
 
 use App\Helpers\ResponseHelper;
 
+use App\Http\Requests\PaginationRequest;
+
 use App\Http\Requests\Masterfile\Recruitment\{
-    CreateRecruitmentReasonRequest
+    CreateMfJobVacancyStatusRequest,
+    UpdateMfJobVacancyStatusRequest
 };
 
 class RecruitmentController extends Controller
@@ -21,55 +24,23 @@ class RecruitmentController extends Controller
         $this->service = $service;
     }
 
-    public function createOrganizationalChart(CreateOrganizationalChartRequest $request)
+    public function createMfJobVacancyStatus(CreateMfJobVacancyStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->createOrganizationalChart($request->validated()));
+        return ResponseHelper::respond($this->service->createMfJobVacancyStatus($request->validated()));
     }
 
-    public function getOrganizationalCharts()
+    public function getMfJobVacancyStatuses(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getOrganizationalCharts());
+        return ResponseHelper::respond($this->service->getMfJobVacancyStatuses($filters));
     }
 
-    public function updateOrganizationalChart(string $id, UpdateOrganizationalChartRequest $request)
+    public function updateMfJobVacancyStatus(string $id, UpdateMfJobVacancyStatusRequest $request)
     {
-        return ResponseHelper::respond($this->service->updateOrganizationalChart($id, $request->validated()));
+        return ResponseHelper::respond($this->service->updateMfJobVacancyStatus($id, $request->validated()));
     }
 
-    public function createRecruitmentReason(CreateRecruitmentReasonRequest $request)
+    public function deleteMfJobVacancyStatus($id)
     {
-        return ResponseHelper::respond($this->service->createRecruitmentReason($request->validated()));
-    }
-    public function getRecruitmentReasons()
-    {
-        return ResponseHelper::respond($this->service->getRecruitmentReasons());
-    }
-    public function updateRecruitmentReason(string $id, UpdateRecruitmentReasonRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateRecruitmentReason($id, $request->validated()));
-    }
-    public function createJobVacancyStatus(CreateJobVacancyStatusRequest $request)
-    {
-        return ResponseHelper::respond($this->service->createJobVacancyStatus($request->validated()));
-    }
-    public function getJobVacancyStatuses()
-    {
-        return ResponseHelper::respond($this->service->getJobVacancyStatuses());
-    }
-    public function updateJobVacancyStatus(string $id, UpdateJobVacancyStatusRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateJobVacancyStatus($id, $request->validated()));
-    }
-    public function createOtherQualification(CreateOtherQualificationRequest $request)
-    {
-        return ResponseHelper::respond($this->service->createOtherQualification($request->validated()));
-    }
-    public function getOtherQualifications()
-    {
-        return ResponseHelper::respond($this->service->getOtherQualifications());
-    }
-    public function updateOtherQualification(string $id, UpdateOtherQualificationRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateOtherQualification($id, $request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfJobVacancyStatus($id));
     }
 }
