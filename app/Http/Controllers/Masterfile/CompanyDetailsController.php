@@ -8,17 +8,19 @@ use App\Services\Masterfile\CompanyDetailsService;
 
 use App\Helpers\ResponseHelper;
 
+use App\Http\Requests\PaginationRequest;
+
 use App\Http\Requests\Masterfile\CompanyDetails\{
-    CreateCompanyProfileRequest,
-    UpdateCompanyProfileRequest,
-    CreateCompanyPayrollInformationRequest,
-    UpdateCompanyPayrollInformationRequest,
-    CreateCompanyFormRequest,
-    UpdateCompanyFormRequest,
-    CreateHrFormRequest,
-    UpdateHrFormRequest,
-    CreateOrganizationalChartRequest,
-    UpdateOrganizationalChartRequest
+    CreateMfCompanyFormRequest,
+    UpdateMfCompanyFormRequest,
+    CreateMfHrFormRequest,
+    UpdateMfHrFormRequest,
+    CreateMfOrganizationalChartRequest,
+    UpdateMfOrganizationalChartRequest,
+    CreateCompanyInformationRequest,
+    CreateCompanySnapshotRequest,
+    CreateCompanyOverviewRequest,
+    CreateCompanyPayrollInformationRequest
 };
 
 class CompanyDetailsController extends Controller
@@ -30,78 +32,103 @@ class CompanyDetailsController extends Controller
         $this->service = $service;
     }
 
-    public function createCompanyProfile(CreateCompanyProfileRequest $request)
+    public function createMfCompanyForm(CreateMfCompanyFormRequest $request)
     {
-        return ResponseHelper::respond($this->service->createCompanyProfile($request->validated()));
+        return ResponseHelper::respond($this->service->createMfCompanyForm($request->validated()));
     }
 
-    public function getCompanyProfiles()
+    public function getMfCompanyForms(PaginationRequest $filters)
     {
-        return ResponseHelper::respond($this->service->getCompanyProfiles());
+        return ResponseHelper::respond($this->service->getMfCompanyForms($filters));
     }
 
-    public function updateCompanyProfile(string $id, UpdateCompanyProfileRequest $request)
+    public function updateMfCompanyForm(string $id, UpdateMfCompanyFormRequest $request)
+    { 
+        return ResponseHelper::respond($this->service->updateMfCompanyForm($id, $request->validated()));
+    }
+
+    public function deleteMfCompanyForm($id)
     {
-        return ResponseHelper::respond($this->service->updateCompanyProfile($id, $request->validated()));
+        return ResponseHelper::respond($this->service->deleteMfCompanyForm($id));
+    }
+
+    public function downloadMfCompanyForm(string $id)
+    {
+        $res = $this->service->downloadMfCompanyForm($id);
+
+        if (isset($res['status']) && !$res['status'])
+            return ResponseHelper::respond($res);
+
+        return response()->download($res['path'], $res['name']);
+    }
+
+    public function createMfHrForm(CreateMfHrFormRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfHrForm($request->validated()));
+    }
+
+    public function getMfHrForms(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfHrForms($filters));
+    }
+
+    public function updateMfHrForm(string $id, UpdateMfHrFormRequest $request)
+    { 
+        return ResponseHelper::respond($this->service->updateMfHrForm($id, $request->validated()));
+    }
+
+    public function deleteMfHrForm($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfHrForm($id));
+    }
+
+    public function downloadMfHrForm(string $id)
+    {
+        $res = $this->service->downloadMfHrForm($id);
+
+        if (isset($res['status']) && !$res['status'])
+            return ResponseHelper::respond($res);
+
+        return response()->download($res['path'], $res['name']);
+    }
+
+    public function createMfOrganizationalChart(CreateMfOrganizationalChartRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfOrganizationalChart($request->validated()));
+    }
+
+    public function getMfOrganizationalCharts(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfOrganizationalCharts($filters));
+    }
+
+    public function updateMfOrganizationalChart(string $id, UpdateMfOrganizationalChartRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfOrganizationalChart($id, $request->validated()));
+    }
+
+    public function deleteMfOrganizationalChart($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfOrganizationalChart($id));
+    }
+
+    public function createCompanyInformation(CreateCompanyInformationRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createCompanyInformation($request->validated()));
+    }
+
+    public function createCompanySnapshot(CreateCompanySnapshotRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createCompanySnapshot($request->validated()));
+    }
+
+    public function createCompanyOverview(CreateCompanyOverviewRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createCompanyOverview($request->validated()));
     }
 
     public function createCompanyPayrollInformation(CreateCompanyPayrollInformationRequest $request)
     {
         return ResponseHelper::respond($this->service->createCompanyPayrollInformation($request->validated()));
-    }
-
-    public function updateCompanyPayrollInformation(string $id, UpdateCompanyPayrollInformationRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateCompanyPayrollInformation($id, $request->validated()));
-    }
-
-    public function getCompanyPayrollInformations()
-    {
-        return ResponseHelper::respond($this->service->getCompanyPayrollInformations());
-    }
-
-    public function createCompanyForm(CreateCompanyFormRequest $request)
-    {
-        return ResponseHelper::respond($this->service->createCompanyForm($request->validated()));
-    }
-
-    public function updateCompanyForm(string $id, UpdateCompanyFormRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateCompanyForm($id, $request->validated()));
-    }
-
-    public function getCompanyForms()
-    {
-        return ResponseHelper::respond($this->service->getCompanyForms());
-    }
-
-    public function createHrForm(CreateHrFormRequest $request)
-    {
-        return ResponseHelper::respond($this->service->createHrForm($request->validated()));
-    }
-
-    public function updateHrForm(string $id, UpdateHrFormRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateHrForm($id, $request->validated()));
-    }
-
-    public function getHrForms()
-    {
-        return ResponseHelper::respond($this->service->getHrForms());
-    }
-
-    public function createOrganizationalChart(CreateOrganizationalChartRequest $request)
-    {
-        return ResponseHelper::respond($this->service->createOrganizationalChart($request->validated()));
-    }
-
-    public function updateOrganizationalChart(string $id, UpdateOrganizationalChartRequest $request)
-    {
-        return ResponseHelper::respond($this->service->updateOrganizationalChart($id, $request->validated()));
-    }
-    
-    public function getOrganizationalCharts()
-    {
-        return ResponseHelper::respond($this->service->getOrganizationalCharts());
     }
 }

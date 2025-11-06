@@ -48,4 +48,12 @@ class QueryResultHelper
             'message' => $e->getMessage()
         ];
     }
+
+    public static function errorDownload() 
+    {
+        return [
+            'status' => false,
+            'message' => 'Failed to download company form'
+        ];
+    }
 }

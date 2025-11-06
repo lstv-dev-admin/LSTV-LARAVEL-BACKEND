@@ -4,24 +4,26 @@ use App\Http\Controllers\Masterfile\CompanyDetailsController;
 
 Route::controller(CompanyDetailsController::class)->group(function () {
     Route::prefix('masterfile/company-details')->group(function () {
-        Route::post('company-profile', 'createCompanyProfile');
-        Route::get('company-profile', 'getCompanyProfiles');
-        Route::put('company-profile/{id}', 'updateCompanyProfile');
-
+        Route::post('company-form', 'createMfCompanyForm');
+        Route::get('company-form', 'getMfCompanyForms');
+        Route::put('company-form/{id}', 'updateMfCompanyForm');
+        Route::delete('company-form/{id}', 'deleteMfCompanyForm');
+        Route::get('company-form/download/{id}', 'downloadMfCompanyForm');
+        
+        Route::post('hr-form', 'createMfHrForm');
+        Route::get('hr-form', 'getMfHrForms');
+        Route::put('hr-form/{id}', 'updateMfHrForm');
+        Route::delete('hr-form/{id}', 'deleteMfHrForm');
+        Route::get('hr-form/download/{id}', 'downloadMfHrForm');
+        
+        Route::post('organizational-chart', 'createMfOrganizationalChart');
+        Route::get('organizational-chart', 'getMfOrganizationalCharts');
+        Route::put('organizational-chart/{id}', 'updateMfOrganizationalChart');
+        Route::delete('organizational-chart/{id}', 'deleteMfOrganizationalChart');
+        
+        Route::post('company-information', 'createCompanyInformation');
+        Route::post('company-snapshot', 'createCompanySnapshot');
+        Route::post('company-overview', 'createCompanyOverview');
         Route::post('company-payroll-information', 'createCompanyPayrollInformation');
-        Route::get('company-payroll-information', 'getCompanyPayrollInformations');
-        Route::put('company-payroll-information/{id}', 'updateCompanyPayrollInformation');
-
-        Route::post('company-form', 'createCompanyForm');
-        Route::get('company-form', 'getCompanyForms');
-        Route::put('company-form/{id}', 'updateCompanyForm');
-
-        Route::post('hr-form', 'createHrForm');
-        Route::get('hr-form', 'getHrForms');
-        Route::put('hr-form/{id}', 'updateHrForm');
-
-        Route::post('organizational-chart', 'createOrganizationalChart');
-        Route::get('organizational-chart', 'getOrganizationalCharts');
-        Route::put('organizational-chart/{id}', 'updateOrganizationalChart');
     });
 });

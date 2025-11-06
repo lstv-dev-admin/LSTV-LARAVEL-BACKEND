@@ -21,7 +21,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfArea($data);
-            return QueryResultHelper::successCreate('Area', $res);
+            return QueryResultHelper::successCreate('area', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -52,7 +52,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfAward($data);
-            return QueryResultHelper::successCreate('Award', $res);
+            return QueryResultHelper::successCreate('award', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -83,7 +83,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfBloodType($data);
-            return QueryResultHelper::successCreate('Blood Type', $res);
+            return QueryResultHelper::successCreate('blood type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -114,7 +114,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfCitizenship($data);
-            return QueryResultHelper::successCreate('Citizenship', $res);
+            return QueryResultHelper::successCreate('citizenship', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -145,7 +145,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfCity($data);
-            return QueryResultHelper::successCreate('City', $res);
+            return QueryResultHelper::successCreate('city', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -176,7 +176,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfCivilStatus($data);
-            return QueryResultHelper::successCreate('Civil Status', $res);
+            return QueryResultHelper::successCreate('civil status', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -207,7 +207,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfCountry($data);
-            return QueryResultHelper::successCreate('Country', $res);
+            return QueryResultHelper::successCreate('country', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -238,7 +238,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfEmploymentType($data);
-            return QueryResultHelper::successCreate('Employment Type', $res);
+            return QueryResultHelper::successCreate('employment type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -269,7 +269,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfLanguage($data);
-            return QueryResultHelper::successCreate('Language', $res);
+            return QueryResultHelper::successCreate('language', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -300,7 +300,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfLicenseType($data);
-            return QueryResultHelper::successCreate('License Type', $res);
+            return QueryResultHelper::successCreate('license type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -331,7 +331,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfMembershipType($data);
-            return QueryResultHelper::successCreate('Membership Type', $res);
+            return QueryResultHelper::successCreate('membership type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -362,7 +362,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfNationality($data);
-            return QueryResultHelper::successCreate('Nationality', $res);
+            return QueryResultHelper::successCreate('nationality', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -393,7 +393,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfPositionType($data);
-            return QueryResultHelper::successCreate('Position Type', $res);
+            return QueryResultHelper::successCreate('position type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -424,7 +424,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfPrefix($data);
-            return QueryResultHelper::successCreate('Prefix', $res);
+            return QueryResultHelper::successCreate('prefix', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -455,7 +455,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfProvince($data);
-            return QueryResultHelper::successCreate('Province', $res);
+            return QueryResultHelper::successCreate('province', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -486,7 +486,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfRegion($data);
-            return QueryResultHelper::successCreate('Region', $res);
+            return QueryResultHelper::successCreate('region', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -517,7 +517,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfReligion($data);
-            return QueryResultHelper::successCreate('Religion', $res);
+            return QueryResultHelper::successCreate('religion', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -548,7 +548,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfRequirement($data);
-            return QueryResultHelper::successCreate('Requirement', $res);
+            return QueryResultHelper::successCreate('requirement', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -579,7 +579,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfSchool($data);
-            return QueryResultHelper::successCreate('School', $res);
+            return QueryResultHelper::successCreate('school', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -610,7 +610,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfSkill($data);
-            return QueryResultHelper::successCreate('Skill', $res);
+            return QueryResultHelper::successCreate('skill', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -641,7 +641,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfSuffix($data);
-            return QueryResultHelper::successCreate('Suffix', $res);
+            return QueryResultHelper::successCreate('suffix', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -672,7 +672,7 @@ class GeneralSetupService
     {
         try {
             $res = $this->repository->createMfViolation($data);
-            return QueryResultHelper::successCreate('Violation', $res);
+            return QueryResultHelper::successCreate('violation', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }

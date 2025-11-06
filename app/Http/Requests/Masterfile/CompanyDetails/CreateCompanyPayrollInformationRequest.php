@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Masterfile\CompanyDetails;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateCompanyPayrollInformationRequest extends FormRequest
 {
@@ -10,42 +12,55 @@ class CreateCompanyPayrollInformationRequest extends FormRequest
     {
         return true;
     }
+
     public function rules(): array
     {
         return [
-            'first_name' => 'nullable|string|max:255',
-            'middle_name' => 'nullable|string|max:255',
-            'last_name' => 'nullable|string|max:255',
-            'employers_name' => 'nullable|string|max:255',
-            'employer_code' => 'nullable|string|max:255',
-            'sss_number' => 'nullable|string|max:255',
-            'locator' => 'nullable|string|max:255',
-            'sss_employer_type' => 'nullable|string|max:255',
-            'phic_employer_number' => 'nullable|string|max:255',
-            'phic_employer_type' => 'nullable|string|max:255',
-            'type_of_report' => 'nullable|string|max:255',
-            'pagibig_infomration' => 'nullable|string|max:255',
-            'tin' => 'nullable|string|max:255',
-            'rdo_code' => 'nullable|string|max:255',
+            'first_name' => 'nullable|string',
+            'middle_name' => 'nullable|string',
+            'last_name' => 'nullable|string',
+            'employer_name' => 'nullable|string',
+            'employer_code' => 'nullable|string',
+            'sss_number' => 'nullable|string',
+            'locator' => 'nullable|string',
+            'sss_employer_type' => 'nullable|string',
+            'phic_employer_number' => 'nullable|string',
+            'phic_employer_type' => 'nullable|string',
+            'type_of_report' => 'nullable|string',
+            'hdmf_employer_number' => 'nullable|string',
+            'tin' => 'nullable|string',
+            'rdo_code' => 'nullable|string',
         ];
     }
+
     public function messages(): array
     {
         return [
-            'first_name.max' => 'First name may not be greater than 255 characters.',
-            'middle_name.max' => 'Middle name may not be greater than 255 characters.',
-            'last_name.max' => 'Last name may not be greater than 255 characters.',
-            'employers_name.max' => 'Employer\'s name may not be greater than 255 characters.',
-            'employer_code.max' => 'Employer code may not be greater than 255 characters.',
-            'sss_number.max' => 'SSS number may not be greater than 255 characters.',
-            'locator.max' => 'Locator may not be greater than 255 characters.',
-            'sss_employer_type.max' => 'SSS employer type may not be greater than 255 characters.',
-            'phic_employer_number.max' => 'PHIC employer number may not be greater than 255 characters.',
-            'phic_employer_type.max' => 'PHIC employer type may not be greater than 255 characters.',
-            'type_of_report.max' => 'Type of report may not be greater than 255 characters.',
-            'pagibig_infomration.max' => 'Pag-IBIG information may not be greater than 255 characters.',
-            'tin.max' => 'TIN may not be greater than 255 characters.',
-            'rdo_code.max' => 'RDO code may not be greater than 255 characters.',
+            'first_name.string' => 'First name must be a string',
+            'middle_name.string' => 'Middle name must be a string',
+            'last_name.string' => 'Last name must be a string',
+            'employer_name.string' => 'Employer name must be a string',
+            'employer_code.string' => 'Employer code must be a string',
+            'sss_number.string' => 'SSS number must be a string',
+            'locator.string' => 'Locator must be a string',
+            'sss_employer_type.string' => 'SSS employer type must be a string',
+            'phic_employer_number.string' => 'PHIC employer number must be a string',
+            'phic_employer_type.string' => 'PHIC employer type must be a string',
+            'type_of_report.string' => 'Type of report must be a string',
+            'hdmf_employer_number.string' => 'HDMF employer number must be a string',
+            'tin.string' => 'TIN must be a string',
+            'rdo_code.string' => 'RDO code must be a string',
         ];
     }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(
+            response()->json([
+                'status'  => 'error',
+                'message' => $validator->errors()
+            ], 422)
+        );
+    }
 }
+

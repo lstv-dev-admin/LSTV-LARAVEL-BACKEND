@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mf_civil_service_eligibilities', function (Blueprint $table) {
+        Schema::create('mf_hr_forms', function (Blueprint $table) {
             $table->id('record_id');
-            $table->string('civil_service_eligibility_id', 20)->unique();
-            $table->string('civil_service_eligibility_desc', 50)->unique();
+            $table->string('hr_form_id')->unique();
+            $table->string('hr_form_desc')->unique();
+            $table->string('hr_form_file_name');
+            $table->string('hr_form_file_path');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mf_civil_service_eligibilities');
+        Schema::dropIfExists('mf_hr_forms');
     }
 };

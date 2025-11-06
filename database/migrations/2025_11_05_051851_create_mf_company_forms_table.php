@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_forms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('file_name');
-            $table->string('file_path');
+        Schema::create('mf_company_forms', function (Blueprint $table) {
+            $table->id('record_id');
+            $table->string('company_form_id')->unique();
+            $table->string('company_form_desc')->unique();
+            $table->string('company_form_file_name');
+            $table->string('company_form_file_path');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('company_forms');
+        Schema::dropIfExists('mf_company_forms');
     }
 };

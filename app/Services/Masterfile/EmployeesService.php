@@ -21,7 +21,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfBranch($data);
-            return QueryResultHelper::successCreate('Branch', $res);
+            return QueryResultHelper::successCreate('branch', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -52,7 +52,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfCivilServiceEligibility($data);
-            return QueryResultHelper::successCreate('Civil service eligibility', $res);
+            return QueryResultHelper::successCreate('civil service eligibility', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -83,7 +83,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfCostCenter($data);
-            return QueryResultHelper::successCreate('Cost center', $res);
+            return QueryResultHelper::successCreate('cost center', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -114,7 +114,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfCostCenterGroup($data);
-            return QueryResultHelper::successCreate('Cost center group', $res);
+            return QueryResultHelper::successCreate('cost center group', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -145,7 +145,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfDepartment($data);
-            return QueryResultHelper::successCreate('Department', $res);
+            return QueryResultHelper::successCreate('department', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -176,7 +176,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfDivision($data);
-            return QueryResultHelper::successCreate('Division', $res);
+            return QueryResultHelper::successCreate('division', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -207,7 +207,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfEmployeeStatus($data);
-            return QueryResultHelper::successCreate('Employee status', $res);
+            return QueryResultHelper::successCreate('employee status', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -238,7 +238,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfEmploymentStatus($data);
-            return QueryResultHelper::successCreate('Employment status', $res);
+            return QueryResultHelper::successCreate('employment status', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -269,7 +269,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfExperienceLevel($data);
-            return QueryResultHelper::successCreate('Experience level', $res);
+            return QueryResultHelper::successCreate('experience level', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -299,7 +299,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfIncidentType($data);
-            return QueryResultHelper::successCreate('Incident type', $res);
+            return QueryResultHelper::successCreate('incident type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -330,7 +330,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfJobRankLevel($data);
-            return QueryResultHelper::successCreate('Job rank level', $res);
+            return QueryResultHelper::successCreate('job rank level', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -361,7 +361,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfMedicalConditionType($data);
-            return QueryResultHelper::successCreate('Medical condition type', $res);
+            return QueryResultHelper::successCreate('medical condition type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -392,7 +392,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfMedicalExamType($data);
-            return QueryResultHelper::successCreate('Medical exam type', $res);
+            return QueryResultHelper::successCreate('medical exam type', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -423,7 +423,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfNonPayrollBenefit($data);
-            return QueryResultHelper::successCreate('Non payroll benefit', $res);
+            return QueryResultHelper::successCreate('non payroll benefit', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -455,7 +455,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfProficiencyLevel($data);
-            return QueryResultHelper::successCreate('Proficiency level', $res);
+            return QueryResultHelper::successCreate('proficiency level', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
@@ -486,7 +486,7 @@ class EmployeesService
     {
         try {
             $res = $this->repository->createMfSubDepartment($data);
-            return QueryResultHelper::successCreate('Sub department', $res);
+            return QueryResultHelper::successCreate('sub department', $res);
         } catch (Exception $e) {
             return QueryResultHelper::error($e);
         }
