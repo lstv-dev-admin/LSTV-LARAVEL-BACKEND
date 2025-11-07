@@ -21,10 +21,10 @@ Route::controller(RecruitmentController::class)->group(function () {
         Route::put('other-qualification/{id}', 'updateMfOtherQualification');
         Route::delete('other-qualification/{id}', 'deleteMfOtherQualification');
 
-        Route::post('job-vacancy-status', 'createMfJobVacancyStatus');
-        Route::get('job-vacancy-status', 'getMfJobVacancyStatuses');
-        Route::put('job-vacancy-status/{id}', 'updateMfJobVacancyStatus');
-        Route::delete('job-vacancy-status/{id}', 'deleteMfJobVacancyStatus');
+        Route::post('source-channel', 'createMfSourceChannel');
+        Route::get('source-channel', 'getMfSourceChannels');
+        Route::put('source-channel/{id}', 'updateMfSourceChannel');
+        Route::delete('source-channel/{id}', 'deleteMfSourceChannel');
     });
 });
 

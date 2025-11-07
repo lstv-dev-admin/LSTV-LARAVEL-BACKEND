@@ -29,7 +29,7 @@ class EmployeesService
 
     public function getMfBranches($filters)
     {
-        return QueryResultHelper::successGet('Area', $this->repository->getMfBranches($filters));
+        return QueryResultHelper::successGet('Branch', $this->repository->getMfBranches($filters));
     }
 
     public function updateMfBranch($id, $data)

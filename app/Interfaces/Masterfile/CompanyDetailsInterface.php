@@ -20,6 +20,7 @@ interface CompanyDetailsInterface
     public function getMfOrganizationalCharts($filters);
     public function updateMfOrganizationalChart($id, $data);
     public function deleteMfOrganizationalChart($id);
+    public function isOrganizationalChartDescExist($desc);
 
     public function createCompanyInformation($data);
     public function createCompanySnapshot($data);

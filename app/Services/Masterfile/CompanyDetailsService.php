@@ -4,10 +4,12 @@ namespace App\Services\Masterfile;
 
 use App\Interfaces\Masterfile\CompanyDetailsInterface;
 
-use App\Helpers\QueryResultHelper;
+use App\Helpers\{
+    QueryResultHelper,
+    CustomValidationMessageHelper
+};
 
 use Exception;
-use Illuminate\Support\Facades\Storage;
 
 class CompanyDetailsService 
 {
@@ -119,6 +121,21 @@ class CompanyDetailsService
     {
         $this->repository->deleteMfOrganizationalChart($id);
         return QueryResultHelper::successDelete('Organizational chart');
+    }
+
+    public function importMfOrganizationalChart(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isOrganizationalChartDescExist($item['organizational_chart_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'organizational chart');
     }
 
     public function createCompanyInformation($data)

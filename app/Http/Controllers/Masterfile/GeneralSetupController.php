@@ -13,48 +13,70 @@ use App\Http\Requests\PaginationRequest;
 use App\Http\Requests\Masterfile\GeneralSetup\{
     CreateMfAreaRequest,
     UpdateMfAreaRequest,
+    ImportMfAreaRequest,
     CreateMfAwardRequest,
     UpdateMfAwardRequest,
+    ImportMfAwardRequest,
     CreateMfBloodTypeRequest,
     UpdateMfBloodTypeRequest,
+    ImportMfBloodTypeRequest,
     CreateMfCitizenshipRequest,
     UpdateMfCitizenshipRequest,
+    ImportMfCitizenshipRequest,
     CreateMfCityRequest,
     UpdateMfCityRequest,
+    ImportMfCityRequest,
     CreateMfCivilStatusRequest,
     UpdateMfCivilStatusRequest,
+    ImportMfCivilStatusRequest,
     CreateMfCountryRequest,
     UpdateMfCountryRequest,
+    ImportMfCountryRequest,
     CreateMfEmploymentTypeRequest,
     UpdateMfEmploymentTypeRequest,
+    ImportMfEmploymentTypeRequest,
     CreateMfLanguageRequest,
     UpdateMfLanguageRequest,
+    ImportMfLanguageRequest,
     CreateMfLicenseTypeRequest,
     UpdateMfLicenseTypeRequest,
+    ImportMfLicenseTypeRequest,
     CreateMfMembershipTypeRequest,
     UpdateMfMembershipTypeRequest,
+    ImportMfMembershipTypeRequest,
     CreateMfNationalityRequest,
     UpdateMfNationalityRequest,
+    ImportMfNationalityRequest,
     CreateMfPositionTypeRequest,
     UpdateMfPositionTypeRequest,
+    ImportMfPositionTypeRequest,
     CreateMfPrefixRequest,
     UpdateMfPrefixRequest,
+    ImportMfPrefixRequest,
     CreateMfProvinceRequest,
     UpdateMfProvinceRequest,
+    ImportMfProvinceRequest,
     CreateMfRegionRequest,
     UpdateMfRegionRequest,
+    ImportMfRegionRequest,
     CreateMfReligionRequest,
     UpdateMfReligionRequest,
+    ImportMfReligionRequest,
     CreateMfRequirementRequest,
     UpdateMfRequirementRequest,
+    ImportMfRequirementRequest,
     CreateMfSchoolRequest,
     UpdateMfSchoolRequest,
+    ImportMfSchoolRequest,
     CreateMfSkillRequest,
     UpdateMfSkillRequest,
+    ImportMfSkillRequest,
     CreateMfSuffixRequest,
     UpdateMfSuffixRequest,
+    ImportMfSuffixRequest,
     CreateMfViolationRequest,
     UpdateMfViolationRequest,
+    ImportMfViolationRequest,
 };
 
 class GeneralSetupController extends Controller
@@ -86,6 +108,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfArea($id));
     }
 
+    public function importMfArea(ImportMfAreaRequest $request)
+    {
+        $res = $this->service->importMfArea($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfAward(CreateMfAwardRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfAward($request->validated()));
@@ -104,6 +132,12 @@ class GeneralSetupController extends Controller
     public function deleteMfAward($id)
     {
         return ResponseHelper::respond($this->service->deleteMfAward($id));
+    }
+
+    public function importMfAward(ImportMfAwardRequest $request)
+    {
+        $res = $this->service->importMfAward($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfBloodType(CreateMfBloodTypeRequest $request)
@@ -126,6 +160,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfBloodType($id));
     }
 
+    public function importMfBloodType(ImportMfBloodTypeRequest $request)
+    {
+        $res = $this->service->importMfBloodType($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfCitizenship(CreateMfCitizenshipRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfCitizenship($request->validated()));
@@ -144,6 +184,12 @@ class GeneralSetupController extends Controller
     public function deleteMfCitizenship($id)
     {
         return ResponseHelper::respond($this->service->deleteMfCitizenship($id));
+    }
+
+    public function importMfCitizenship(ImportMfCitizenshipRequest $request)
+    {
+        $res = $this->service->importMfCitizenship($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfCity(CreateMfCityRequest $request)
@@ -186,6 +232,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfCivilStatus($id));
     }
 
+    public function importMfCivilStatus(ImportMfCivilStatusRequest $request)
+    {
+        $res = $this->service->importMfCivilStatus($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfCountry(CreateMfCountryRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfCountry($request->validated()));
@@ -204,6 +256,12 @@ class GeneralSetupController extends Controller
     public function deleteMfCountry($id)
     {
         return ResponseHelper::respond($this->service->deleteMfCountry($id));
+    }
+
+    public function importMfCountry(ImportMfCountryRequest $request)
+    {
+        $res = $this->service->importMfCountry($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfEmploymentType(CreateMfEmploymentTypeRequest $request)
@@ -226,6 +284,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfEmploymentType($id));
     }
 
+    public function importMfEmploymentType(ImportMfEmploymentTypeRequest $request)
+    {
+        $res = $this->service->importMfEmploymentType($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfLanguage(CreateMfLanguageRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfLanguage($request->validated()));
@@ -244,6 +308,12 @@ class GeneralSetupController extends Controller
     public function deleteMfLanguage($id)
     {
         return ResponseHelper::respond($this->service->deleteMfLanguage($id));
+    }
+
+    public function importMfLanguage(ImportMfLanguageRequest $request)
+    {
+        $res = $this->service->importMfLanguage($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfLicenseType(CreateMfLicenseTypeRequest $request)
@@ -266,6 +336,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfLicenseType($id));
     }
 
+    public function importMfLicenseType(ImportMfLicenseTypeRequest $request)
+    {
+        $res = $this->service->importMfLicenseType($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfMembershipType(CreateMfMembershipTypeRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfMembershipType($request->validated()));
@@ -284,6 +360,12 @@ class GeneralSetupController extends Controller
     public function deleteMfMembershipType($id)
     {
         return ResponseHelper::respond($this->service->deleteMfMembershipType($id));
+    }
+
+    public function importMfMembershipType(ImportMfMembershipTypeRequest $request)
+    {
+        $res = $this->service->importMfMembershipType($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfNationality(CreateMfNationalityRequest $request)
@@ -306,6 +388,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfNationality($id));
     }
 
+    public function importMfNationality(ImportMfNationalityRequest $request)
+    {
+        $res = $this->service->importMfNationality($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfPositionType(CreateMfPositionTypeRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfPositionType($request->validated()));
@@ -324,6 +412,12 @@ class GeneralSetupController extends Controller
     public function deleteMfPositionType($id)
     {
         return ResponseHelper::respond($this->service->deleteMfPositionType($id));
+    }
+
+    public function importMfPositionType(ImportMfPositionTypeRequest $request)
+    {
+        $res = $this->service->importMfPositionType($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfPrefix(CreateMfPrefixRequest $request)
@@ -346,6 +440,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfPrefix($id));
     }
 
+    public function importMfPrefix(ImportMfPrefixRequest $request)
+    {
+        $res = $this->service->importMfPrefix($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfProvince(CreateMfProvinceRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfProvince($request->validated()));
@@ -364,6 +464,12 @@ class GeneralSetupController extends Controller
     public function deleteMfProvince($id)
     {
         return ResponseHelper::respond($this->service->deleteMfProvince($id));
+    }
+
+    public function importMfProvince(ImportMfProvinceRequest $request)
+    {
+        $res = $this->service->importMfProvince($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfRegion(CreateMfRegionRequest $request)
@@ -386,6 +492,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfRegion($id));
     }
 
+    public function importMfRegion(ImportMfRegionRequest $request)
+    {
+        $res = $this->service->importMfRegion($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfReligion(CreateMfReligionRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfReligion($request->validated()));
@@ -404,6 +516,12 @@ class GeneralSetupController extends Controller
     public function deleteMfReligion($id)
     {
         return ResponseHelper::respond($this->service->deleteMfReligion($id));
+    }
+
+    public function importMfReligion(ImportMfReligionRequest $request)
+    {
+        $res = $this->service->importMfReligion($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfRequirement(CreateMfRequirementRequest $request)
@@ -426,6 +544,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfRequirement($id));
     }
 
+    public function importMfRequirement(ImportMfRequirementRequest $request)
+    {
+        $res = $this->service->importMfRequirement($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfSchool(CreateMfSchoolRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfSchool($request->validated()));
@@ -444,6 +568,12 @@ class GeneralSetupController extends Controller
     public function deleteMfSchool($id)
     {
         return ResponseHelper::respond($this->service->deleteMfSchool($id));
+    }
+
+    public function importMfSchool(ImportMfSchoolRequest $request)
+    {
+        $res = $this->service->importMfSchool($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfSkill(CreateMfSkillRequest $request)
@@ -466,6 +596,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfSkill($id));
     }
 
+    public function importMfSkill(ImportMfSkillRequest $request)
+    {
+        $res = $this->service->importMfSkill($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfSuffix(CreateMfSuffixRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfSuffix($request->validated()));
@@ -486,6 +622,12 @@ class GeneralSetupController extends Controller
         return ResponseHelper::respond($this->service->deleteMfSuffix($id));
     }
 
+    public function importMfSuffix(ImportMfSuffixRequest $request)
+    {
+        $res = $this->service->importMfSuffix($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
     public function createMfViolation(CreateMfViolationRequest $request)
     {
         return ResponseHelper::respond($this->service->createMfViolation($request->validated()));
@@ -504,5 +646,11 @@ class GeneralSetupController extends Controller
     public function deleteMfViolation($id)
     {
         return ResponseHelper::respond($this->service->deleteMfViolation($id));
+    }
+
+    public function importMfViolation(ImportMfViolationRequest $request)
+    {
+        $res = $this->service->importMfViolation($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 }

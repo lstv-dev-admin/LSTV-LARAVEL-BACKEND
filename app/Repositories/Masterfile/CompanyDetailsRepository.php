@@ -191,6 +191,11 @@ class CompanyDetailsRepository implements CompanyDetailsInterface
         return MfOrganizationalChart::findOrFail($id)->delete();
     }
 
+    public function isOrganizationalChartDescExist($desc)
+    {
+        return MfOrganizationalChart::where('organizational_chart_desc', $desc)->exists();
+    }
+
     public function createCompanyInformation($data)
     {
         return MfCompanyInformation::create($data);

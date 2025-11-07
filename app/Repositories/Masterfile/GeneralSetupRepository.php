@@ -59,6 +59,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfArea::findOrFail($id)->delete();
     }
 
+    public function isAreaDescExist ($desc)
+    {
+        return MfArea::where('area_desc', $desc)->exists();
+    }
+
     public function createMfAward($data)
     {
         $data['award_id'] = MasterfileRecordIdHelper::getNextSeries(MfAward::getMasterfileCode());
@@ -80,6 +85,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfAward($id)
     {
         return MfAward::findOrFail($id)->delete();
+    }
+
+    public function isAwardDescExist ($desc)
+    {
+        return MfAward::where('award_desc', $desc)->exists();
     }
 
     public function createMfBloodType($data)
@@ -105,6 +115,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfBloodType::findOrFail($id)->delete();
     }
 
+    public function isBloodTypeDescExist ($desc)
+    {
+        return MfBloodType::where('blood_type_desc', $desc)->exists();
+    }
+
     public function createMfCitizenship($data)
     {
         $data['citizenship_id'] = MasterfileRecordIdHelper::getNextSeries(MfCitizenship::getMasterfileCode());
@@ -126,6 +141,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfCitizenship($id)
     {
         return MfCitizenship::findOrFail($id)->delete();
+    }
+
+    public function isCitizenshipDescExist ($desc)
+    {
+        return MfCitizenship::where('citizenship_desc', $desc)->exists();
     }
 
     public function createMfCity($data)
@@ -151,6 +171,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfCity::findOrFail($id)->delete();
     }
 
+    public function isCityDescExist ($desc)
+    {
+        return MfCity::where('city_desc', $desc)->exists();
+    }
+
     public function createMfCivilStatus($data)
     {
         $data['civil_status_id'] = MasterfileRecordIdHelper::getNextSeries(MfCivilStatus::getMasterfileCode());
@@ -174,6 +199,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfCivilStatus::findOrFail($id)->delete();
     }
 
+    public function isCivilStatusDescExist ($desc)
+    {
+        return MfCivilStatus::where('civil_status_desc', $desc)->exists();
+    }
+
     public function createMfCountry($data) {
         $data['country_id'] = MasterfileRecordIdHelper::getNextSeries(MfCountry::getMasterfileCode());
         return MfCountry::create($data);
@@ -192,6 +222,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfCountry($id)
     {
         return MfCountry::findOrFail($id)->delete();
+    }
+
+    public function isCountryDescExist ($desc)
+    {
+        return MfCountry::where('country_desc', $desc)->exists();
     }
 
     public function createMfEmploymentType($data) {
@@ -214,6 +249,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfEmploymentType::findOrFail($id)->delete();
     }
 
+    public function isEmploymentTypeDescExist ($desc)
+    {
+        return MfEmploymentType::where('employment_type_desc', $desc)->exists();
+    }
+
     public function createMfLanguage($data) {
         $data['language_id'] = MasterfileRecordIdHelper::getNextSeries(MfLanguage::getMasterfileCode());
         return MfLanguage::create($data);
@@ -232,6 +272,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfLanguage($id)
     {
         return MfLanguage::findOrFail($id)->delete();
+    }
+
+    public function isLanguageDescExist ($desc)
+    {
+        return MfLanguage::where('language_desc', $desc)->exists();
     }
 
     public function createMfLicenseType($data) {
@@ -254,6 +299,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfLicenseType::findOrFail($id)->delete();
     }
 
+    public function isLicenseTypeDescExist ($desc)
+    {
+        return MfLicenseType::where('license_type_desc', $desc)->exists();
+    }
+
     public function createMfMembershipType($data) {
         $data['membership_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfMembershipType::getMasterfileCode());
         return MfMembershipType::create($data);
@@ -272,6 +322,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfMembershipType($id)
     {
         return MfMembershipType::findOrFail($id)->delete();
+    }
+
+    public function isMembershipTypeDescExist ($desc)
+    {
+        return MfMembershipType::where('membership_type_desc', $desc)->exists();
     }
 
     public function createMfNationality($data) {
@@ -294,6 +349,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfNationality::findOrFail($id)->delete();
     }
 
+    public function isNationalityDescExist ($desc)
+    {
+        return MfNationality::where('nationality_desc', $desc)->exists();
+    }
+
     public function createMfPositionType($data) {
         $data['position_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfPositionType::getMasterfileCode());
         return MfPositionType::create($data);
@@ -312,6 +372,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfPositionType($id)
     {
         return MfPositionType::findOrFail($id)->delete();
+    }
+
+    public function isPositionTypeDescExist ($desc)
+    {
+        return MfPositionType::where('position_type_desc', $desc)->exists();
     }
 
     public function createMfPrefix($data) {
@@ -334,6 +399,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfPrefix::findOrFail($id)->delete();
     }
 
+    public function isPrefixDescExist ($desc)
+    {
+        return MfPrefix::where('prefix_desc', $desc)->exists();
+    }
+
     public function createMfProvince($data) {
         $data['province_id'] = MasterfileRecordIdHelper::getNextSeries(MfProvince::getMasterfileCode());
         return MfProvince::create($data);
@@ -352,6 +422,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfProvince($id)
     {
         return MfProvince::findOrFail($id)->delete();
+    }
+
+    public function isProvinceDescExist ($desc)
+    {
+        return MfProvince::where('province_desc', $desc)->exists();
     }
 
     public function createMfRegion($data) {
@@ -374,6 +449,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfRegion::findOrFail($id)->delete();
     }
 
+    public function isRegionDescExist ($desc)
+    {
+        return MfRegion::where('region_desc', $desc)->exists();
+    }
+
     public function createMfReligion($data) {
         $data['religion_id'] = MasterfileRecordIdHelper::getNextSeries(MfReligion::getMasterfileCode());
         return MfReligion::create($data);
@@ -392,6 +472,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfReligion($id)
     {
         return MfReligion::findOrFail($id)->delete();
+    }
+
+    public function isReligionDescExist ($desc)
+    {
+        return MfReligion::where('religion_desc', $desc)->exists();
     }
 
     public function createMfRequirement($data) {
@@ -414,6 +499,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfRequirement::findOrFail($id)->delete();
     }
 
+    public function isRequirementDescExist ($desc)
+    {
+        return MfRequirement::where('requirement_desc', $desc)->exists();
+    }
+
     public function createMfSchool($data) {
         $data['school_id'] = MasterfileRecordIdHelper::getNextSeries(MfSchool::getMasterfileCode());
         return MfSchool::create($data);
@@ -432,6 +522,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfSchool($id)
     {
         return MfSchool::findOrFail($id)->delete();
+    }
+
+    public function isSchoolDescExist ($desc)
+    {
+        return MfSchool::where('school_desc', $desc)->exists();
     }
 
     public function createMfSkill($data) {
@@ -454,6 +549,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfSkill::findOrFail($id)->delete();
     }
 
+    public function isSkillDescExist ($desc)
+    {
+        return MfSkill::where('skill_desc', $desc)->exists();
+    }
+
     public function createMfSuffix($data) {
         $data['suffix_id'] = MasterfileRecordIdHelper::getNextSeries(MfSuffix::getMasterfileCode());
         return MfSuffix::create($data);
@@ -474,6 +574,11 @@ class GeneralSetupRepository implements GeneralSetupInterface
         return MfSuffix::findOrFail($id)->delete();
     }
 
+    public function isSuffixDescExist ($desc)
+    {
+        return MfSuffix::where('suffix_desc', $desc)->exists();
+    }
+
     public function createMfViolation($data) {
         $data['violation_id'] = MasterfileRecordIdHelper::getNextSeries(MfViolation::getMasterfileCode());
         return MfViolation::create($data);
@@ -492,5 +597,10 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function deleteMfViolation($id)
     {
         return MfViolation::findOrFail($id)->delete();
+    }
+
+    public function isViolationDescExist ($desc)
+    {
+        return MfViolation::where('violation_desc', $desc)->exists();
     }
 }

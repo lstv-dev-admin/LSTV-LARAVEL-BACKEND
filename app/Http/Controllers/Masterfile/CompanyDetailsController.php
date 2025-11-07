@@ -17,10 +17,11 @@ use App\Http\Requests\Masterfile\CompanyDetails\{
     UpdateMfHrFormRequest,
     CreateMfOrganizationalChartRequest,
     UpdateMfOrganizationalChartRequest,
+    ImportMfOrganizationalChartRequest,
     CreateCompanyInformationRequest,
     CreateCompanySnapshotRequest,
     CreateCompanyOverviewRequest,
-    CreateCompanyPayrollInformationRequest
+    CreateCompanyPayrollInformationRequest,
 };
 
 class CompanyDetailsController extends Controller
@@ -111,6 +112,12 @@ class CompanyDetailsController extends Controller
     {
         return ResponseHelper::respond($this->service->deleteMfOrganizationalChart($id));
     }
+
+    public function importMfOrganizationalChart(ImportMfOrganizationalChartRequest $request)
+    {
+        $res = $this->service->importMfOrganizationalChart($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }   
 
     public function createCompanyInformation(CreateCompanyInformationRequest $request)
     {

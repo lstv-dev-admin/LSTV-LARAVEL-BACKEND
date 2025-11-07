@@ -4,7 +4,10 @@ namespace App\Services\Masterfile;
 
 use App\Interfaces\Masterfile\GeneralSetupInterface;
 
-use App\Helpers\QueryResultHelper;
+use App\Helpers\{
+    QueryResultHelper,
+    CustomValidationMessageHelper
+};
 
 use Exception;
 
@@ -48,6 +51,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Area');
     }
 
+    public function importMfArea(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isAreaDescExist($item['area_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfArea($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'area');
+    }
+
     public function createMfAward($data)
     {
         try {
@@ -77,6 +97,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfAward($id);
         return QueryResultHelper::successDelete('Award');
+    }
+
+    public function importMfAward(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isAwardDescExist($item['award_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfAward($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'award');
     }
 
     public function createMfBloodType($data)
@@ -110,6 +147,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Blood type');
     }
 
+    public function importMfBloodType(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isBloodTypeDescExist($item['blood_type_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfBloodType($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'blood type');
+    }
+
     public function createMfCitizenship($data)
     {
         try {
@@ -141,6 +195,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Citizenship');
     }
 
+    public function importMfCitizenship(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isCitizenshipDescExist($item['citizenship_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfCitizenship($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'citizenship');
+    }
+
     public function createMfCity($data)
     {
         try {
@@ -153,7 +224,7 @@ class GeneralSetupService
 
     public function getMfCities($filters)
     {
-        return QueryResultHelper::successGet('City', $this->repository->getMfCitizenships($filters));
+        return QueryResultHelper::successGet('City', $this->repository->getMfCities($filters));
     }
 
     public function updateMfCity($id, $data)
@@ -170,6 +241,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfCity($id);
         return QueryResultHelper::successDelete('City');
+    }
+
+    public function importMfCity(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isCityDescExist($item['city_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfCity($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'city');
     }
 
     public function createMfCivilStatus($data)
@@ -203,6 +291,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Civil status');
     }
 
+    public function importMfCivilStatus(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isCivilStatusDescExist($item['civil_status_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfCivilStatus($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'civil status');
+    }
+
     public function createMfCountry($data)
     {
         try {
@@ -232,6 +337,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfCountry($id);
         return QueryResultHelper::successDelete('Country');
+    }
+
+    public function importMfCountry(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isCountryDescExist($item['country_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfCountry($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'country');
     }
 
     public function createMfEmploymentType($data)
@@ -265,6 +387,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Employment type');
     }
 
+    public function importMfEmploymentType(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isEmploymentTypeDescExist($item['employment_type_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfEmploymentType($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'employment type');
+    }
+
     public function createMfLanguage($data)
     {
         try {
@@ -294,6 +433,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfLanguage($id);
         return QueryResultHelper::successDelete('Language');
+    }
+
+    public function importMfLanguage(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isLanguageDescExist($item['language_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfLanguage($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'language');
     }
 
     public function createMfLicenseType($data)
@@ -327,6 +483,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('License type');
     }
 
+    public function importMfLicenseType(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isLicenseTypeDescExist($item['license_type_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfLicenseType($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'license type');
+    }
+
     public function createMfMembershipType($data)
     {
         try {
@@ -356,6 +529,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfMembershipType($id);
         return QueryResultHelper::successDelete('Membership type');
+    }
+
+    public function importMfMembershipType(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isMembershipTypeDescExist($item['membership_type_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfMembershipType($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'membership type');
     }
 
     public function createMfNationality($data)
@@ -389,6 +579,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Nationality');
     }
 
+    public function importMfNationality(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isNationalityDescExist($item['nationality_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfNationality($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'nationality');
+    }
+
     public function createMfPositionType($data)
     {
         try {
@@ -418,6 +625,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfPositionType($id);
         return QueryResultHelper::successDelete('Position type');
+    }
+
+    public function importMfPositionType(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isPositionTypeDescExist($item['position_type_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfPositionType($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'position type');
     }
 
     public function createMfPrefix($data)
@@ -451,6 +675,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Prefix');
     }
 
+    public function importMfPrefix(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isPrefixDescExist($item['prefix_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfPrefix($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'prefix');
+    }
+
     public function createMfProvince($data)
     {
         try {
@@ -480,6 +721,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfProvince($id);
         return QueryResultHelper::successDelete('Province');
+    }
+
+    public function importMfProvince(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isProvinceDescExist($item['province_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfProvince($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'province');
     }
 
     public function createMfRegion($data)
@@ -513,6 +771,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Region');
     }
 
+    public function importMfRegion(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isRegionDescExist($item['region_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfRegion($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'region');
+    }
+
     public function createMfReligion($data)
     {
         try {
@@ -542,6 +817,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfReligion($id);
         return QueryResultHelper::successDelete('Region');
+    }
+
+    public function importMfReligion(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isReligionDescExist($item['religion_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfReligion($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'religion');
     }
 
     public function createMfRequirement($data)
@@ -575,6 +867,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Requirement');
     }
 
+    public function importMfRequirement(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isRequirementDescExist($item['requirement_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfRequirement($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'requirement');
+    }
+
     public function createMfSchool($data)
     {
         try {
@@ -604,6 +913,23 @@ class GeneralSetupService
     {
         $this->repository->deleteMfSchool($id);
         return QueryResultHelper::successDelete('School');
+    }
+
+    public function importMfSchool(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isSchoolDescExist($item['school_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfSchool($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'school');
     }
 
     public function createMfSkill($data)
@@ -637,6 +963,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Skill');
     }
 
+    public function importMfSkill(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isSkillDescExist($item['skill_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfSkill($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'skill');
+    }
+
     public function createMfSuffix($data)
     {
         try {
@@ -668,6 +1011,23 @@ class GeneralSetupService
         return QueryResultHelper::successDelete('Suffix');
     }
 
+    public function importMfSuffix(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isSuffixDescExist($item['suffix_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfSuffix($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'suffix');
+    }
+
     public function createMfViolation($data)
     {
         try {
@@ -697,5 +1057,22 @@ class GeneralSetupService
     {
         $this->repository->deleteMfViolation($id);
         return QueryResultHelper::successDelete('Violation');
+    }
+
+    public function importMfViolation(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        foreach ($data as $item) {
+            if ($this->repository->isViolationDescExist($item['violation_desc'])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfViolation($item);
+        }
+
+        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'violation');
     }
 }
