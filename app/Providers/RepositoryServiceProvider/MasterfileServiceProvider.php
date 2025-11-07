@@ -9,7 +9,8 @@ use App\Interfaces\Masterfile\{
     RecruitmentInterface,
     TimekeepingInterface,
     PayrollInterface,
-    PerformanceInterface
+    PerformanceInterface,
+    AssetsInterface
 };
 
 use App\Repositories\Masterfile\{
@@ -19,7 +20,8 @@ use App\Repositories\Masterfile\{
     RecruitmentRepository,
     TimekeepingRepository,
     PayrollRepository,
-    PerformanceRepository
+    PerformanceRepository,
+    AssetsRepository
 };
 
 use Illuminate\Support\ServiceProvider;
@@ -35,5 +37,6 @@ class MasterfileServiceProvider extends ServiceProvider
         $this->app->singleton(TimekeepingInterface::class, TimekeepingRepository::class);
         $this->app->singleton(PayrollInterface::class, PayrollRepository::class);
         $this->app->singleton(PerformanceInterface::class, PerformanceRepository::class);
+        $this->app->singleton(AssetsInterface::class, AssetsRepository::class);
     }
 }

@@ -50,6 +50,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfBranch::findOrFail($id)->delete();
     }
 
+    public function isBranchDescExist ($desc)
+    {
+        return MfBranch::where('branch_desc', $desc)->exists();
+    }
+
     public function createMfCivilServiceEligibility($data) {
         $data['civil_service_eligibility_id'] = MasterfileRecordIdHelper::getNextSeries(MfCivilServiceEligibility::getMasterfileCode());
         return MfCivilServiceEligibility::create($data);
@@ -67,6 +72,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfCivilServiceEligibility($id) {
         return MfCivilServiceEligibility::findOrFail($id)->delete();
+    }
+
+    public function isCivilServiceEligibilityDescExist ($desc)
+    {
+        return MfCivilServiceEligibility::where('civil_service_eligibility_desc', $desc)->exists();
     }
 
     public function createMfCostCenter($data) {
@@ -87,6 +97,12 @@ class EmployeesRepository implements EmployeesInterface
     public function deleteMfCostCenter($id) {
         return MfCostCenter::findOrFail($id)->delete();
     }
+
+    public function isCostCenterDescExist ($desc)
+    {
+        return MfCostCenter::where('cost_center_desc', $desc)->exists();
+    }
+
     public function createMfCostCenterGroup($data) {
         $data['cost_center_group_id'] = MasterfileRecordIdHelper::getNextSeries(MfCostCenterGroup::getMasterfileCode());
         return MfCostCenterGroup::create($data);
@@ -104,6 +120,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfCostCenterGroup($id) {
         return MfCostCenterGroup::findOrFail($id)->delete();
+    }
+
+    public function isCostCenterGroupDescExist ($desc)
+    {
+        return MfCostCenterGroup::where('cost_center_group_desc', $desc)->exists();
     }
 
     public function createMfDepartment($data) {
@@ -125,6 +146,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfDepartment::findOrFail($id)->delete();
     }
 
+    public function isDepartmentDescExist ($desc)
+    {
+        return MfDepartment::where('department_desc', $desc)->exists();
+    }
+
     public function createMfDivision($data) {
         $data['division_id'] = MasterfileRecordIdHelper::getNextSeries(MfDivision::getMasterfileCode());
         return MfDivision::create($data);
@@ -142,6 +168,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfDivision($id) {
         return MfDivision::findOrFail($id)->delete();
+    }
+
+    public function isDivisionDescExist ($desc)
+    {
+        return MfDivision::where('division_desc', $desc)->exists();
     }
 
     public function createMfEmployeeStatus($data) {
@@ -163,6 +194,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfEmployeeStatus::findOrFail($id)->delete();
     }
 
+    public function isEmployeeStatusDescExist ($desc)
+    {
+        return MfEmployeeStatus::where('employee_status_desc', $desc)->exists();
+    }
+
     public function createMfEmploymentStatus($data) {
         $data['employment_status_id'] = MasterfileRecordIdHelper::getNextSeries(MfEmploymentStatus::getMasterfileCode());
         return MfEmploymentStatus::create($data);
@@ -180,6 +216,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfEmploymentStatus($id) {
         return MfEmploymentStatus::findOrFail($id)->delete();
+    }
+
+    public function isEmploymentStatusDescExist ($desc)
+    {
+        return MfEmploymentStatus::where('employment_status_desc', $desc)->exists();
     }
 
     public function createMfExperienceLevel($data) {
@@ -201,6 +242,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfExperienceLevel::findOrFail($id)->delete();
     }
 
+    public function isExperienceLevelDescExist ($desc)
+    {
+        return MfExperienceLevel::where('experience_level_desc', $desc)->exists();
+    }
+
     public function createMfIncidentType($data) {
         $data['incident_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfIncidentType::getMasterfileCode());
         return MfIncidentType::create($data);
@@ -218,6 +264,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfIncidentType($id) {
         return MfIncidentType::findOrFail($id)->delete();
+    }
+
+    public function isIncidentTypeDescExist ($desc)
+    {
+        return MfIncidentType::where('incident_type_desc', $desc)->exists();
     }
 
     public function createMfJobRankLevel($data) {
@@ -239,6 +290,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfJobRankLevel::findOrFail($id)->delete();
     }
 
+    public function isJobRankLevelDescExist ($desc)
+    {
+        return MfJobRankLevel::where('job_rank_level_desc', $desc)->exists();
+    }
+
     public function createMfMedicalConditionType($data) {
         $data['medical_condition_type_id'] = MasterfileRecordIdHelper::getNextSeries(MfMedicalConditionType::getMasterfileCode());
         return MfMedicalConditionType::create($data);
@@ -256,6 +312,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfMedicalConditionType($id) {
         return MfMedicalConditionType::findOrFail($id)->delete();
+    }
+
+    public function isMedicalConditionTypeDescExist ($desc)
+    {
+        return MfMedicalConditionType::where('medical_condition_type_desc', $desc)->exists();
     }
 
     public function createMfMedicalExamType($data) {
@@ -277,6 +338,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfMedicalExamType::findOrFail($id)->delete();
     }
 
+    public function isMedicalExamTypeDescExist ($desc)
+    {
+        return MfMedicalExamType::where('medical_exam_type_desc', $desc)->exists();
+    }
+
     public function createMfNonPayrollBenefit($data) {
         $data['non_payroll_benefit_id'] = MasterfileRecordIdHelper::getNextSeries(MfNonPayrollBenefit::getMasterfileCode());
         return MfNonPayrollBenefit::create($data);
@@ -294,6 +360,11 @@ class EmployeesRepository implements EmployeesInterface
 
     public function deleteMfNonPayrollBenefit($id) {    
         return MfNonPayrollBenefit::findOrFail($id)->delete();
+    }
+
+    public function isNonPayrollBenefitDescExist ($desc)
+    {
+        return MfNonPayrollBenefit::where('non_payroll_benefit_desc', $desc)->exists();
     }
 
     public function createMfProficiencyLevel($data) {
@@ -315,6 +386,11 @@ class EmployeesRepository implements EmployeesInterface
         return MfProficiencyLevel::findOrFail($id)->delete();
     }
 
+    public function isProficiencyLevelDescExist ($desc)
+    {
+        return MfProficiencyLevel::where('proficiency_level_desc', $desc)->exists();
+    }
+
     public function createMfSubDepartment($data) {
         $data['sub_department_id'] = MasterfileRecordIdHelper::getNextSeries(MfSubDepartment::getMasterfileCode());
         return MfSubDepartment::create($data);
@@ -332,5 +408,10 @@ class EmployeesRepository implements EmployeesInterface
     
     public function deleteMfSubDepartment($id) {
         return MfSubDepartment::findOrFail($id)->delete();
+    }
+
+    public function isSubDepartmentDescExist ($desc)
+    {
+        return MfSubDepartment::where('sub_department_desc', $desc)->exists();
     }
 }

@@ -20,6 +20,7 @@ Route::controller(CompanyDetailsController::class)->group(function () {
         Route::get('organizational-chart', 'getMfOrganizationalCharts');
         Route::put('organizational-chart/{id}', 'updateMfOrganizationalChart');
         Route::delete('organizational-chart/{id}', 'deleteMfOrganizationalChart');
+        Route::post('organizational-chart/import', 'importMfOrganizationalChart');
         
         Route::post('company-information', 'createCompanyInformation');
         Route::post('company-snapshot', 'createCompanySnapshot');
