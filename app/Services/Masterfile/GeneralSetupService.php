@@ -6,7 +6,7 @@ use App\Interfaces\Masterfile\GeneralSetupInterface;
 
 use App\Helpers\{
     QueryResultHelper,
-    CustomValidationMessageHelper
+    ImportHelper
 };
 
 use Exception;
@@ -41,7 +41,7 @@ class GeneralSetupService
             $res = $this->repository->updateMfArea($id, $data);
             return QueryResultHelper::successUpdate('Area', $res);
         } catch (Exception $e) {
-            return QueryResultHelper::error($e);
+        return QueryResultHelper::error($e);
         }
     }
 
@@ -65,7 +65,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfArea($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'area');
+        return ImportHelper::message($created, $hasDuplicates, 'area');
     }
 
     public function createMfAward($data)
@@ -113,7 +113,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfAward($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'award');
+        return ImportHelper::message($created, $hasDuplicates, 'award');
     }
 
     public function createMfBloodType($data)
@@ -161,7 +161,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfBloodType($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'blood type');
+        return ImportHelper::message($created, $hasDuplicates, 'blood type');
     }
 
     public function createMfCitizenship($data)
@@ -209,7 +209,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfCitizenship($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'citizenship');
+        return ImportHelper::message($created, $hasDuplicates, 'citizenship');
     }
 
     public function createMfCity($data)
@@ -257,7 +257,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfCity($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'city');
+        return ImportHelper::message($created, $hasDuplicates, 'city');
     }
 
     public function createMfCivilStatus($data)
@@ -305,7 +305,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfCivilStatus($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'civil status');
+        return ImportHelper::message($created, $hasDuplicates, 'civil status');
     }
 
     public function createMfCountry($data)
@@ -353,7 +353,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfCountry($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'country');
+        return ImportHelper::message($created, $hasDuplicates, 'country');
     }
 
     public function createMfEmploymentType($data)
@@ -401,7 +401,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfEmploymentType($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'employment type');
+        return ImportHelper::message($created, $hasDuplicates, 'employment type');
     }
 
     public function createMfLanguage($data)
@@ -449,7 +449,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfLanguage($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'language');
+        return ImportHelper::message($created, $hasDuplicates, 'language');
     }
 
     public function createMfLicenseType($data)
@@ -497,7 +497,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfLicenseType($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'license type');
+        return ImportHelper::message($created, $hasDuplicates, 'license type');
     }
 
     public function createMfMembershipType($data)
@@ -545,7 +545,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfMembershipType($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'membership type');
+        return ImportHelper::message($created, $hasDuplicates, 'membership type');
     }
 
     public function createMfNationality($data)
@@ -593,7 +593,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfNationality($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'nationality');
+        return ImportHelper::message($created, $hasDuplicates, 'nationality');
     }
 
     public function createMfPositionType($data)
@@ -641,7 +641,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfPositionType($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'position type');
+        return ImportHelper::message($created, $hasDuplicates, 'position type');
     }
 
     public function createMfPrefix($data)
@@ -689,7 +689,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfPrefix($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'prefix');
+        return ImportHelper::message($created, $hasDuplicates, 'prefix');
     }
 
     public function createMfProvince($data)
@@ -737,7 +737,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfProvince($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'province');
+        return ImportHelper::message($created, $hasDuplicates, 'province');
     }
 
     public function createMfRegion($data)
@@ -785,7 +785,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfRegion($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'region');
+        return ImportHelper::message($created, $hasDuplicates, 'region');
     }
 
     public function createMfReligion($data)
@@ -833,7 +833,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfReligion($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'religion');
+        return ImportHelper::message($created, $hasDuplicates, 'religion');
     }
 
     public function createMfRequirement($data)
@@ -881,7 +881,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfRequirement($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'requirement');
+        return ImportHelper::message($created, $hasDuplicates, 'requirement');
     }
 
     public function createMfSchool($data)
@@ -929,7 +929,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfSchool($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'school');
+        return ImportHelper::message($created, $hasDuplicates, 'school');
     }
 
     public function createMfSkill($data)
@@ -977,7 +977,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfSkill($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'skill');
+        return ImportHelper::message($created, $hasDuplicates, 'skill');
     }
 
     public function createMfSuffix($data)
@@ -1025,7 +1025,7 @@ class GeneralSetupService
             $created[] = $this->repository->createMfSuffix($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'suffix');
+        return ImportHelper::message($created, $hasDuplicates, 'suffix');
     }
 
     public function createMfViolation($data)
@@ -1073,6 +1073,70 @@ class GeneralSetupService
             $created[] = $this->repository->createMfViolation($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'violation');
+        return ImportHelper::message($created, $hasDuplicates, 'violation');
+    }
+
+    public function createMfRegionProvinceCity($data)
+    {
+        try {
+            $res = $this->repository->createMfRegionProvinceCity($data);
+            return QueryResultHelper::successCreate('region province city', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfRegionProvinceCities($filters)
+    {
+        return QueryResultHelper::successGet('Region province city', $this->repository->getMfRegionProvinceCities($filters));
+    }
+
+    public function updateMfRegionProvinceCity($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfRegionProvinceCity($id, $data);
+            return QueryResultHelper::successUpdate('Region province city', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfRegionProvinceCity($id)
+    {
+        $this->repository->deleteMfRegionProvinceCity($id);
+        return QueryResultHelper::successDelete('Region province city');
+    }
+
+    public function importMfRegionProvinceCity(array $data)
+    {
+        $created = [];
+        $hasDuplicates = false;
+
+        $seen = [];
+
+        foreach ($data as $item) {
+            $key = "{$item['region_id']}-{$item['province_id']}-{$item['city_id']}";
+
+            if (isset($seen[$key])) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $seen[$key] = true;
+
+            if ($this->repository->isRegionProvinceCityExist($item)) {
+                $hasDuplicates = true;
+                continue;
+            }
+
+            $created[] = $this->repository->createMfRegionProvinceCity($item);
+        }
+
+        return ImportHelper::message($created, $hasDuplicates, 'region province city');
+    }
+
+    public function getMfRegionProvinceCityDropdown() 
+    {
+        return QueryResultHelper::successGet('Region province city dropdown', $this->repository->getMfRegionProvinceCityDropdown());
     }
 }

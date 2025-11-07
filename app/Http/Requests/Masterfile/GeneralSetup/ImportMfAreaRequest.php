@@ -17,6 +17,7 @@ class ImportMfAreaRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'file' => 'required|array|min:1',
             '*.area_desc' => 'required|string|max:255',
         ];
     }
@@ -24,6 +25,7 @@ class ImportMfAreaRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'file.required' => 'Please upload a file',
             '*.area_desc.required' => 'Area description is required',
         ];
     }

@@ -4,6 +4,8 @@ namespace App\Helpers;
 
 use Illuminate\Support\Facades\Schema;
 
+use App\Mappers\Generals\PaginationMapper;
+
 class PaginationHelper
 {
     public static function render($modelClass, $filters, $searchableColumns = [])
@@ -22,7 +24,7 @@ class PaginationHelper
         $tableColumns = Schema::getColumnListing($model->getTable());
 
         if (!in_array($sortBy, $tableColumns)) {
-            $sortBy = 'id';
+            $sortBy = 'record_id';
         }
 
         $sortOrder = in_array($sortOrder, ['asc', 'desc']) ? $sortOrder : 'asc';
@@ -48,19 +50,6 @@ class PaginationHelper
             }
         }
 
-        return [
-            'items' => $paginated->items(),
-            'items_per_page' => $paginated->perPage(),
-            'total_pages' => $paginated->lastPage(),
-            'current_page' => $paginated->currentPage(),
-            'next_page' => $paginated->currentPage() < $paginated->lastPage()
-                            ? $paginated->currentPage() + 1
-                            : null,
-            'previous_page' => $paginated->currentPage() > 1
-                            ? $paginated->currentPage() - 1
-                            : null,
-            'has_next_page' => $paginated->hasMorePages(),
-            'has_previous_page' => $paginated->currentPage() > 1,
-        ];
+        return PaginationMapper::mapToResponse($paginated);
     }
 }

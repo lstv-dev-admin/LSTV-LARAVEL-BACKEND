@@ -137,6 +137,13 @@ Route::controller(GeneralSetupController::class)->group(function () {
         Route::put('violation/{id}', 'updateMfViolation');
         Route::delete('violation/{id}', 'deleteMfViolation');
         Route::post('violation/import', 'importMfViolation');
+
+        Route::post('region-province-city', 'createMfRegionProvinceCity');
+        Route::get('region-province-city', 'getMfRegionProvinceCities');
+        Route::put('region-province-city/{id}', 'updateMfRegionProvinceCity');
+        Route::delete('region-province-city/{id}', 'deleteMfRegionProvinceCity');
+        Route::post('region-province-city/import', 'importMfRegionProvinceCity');
+        Route::get('region-province-city/dropdown', 'getMfRegionProvinceCityDropdown');
     });
 });
 

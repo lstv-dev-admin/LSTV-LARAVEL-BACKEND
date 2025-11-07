@@ -9,6 +9,8 @@ use App\Helpers\{
     MasterfileRecordIdHelper
 };
 
+use App\Mappers\Generals\PaginationMapper;
+
 use App\Models\Masterfile\GeneralSetup\{
     MfArea,
     MfAward,
@@ -32,6 +34,7 @@ use App\Models\Masterfile\GeneralSetup\{
     MfSkill,
     MfSuffix,
     MfViolation,
+    MfRegionProvinceCity
 };
 
 class GeneralSetupRepository implements GeneralSetupInterface
@@ -602,5 +605,88 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function isViolationDescExist ($desc)
     {
         return MfViolation::where('violation_desc', $desc)->exists();
+    }
+
+    public function createMfRegionProvinceCity($data) {
+        return MfRegionProvinceCity::create($data);
+    }
+
+    public function getMfRegionProvinceCities($filters)
+    {
+        $page = $filters['page'] ?? 1;
+        $perPage = $filters['per_page'] ?? 10;
+        $sortBy = $filters['sort_by'] ?? 'record_id';
+        $sortOrder = $filters['sort_order'] ?? 'asc';
+        $search = $filters['search'] ?? '';
+
+        $query = MfRegionProvinceCity::from('mf_region_province_cities as rpc')
+            ->leftJoin('mf_cities as c', 'rpc.city_id', '=', 'c.record_id')
+            ->leftJoin('mf_provinces as p', 'rpc.province_id', '=', 'p.record_id')
+            ->leftJoin('mf_regions as r', 'rpc.region_id', '=', 'r.record_id')
+            ->select(
+                'rpc.record_id',
+                'r.region_desc',
+                'p.province_desc',
+                'c.city_desc'
+            );
+
+        $sortableColumns = [
+            'record_id' => 'rpc.record_id',
+            'region_desc' => 'r.region_desc',
+            'province_desc' => 'p.province_desc',
+            'city_desc' => 'c.city_desc',
+        ];
+
+        $sortByKey = array_key_exists($sortBy, $sortableColumns) ? $sortBy : 'record_id';
+        $sortByColumn = $sortableColumns[$sortByKey];
+        $sortOrder = in_array($sortOrder, ['asc', 'desc']) ? $sortOrder : 'asc';
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('c.city_desc', 'like', "%$search%")
+                ->orWhere('p.province_desc', 'like', "%$search%")
+                ->orWhere('r.region_desc', 'like', "%$search%");
+            });
+        }
+
+        $paginated = $query->orderBy($sortByColumn, $sortOrder)
+            ->paginate($perPage, ['*'], 'page', $page);
+
+        if ($paginated->isEmpty() && $page > 1) {
+            $lastPage = $paginated->lastPage();
+            if ($lastPage < $page) {
+                $paginated = $query->orderBy($sortByColumn, $sortOrder)
+                    ->paginate($perPage, ['*'], 'page', $lastPage);
+            }
+        }
+
+        return PaginationMapper::mapToResponse($paginated);
+    }
+
+
+    public function updateMfRegionProvinceCity($id, $data) {
+        MfRegionProvinceCity::findOrFail($id)->update($data);
+        return MfRegionProvinceCity::findOrFail($id);
+    }
+    
+    public function deleteMfRegionProvinceCity($id) {
+        return MfRegionProvinceCity::findOrFail($id)->delete();
+    }
+
+    public function isRegionProvinceCityExist($data) 
+    {
+        return MfRegionProvinceCity::where('region_id', $data['region_id'])
+            ->where('province_id', $data['province_id'])
+            ->where('city_id', $data['city_id'])
+            ->exists();
+    }
+
+    public function getMfRegionProvinceCityDropdown()
+    {
+        return [
+            'regions' => MfRegion::select('record_id', 'region_desc')->get(),
+            'provinces' => MfProvince::select('record_id', 'province_desc')->get(),
+            'cities' => MfCity::select('record_id', 'city_desc')->get(),
+        ];
     }
 }

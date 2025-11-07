@@ -135,4 +135,11 @@ interface GeneralSetupInterface
     public function updateMfViolation($id, $data);
     public function deleteMfViolation($id);
     public function isViolationDescExist($desc);
+
+    public function createMfRegionProvinceCity($data);
+    public function getMfRegionProvinceCities($filters);
+    public function updateMfRegionProvinceCity($id, $data);
+    public function deleteMfRegionProvinceCity($id);
+    public function isRegionProvinceCityExist($data);
+    public function getMfRegionProvinceCityDropdown();
 }

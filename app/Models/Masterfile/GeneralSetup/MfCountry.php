@@ -4,6 +4,8 @@ namespace App\Models\Masterfile\GeneralSetup;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Masterfile\GeneralSetup\MfRegionProvinceCity;
+
 class MfCountry extends Model
 {
     protected $table = 'mf_countries';
@@ -20,4 +22,9 @@ class MfCountry extends Model
     
     protected static $tableName = 'mf_countries';
     protected static $idColumn = 'country_id';
+
+    public function regionProvinceCities()
+    {
+        return $this->hasMany(MfRegionProvinceCity::class, 'country_id');
+    }
 }

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Masterfile\GeneralSetup;
+namespace App\Http\Requests\Masterfile\Training;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ImportMfAwardRequest extends FormRequest
+class ImportMfTrainingTypeRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;
@@ -17,19 +16,17 @@ class ImportMfAwardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'required|array|min:1',
-            '*.award_desc' => 'required|string|max:255',
+            '*.training_type_desc' => 'required',    
         ];
     }
 
     public function messages(): array
     {
         return [
-            'file.required' => 'Please upload a file',
-            '*.award_desc.required' => 'Award description is required',
+            '*.training_type_desc.required' => 'Training type description is required',
         ];
     }
-
+    
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
@@ -40,4 +37,3 @@ class ImportMfAwardRequest extends FormRequest
         );
     }
 }
-

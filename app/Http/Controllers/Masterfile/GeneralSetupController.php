@@ -77,6 +77,9 @@ use App\Http\Requests\Masterfile\GeneralSetup\{
     CreateMfViolationRequest,
     UpdateMfViolationRequest,
     ImportMfViolationRequest,
+    CreateMfRegionProvinceCityRequest,
+    UpdateMfRegionProvinceCityRequest,
+    ImportMfRegionProvinceCityRequest,
 };
 
 class GeneralSetupController extends Controller
@@ -210,6 +213,12 @@ class GeneralSetupController extends Controller
     public function deleteMfCity($id)
     {
         return ResponseHelper::respond($this->service->deleteMfCity($id));
+    }
+
+    public function importMfCity(ImportMfCityRequest $request)
+    {
+        $res = $this->service->importMfCity($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
     }
 
     public function createMfCivilStatus(CreateMfCivilStatusRequest $request)
@@ -652,5 +661,36 @@ class GeneralSetupController extends Controller
     {
         $res = $this->service->importMfViolation($request->validated());
         return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
+    public function createMfRegionProvinceCity(CreateMfRegionProvinceCityRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfRegionProvinceCity($request->validated()));
+    }
+
+    public function getMfRegionProvinceCities(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfRegionProvinceCities($filters));
+    }
+
+    public function updateMfRegionProvinceCity(string $id, UpdateMfRegionProvinceCityRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfRegionProvinceCity($id, $request->validated()));
+    }
+
+    public function deleteMfRegionProvinceCity($id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfRegionProvinceCity($id));
+    }
+
+    public function importMfRegionProvinceCity(ImportMfRegionProvinceCityRequest $request)
+    {
+        $res = $this->service->importMfRegionProvinceCity($request->validated());
+        return response()->json($res, $res['status'] ? 200 : 409);
+    }
+
+    public function getMfRegionProvinceCityDropdown()
+    {
+        return ResponseHelper::respond($this->service->getMfRegionProvinceCityDropdown());
     }
 }

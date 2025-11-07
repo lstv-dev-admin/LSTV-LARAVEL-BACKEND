@@ -22,7 +22,7 @@ class PerformanceRepository implements PerformanceInterface
     }
 
     public function getMfEvaluationLevels($filters) {
-        $searchableColumns = ['evaluation_level_desc'];
+        $searchableColumns = ['evaluation_level_desc', 'level'];
         return PaginationHelper::render(MfEvaluationLevel::class, $filters, $searchableColumns);
     }
 
@@ -41,7 +41,7 @@ class PerformanceRepository implements PerformanceInterface
     }
     
     public function getMfFactors($filters) {
-        $searchableColumns = ['factor_desc'];
+        $searchableColumns = ['factor_desc', 'appraisal_sentence'];
         return PaginationHelper::render(MfFactor::class, $filters, $searchableColumns);
     }
 

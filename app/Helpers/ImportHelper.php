@@ -2,9 +2,9 @@
 
 namespace App\Helpers;
 
-class CustomValidationMessageHelper 
+class ImportHelper 
 {
-    public static function importMessage(array $created, bool $hasDuplicates, string $entity): array
+    public static function message(array $created, bool $hasDuplicates, string $entity): array
     {
         if (empty($created) && $hasDuplicates) {
             return [

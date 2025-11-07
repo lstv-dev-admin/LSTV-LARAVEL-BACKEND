@@ -19,6 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
             __DIR__.'/../routes/MasterFiles/Payroll/index.php',
             __DIR__.'/../routes/MasterFiles/Performance/index.php',
             __DIR__.'/../routes/MasterFiles/Assets/index.php',
+            __DIR__.'/../routes/MasterFiles/Training/index.php',
+            __DIR__.'/../routes/MasterFiles/Document/index.php',
+            __DIR__.'/../routes/MasterFiles/Scheduling/index.php',
             
             // Pager
             __DIR__.'/../routes/Generals/pager-route.php',
