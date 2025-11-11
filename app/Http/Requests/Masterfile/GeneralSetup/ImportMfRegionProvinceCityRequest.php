@@ -24,7 +24,6 @@ class ImportMfRegionProvinceCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'required|array|min:1',
             '*.region_id' => 'required|exists:mf_regions,record_id',
             '*.province_id' => 'required|exists:mf_provinces,record_id',
             '*.city_id' => 'required|exists:mf_cities,record_id',
@@ -34,9 +33,6 @@ class ImportMfRegionProvinceCityRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'file.required' => 'Please upload a file',
-            'file.array' => 'File must be an array',
-            'file.min' => 'File must contain at least one item',
             '*.region_id.required' => 'Region is required',
             '*.region_id.exists' => 'Region not found',
             '*.province_id.required' => 'Province is required',

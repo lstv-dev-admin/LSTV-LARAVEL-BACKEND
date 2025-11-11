@@ -25,6 +25,6 @@ class MfCity extends Model
 
     public function regionProvinceCities()
     {
-        return $this->hasMany(MfRegionProvinceCity::class, 'city_id');
+        return $this->hasMany(MfRegionProvinceCity::class, 'city_id', 'record_id');
     }
 }

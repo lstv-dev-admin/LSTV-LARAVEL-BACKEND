@@ -684,9 +684,9 @@ class GeneralSetupRepository implements GeneralSetupInterface
     public function getMfRegionProvinceCityDropdown()
     {
         return [
-            'regions' => MfRegion::select('record_id', 'region_desc')->get(),
-            'provinces' => MfProvince::select('record_id', 'province_desc')->get(),
-            'cities' => MfCity::select('record_id', 'city_desc')->get(),
+            'regions' => MfRegion::select('region_id', 'region_desc')->get(),
+            'provinces' => MfProvince::select('province_id', 'province_desc')->get(),
+            'cities' => MfCity::select('city_id', 'city_desc')->get(),
         ];
     }
 }

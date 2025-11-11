@@ -43,6 +43,14 @@ use App\Http\Requests\Masterfile\Employees\{
     UpdateMfProficiencyLevelRequest,
     CreateMfCivilServiceEligibilityRequest,
     UpdateMfCivilServiceEligibilityRequest,
+    CreateMfPayrollGroupRequest,
+    UpdateMfPayrollGroupRequest,
+    CreateMfLeaveRequest,
+    UpdateMfLeaveRequest,
+    CreateMfPositionRequest,
+    UpdateMfPositionRequest,
+    CreateMfSeparationReasonRequest,
+    UpdateMfSeparationReasonRequest,
 };
 
 class EmployeesController extends Controller
@@ -372,5 +380,85 @@ class EmployeesController extends Controller
     public function deleteMfCivilServiceEligibility(string $id)
     {
         return ResponseHelper::respond($this->service->deleteMfCivilServiceEligibility($id));
+    }
+
+    public function createMfPayrollGroup(CreateMfPayrollGroupRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfPayrollGroup($request->validated()));
+    }
+
+    public function getMfPayrollGroups(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfPayrollGroups($filters));
+    }
+
+    public function updateMfPayrollGroup(string $id, UpdateMfPayrollGroupRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfPayrollGroup($id, $request->validated()));
+    }
+
+    public function deleteMfPayrollGroup(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfPayrollGroup($id));
+    }
+
+    public function createMfLeave(CreateMfLeaveRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfLeave($request->validated()));
+    }
+
+    public function getMfLeaves(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfLeaves($filters));
+    }
+
+    public function updateMfLeave(string $id, UpdateMfLeaveRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfLeave($id, $request->validated()));
+    }
+
+    public function deleteMfLeave(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfLeave($id));
+    }
+
+    public function createMfPosition(CreateMfPositionRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createMfPosition($request->validated()));
+    }
+
+    public function getMfPositions(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getMfPositions($filters));
+    }
+
+    public function updateMfPosition(string $id, UpdateMfPositionRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateMfPosition($id, $request->validated()));
+    }
+
+    public function deleteMfPosition(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteMfPosition($id));
+    }
+
+    public function createSeparationReason(CreateMfSeparationReasonRequest $request)
+    {
+        return ResponseHelper::respond($this->service->createSeparationReason($request->validated()));
+    }
+
+    public function getSeparationReasons(PaginationRequest $filters)
+    {
+        return ResponseHelper::respond($this->service->getSeparationReasons($filters));
+    }
+
+    public function updateSeparationReason(string $id, UpdateMfSeparationReasonRequest $request)
+    {
+        return ResponseHelper::respond($this->service->updateSeparationReason($id, $request->validated()));
+    }
+
+    public function deleteSeparationReason(string $id)
+    {
+        return ResponseHelper::respond($this->service->deleteSeparationReason($id));
     }
 }

@@ -17,7 +17,6 @@ class ImportMfBloodTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'required|array|min:1',
             '*.blood_type_desc' => 'required|string|max:255',
         ];
     }
@@ -25,7 +24,6 @@ class ImportMfBloodTypeRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'file.required' => 'Please upload a file',
             '*.blood_type_desc.required' => 'Blood type description is required',
         ];
     }

@@ -9,7 +9,7 @@ use App\Helpers\{
     MasterfileRecordIdHelper
 };
 
-use App\Models\Masterfile\Document\{
+use App\Models\Masterfile\Documents\{
     MfDocumentType,
 };
 

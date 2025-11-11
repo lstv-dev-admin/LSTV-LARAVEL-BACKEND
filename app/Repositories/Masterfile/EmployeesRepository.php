@@ -26,7 +26,13 @@ use App\Models\Masterfile\Employees\{
     MfNonPayrollBenefit,
     MfProficiencyLevel,
     MfSubDepartment,
+    MfPayrollGroup,
+    MfLeave,
+    MfPosition,
+    SeparationReason,
 };
+
+use App\Mappers\Generals\PaginationMapper;
 
 class EmployeesRepository implements EmployeesInterface
 {
@@ -413,5 +419,123 @@ class EmployeesRepository implements EmployeesInterface
     public function isSubDepartmentDescExist ($desc)
     {
         return MfSubDepartment::where('sub_department_desc', $desc)->exists();
+    }
+
+    public function createMfPayrollGroup($data) {
+        $data['payroll_group_id'] = MasterfileRecordIdHelper::getNextSeries(MfPayrollGroup::getMasterfileCode());
+        return MfPayrollGroup::create($data);
+    }
+
+    public function getMfPayrollGroups($filters) {
+        $page = $filters['page'] ?? 1;
+        $perPage = $filters['per_page'] ?? 10;
+        $sortBy = $filters['sort_by'] ?? 'record_id';
+        $sortOrder = $filters['sort_order'] ?? 'asc';
+        $search = $filters['search'] ?? '';
+
+        $query = MfPayrollGroup::from('mf_payroll_groups as pg')
+            ->leftJoin('mf_banks as b', 'pg.bank_id', '=', 'b.record_id')
+            ->leftJoin('mf_currencies as c', 'pg.currency_id', '=', 'c.record_id')
+            ->select(
+                'pg.record_id',
+                'b.bank_desc',
+                'c.currency_desc'
+            );
+
+        $sortableColumns = [
+            'record_id' => 'pg.record_id',
+            'bank_desc' => 'b.bank_desc',
+            'currency_desc' => 'c.currency_desc',
+        ];
+
+        $sortByKey = array_key_exists($sortBy, $sortableColumns) ? $sortBy : 'record_id';
+        $sortByColumn = $sortableColumns[$sortByKey];
+        $sortOrder = in_array($sortOrder, ['asc', 'desc']) ? $sortOrder : 'asc';
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('b.bank_desc', 'like', "%$search%")
+                ->orWhere('c.currency_desc', 'like', "%$search%");
+            });
+        }
+
+        $paginated = $query->orderBy($sortByColumn, $sortOrder)
+            ->paginate($perPage, ['*'], 'page', $page);
+
+        if ($paginated->isEmpty() && $page > 1) {
+            $lastPage = $paginated->lastPage();
+            if ($lastPage < $page) {
+                $paginated = $query->orderBy($sortByColumn, $sortOrder)
+                    ->paginate($perPage, ['*'], 'page', $lastPage);
+            }
+        }
+
+        return PaginationMapper::mapToResponse($paginated);
+    }
+
+    public function updateMfPayrollGroup($id, $data) {
+        MfPayrollGroup::findOrFail($id)->update($data);
+        return MfPayrollGroup::findOrFail($id);
+    }
+
+    public function deleteMfPayrollGroup($id) {
+        return MfPayrollGroup::findOrFail($id)->delete();
+    }
+
+    public function createMfLeave($data) {
+        $data['leave_id'] = MasterfileRecordIdHelper::getNextSeries(MfLeave::getMasterfileCode());
+        return MfLeave::create($data);
+    }
+
+    public function getMfLeaves($filters) {
+        $searchableColumns = ['leave_desc'];
+        return PaginationHelper::render(MfLeave::class, $filters, $searchableColumns);
+    }
+
+    public function updateMfLeave($id, $data) {
+        MfLeave::findOrFail($id)->update($data);
+        return MfLeave::findOrFail($id);
+    }
+
+    public function deleteMfLeave($id) {
+        return MfLeave::findOrFail($id)->delete();
+    }
+
+    public function createMfPosition($data) {
+        $data['position_id'] = MasterfileRecordIdHelper::getNextSeries(MfPosition::getMasterfileCode());
+        return MfPosition::create($data);
+    }
+
+    public function getMfPositions($filters) {
+        $searchableColumns = ['position_desc'];
+        return PaginationHelper::render(MfPosition::class, $filters, $searchableColumns);
+    }
+
+    public function updateMfPosition($id, $data) {
+        MfPosition::findOrFail($id)->update($data);
+        return MfPosition::findOrFail($id);
+    }
+
+    public function deleteMfPosition($id) {
+        return MfPosition::findOrFail($id)->delete();
+    }
+
+    public function createSeparationReason($data) {
+        $data['separation_reason_id'] = MasterfileRecordIdHelper::getNextSeries(SeparationReason::getMasterfileCode());
+        return SeparationReason::create($data);
+    }
+
+    public function getSeparationReasons($filters) {
+        $searchableColumns = ['separation_reason_desc'];
+        return PaginationHelper::render(SeparationReason::class, $filters, $searchableColumns);
+    }
+
+    public function updateSeparationReason($id, $data) {
+        SeparationReason::findOrFail($id)->update($data);
+        return SeparationReason::findOrFail($id);
+    }
+
+    public function deleteSeparationReason($id) {
+        return SeparationReason::findOrFail($id)->delete();
     }
 }

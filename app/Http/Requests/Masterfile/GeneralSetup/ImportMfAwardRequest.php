@@ -17,7 +17,6 @@ class ImportMfAwardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'required|array|min:1',
             '*.award_desc' => 'required|string|max:255',
         ];
     }
@@ -25,7 +24,6 @@ class ImportMfAwardRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'file.required' => 'Please upload a file',
             '*.award_desc.required' => 'Award description is required',
         ];
     }

@@ -2,6 +2,8 @@
 
 namespace App\Models\Masterfile\GeneralSetup;
 
+use App\Models\Masterfile\Employees\MfPosition;
+
 use Illuminate\Database\Eloquent\Model;
 
 class MfPositionType extends Model
@@ -20,4 +22,9 @@ class MfPositionType extends Model
     
     protected static $tableName = 'mf_position_types';
     protected static $idColumn = 'position_type_id';
+
+    public function positions()
+    {
+        return $this->hasMany(MfPosition::class, 'position_type_id', 'position_type_id');
+    }
 }

@@ -99,4 +99,24 @@ interface EmployeesInterface
     public function updateMfSubDepartment($id, $data);
     public function deleteMfSubDepartment($id);
     public function isSubDepartmentDescExist($desc);
+
+    public function createMfPayrollGroup($data);
+    public function getMfPayrollGroups($filters);
+    public function updateMfPayrollGroup($id, $data);
+    public function deleteMfPayrollGroup($id);
+
+    public function createMfLeave($data);
+    public function getMfLeaves($filters);
+    public function updateMfLeave($id, $data);
+    public function deleteMfLeave($id);
+
+    public function createMfPosition($data);
+    public function getMfPositions($filters);
+    public function updateMfPosition($id, $data);
+    public function deleteMfPosition($id);
+
+    public function createSeparationReason($data);
+    public function getSeparationReasons($filters);
+    public function updateSeparationReason($id, $data);
+    public function deleteSeparationReason($id);
 }

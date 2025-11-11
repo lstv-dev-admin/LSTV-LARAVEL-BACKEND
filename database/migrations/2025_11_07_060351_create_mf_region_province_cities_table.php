@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('mf_region_province_cities', function (Blueprint $table) {
             $table->id('record_id');
-            $table->foreignId('region_id')->constrained('mf_regions', 'record_id');
-            $table->foreignId('province_id')->constrained('mf_provinces', 'record_id');
-            $table->foreignId('city_id')->constrained('mf_cities', 'record_id');
+            $table->string('region_id', 20);
+            $table->string('province_id', 20);
+            $table->string('city_id', 20);
             $table->timestamps();
+
+            $table->foreign('region_id')->references('region_id')->on('mf_regions');
+            $table->foreign('province_id')->references('province_id')->on('mf_provinces');
+            $table->foreign('city_id')->references('city_id')->on('mf_cities');
         });
     }
 

@@ -84,6 +84,26 @@ Route::controller(EmployeesController::class)->group(function () {
         Route::get('civil-service-eligibility', 'getMfCivilServiceEligibilities');
         Route::put('civil-service-eligibility/{id}', 'updateMfCivilServiceEligibility');
         Route::delete('civil-service-eligibility/{id}', 'deleteMfCivilServiceEligibility');
+
+        Route::post('payroll-group', 'createMfPayrollGroup');
+        Route::get('payroll-group', 'getMfPayrollGroups');
+        Route::put('payroll-group/{id}', 'updateMfPayrollGroup');
+        Route::delete('payroll-group/{id}', 'deleteMfPayrollGroup');
+
+        Route::post('leave', 'createMfLeave');
+        Route::get('leave', 'getMfLeaves');
+        Route::put('leave/{id}', 'updateMfLeave');
+        Route::delete('leave/{id}', 'deleteMfLeave');
+
+        Route::post('position', 'createMfPosition');
+        Route::get('position', 'getMfPositions');
+        Route::put('position/{id}', 'updateMfPosition');
+        Route::delete('position/{id}', 'deleteMfPosition');
+
+        Route::post('separation-reason', 'createSeparationReason');
+        Route::get('separation-reason', 'getSeparationReasons');
+        Route::put('separation-reason/{id}', 'updateSeparationReason');
+        Route::delete('separation-reason/{id}', 'deleteSeparationReason');
     });
 });
 

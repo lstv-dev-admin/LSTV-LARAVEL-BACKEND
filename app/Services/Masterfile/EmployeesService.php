@@ -512,4 +512,128 @@ class EmployeesService
         $this->repository->deleteMfSubDepartment($id);
         return QueryResultHelper::successDelete('Sub department');
     }
+
+    public function createMfPayrollGroup($data)
+    {
+        try {
+            $res = $this->repository->createMfPayrollGroup($data);
+            return QueryResultHelper::successCreate('payroll group', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfPayrollGroups($filters)
+    {
+        return QueryResultHelper::successGet('Payroll group', $this->repository->getMfPayrollGroups($filters));
+    }
+
+    public function updateMfPayrollGroup($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfPayrollGroup($id, $data);
+            return QueryResultHelper::successUpdate('Payroll group', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfPayrollGroup($id)
+    {
+        $this->repository->deleteMfPayrollGroup($id);
+        return QueryResultHelper::successDelete('Payroll group');
+    }
+
+    public function createMfLeave($data)
+    {
+        try {
+            $res = $this->repository->createMfLeave($data);
+            return QueryResultHelper::successCreate('leave', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+    
+    public function getMfLeaves($filters)
+    {
+        return QueryResultHelper::successGet('Leave', $this->repository->getMfLeaves($filters));
+    }
+
+    public function updateMfLeave($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfLeave($id, $data);
+            return QueryResultHelper::successUpdate('Leave', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfLeave($id)
+    {
+        $this->repository->deleteMfLeave($id);
+        return QueryResultHelper::successDelete('Leave');
+    }
+
+    public function createMfPosition($data)
+    {
+        try {
+            $res = $this->repository->createMfPosition($data);
+            return QueryResultHelper::successCreate('position', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getMfPositions($filters)
+    {
+        return QueryResultHelper::successGet('Position', $this->repository->getMfPositions($filters));
+    }
+
+    public function updateMfPosition($id, $data)
+    {
+        try {
+            $res = $this->repository->updateMfPosition($id, $data);
+            return QueryResultHelper::successUpdate('Position', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteMfPosition($id)
+    {
+        $this->repository->deleteMfPosition($id);
+        return QueryResultHelper::successDelete('Position');
+    }
+
+    public function createSeparationReason($data)
+    {
+        try {
+            $res = $this->repository->createSeparationReason($data);
+            return QueryResultHelper::successCreate('separation reason', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function getSeparationReasons($filters)
+    {
+        return QueryResultHelper::successGet('Separation reason', $this->repository->getSeparationReasons($filters));
+    }
+
+    public function updateSeparationReason($id, $data)
+    {
+        try {
+            $res = $this->repository->updateSeparationReason($id, $data);
+            return QueryResultHelper::successUpdate('Separation reason', $res);
+        } catch (Exception $e) {
+            return QueryResultHelper::error($e);
+        }
+    }
+
+    public function deleteSeparationReason($id)
+    {
+        $this->repository->deleteSeparationReason($id);
+        return QueryResultHelper::successDelete('Separation reason');
+    }
 }

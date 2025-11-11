@@ -20,16 +20,16 @@ class MfRegionProvinceCity extends Model
 
     public function region()
     {
-        return $this->belongsTo(MfRegion::class, 'region_id');
+        return $this->belongsTo(MfRegion::class, 'region_id', 'record_id');
     }
 
     public function province()
     {
-        return $this->belongsTo(MfProvince::class, 'province_id');
+        return $this->belongsTo(MfProvince::class, 'province_id', 'record_id');
     }
     
     public function city()
     {
-        return $this->belongsTo(MfCity::class, 'city_id');
+        return $this->belongsTo(MfCity::class, 'city_id', 'record_id');
     }
 }

@@ -24,9 +24,9 @@ class CreateMfRegionProvinceCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'region_id' => 'required|exists:mf_regions,record_id',
-            'province_id' => 'required|exists:mf_provinces,record_id',
-            'city_id' => 'required|exists:mf_cities,record_id',
+            'region_id' => 'required|exists:mf_regions,region_id',
+            'province_id' => 'required|exists:mf_provinces,province_id',
+            'city_id' => 'required|exists:mf_cities,city_id',
         ];
     }
 
