@@ -33,18 +33,11 @@ return [
         'mysql' => [
             'driver'         => 'mysql',
             'url'            => env('DB_URL'),
-            'host'           => env('DB_HOST_MAIN'),
-            'port'           => env('DB_PORT_MAIN'),
-            'database'       => env('DB_DATABASE_MAIN'),
-            'username'       => env('DB_USERNAME_MAIN'),
-            'password'       => env('DB_PASSWORD_MAIN'),
-            // It is technically possible to delete these options, but it is not generally recommended.
-            // These settings provide important defaults for MySQL connections in Laravel.
-            // Removing them can lead to unexpected behaviors, such as character encoding problems,
-            // issues with migrations, or incompatibility with some features.
-            // If you have a specific reason and know your environment/configuration very well,
-            // you may remove unnecessary lines, but for most Laravel applications, it's safer to keep them.
-
+            'host'           => env('DB_HOST'),
+            'port'           => env('DB_PORT'),
+            'database'       => env('DB_DATABASE'),
+            'username'       => env('DB_USERNAME'),
+            'password'       => env('DB_PASSWORD'),
             'unix_socket'    => env('DB_SOCKET', ''),
             'charset'        => env('DB_CHARSET', 'utf8mb4'),
             'collation'      => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
