@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Masterfile\CompanyDetails;
+namespace App\Http\Requests\Employee201\Setup;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ImportMfOrganizationalChartRequest extends FormRequest
+class CreateSetupOnboardingCategoryRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,15 +16,15 @@ class ImportMfOrganizationalChartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            '*.organizational_chart_desc' => 'required|unique:mf_organizational_charts,organizational_chart_desc',
+            'onboarding_category_desc' => 'required|unique:setup_onboarding_categories,onboarding_category_desc',
         ];
     }
 
     public function messages(): array
     {
         return [
-            '*.organizational_chart_desc.required' => 'Organizational chart description is required',
-            '*.organizational_chart_desc.unique' => 'Organizational chart description already exist',
+            'onboarding_category_desc.required' => 'Onboarding category description is required',
+            'onboarding_category_desc.unique' => 'Onboarding category description already exists',
         ];
     }
 
@@ -37,4 +37,4 @@ class ImportMfOrganizationalChartRequest extends FormRequest
             ], 422)
         );
     }
-}
+}   

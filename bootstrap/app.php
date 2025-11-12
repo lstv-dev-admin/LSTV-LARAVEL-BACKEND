@@ -7,7 +7,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
-
+        
         api: [
             // MasterFiles
             __DIR__.'/../routes/utilities-api.php',
@@ -22,7 +22,10 @@ return Application::configure(basePath: dirname(__DIR__))
             __DIR__.'/../routes/MasterFiles/Training/index.php',
             __DIR__.'/../routes/MasterFiles/Document/index.php',
             __DIR__.'/../routes/MasterFiles/Scheduling/index.php',
-            
+
+            // Employee201
+            __DIR__.'/../routes/Employee201/Setup/index.php',
+
             // Pager
             __DIR__.'/../routes/Generals/pager-route.php',
 

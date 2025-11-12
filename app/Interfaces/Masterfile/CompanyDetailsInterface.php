@@ -6,13 +6,11 @@ interface CompanyDetailsInterface
 {
     public function createMfCompanyForm($data);
     public function getMfCompanyForms($filters);
-    public function updateMfCompanyForm($id, $data);
     public function deleteMfCompanyForm($id);
     public function downloadMfCompanyForm($id);
     
     public function createMfHrForm($data);
     public function getMfHrForms($filters);
-    public function updateMfHrForm($id, $data);
     public function deleteMfHrForm($id);
     public function downloadMfHrForm($id);
 

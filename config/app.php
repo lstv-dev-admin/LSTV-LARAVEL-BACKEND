@@ -125,6 +125,7 @@ return [
 
     'providers' => Illuminate\Support\ServiceProvider::defaultProviders()->merge([
         App\Providers\RepositoryServiceProvider\MasterfileServiceProvider::class,
+        App\Providers\RepositoryServiceProvider\Employee201ServiceProvider::class,
         App\Providers\RepositoryServiceProvider\UtilitiesServiceProvider::class,
         // App\Providers\BroadcastServiceProvider\BroadcastServiceProvider::class,
     ])->toArray(),

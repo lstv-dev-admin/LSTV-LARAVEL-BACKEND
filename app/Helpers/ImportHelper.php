@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 class ImportHelper 
 {
-    public static function message(array $created, bool $hasDuplicates, string $entity): array
+    public static function message(array $created, bool $hasDuplicates, string $entity, $isEmpty): array
     {
         if (empty($created) && $hasDuplicates) {
             return [
@@ -19,6 +19,14 @@ class ImportHelper
                 'status' => true,
                 'created' => $created,
                 'message' => "Import complete — new areas added, duplicates excluded",
+            ];
+        }
+
+        if ($isEmpty) {
+            return [
+                'status' => false,
+                'created' => $created,
+                'message' => "Import complete — no {$entity} added"
             ];
         }
 

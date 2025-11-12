@@ -42,29 +42,6 @@ class CompanyDetailsRepository implements CompanyDetailsInterface
         return PaginationHelper::render(MfCompanyForm::class, $filters, $searchableColumns);
     }
 
-    public function updateMfCompanyForm($id, $data)
-    {
-        $model = MfCompanyForm::findOrFail($id);
-
-        $updatedCompanyForm = ['company_form_desc' => $data['company_form_desc']];
-
-        if (isset($data['file_attachment']) && $data['file_attachment']) {
-            $file = $data['file_attachment'];
-            $newPath = $file->store('files/masterfile/employees/company_forms', 'public');
-
-            if (!empty($model->company_form_file_path) && Storage::disk('public')->exists($model->company_form_file_path)) {
-                Storage::disk('public')->delete($model->company_form_file_path);
-            }
-
-            $updatedCompanyForm['company_form_file_name'] = $file->getClientOriginalName();
-            $updatedCompanyForm['company_form_file_path'] = $newPath;
-        }
-
-        $model->update($updatedCompanyForm);
-        
-        return MfCompanyForm::findOrFail($id);
-    }
-
     public function deleteMfCompanyForm($id)
     {
         $model = MfCompanyForm::findOrFail($id);
@@ -114,29 +91,6 @@ class CompanyDetailsRepository implements CompanyDetailsInterface
         $searchableColumns = ['hr_form_desc', 'hr_form_file_name'];
 
         return PaginationHelper::render(MfHrForm::class, $filters, $searchableColumns);
-    }
-
-    public function updateMfHrForm($id, $data)
-    {
-        $model = MfHrForm::findOrFail($id);
-
-        $updatedHrForm = ['hr_form_desc' => $data['hr_form_desc']];
-
-        if (isset($data['file_attachment']) && $data['file_attachment']) {
-            $file = $data['file_attachment'];
-            $newPath = $file->store('files/masterfile/employees/hr_forms', 'public');
-
-            if (!empty($model->hr_form_file_path) && Storage::disk('public')->exists($model->hr_form_file_path)) {
-                Storage::disk('public')->delete($model->hr_form_file_path);
-            }
-
-            $updatedHrForm['hr_form_file_name'] = $file->getClientOriginalName();
-            $updatedHrForm['hr_form_file_path'] = $newPath;
-        }
-
-        $model->update($updatedHrForm);
-        
-        return MfHrForm::findOrFail($id);
     }
 
     public function deleteMfHrForm($id)

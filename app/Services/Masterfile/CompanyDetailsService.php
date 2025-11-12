@@ -6,7 +6,8 @@ use App\Interfaces\Masterfile\CompanyDetailsInterface;
 
 use App\Helpers\{
     QueryResultHelper,
-    CustomValidationMessageHelper
+    CustomValidationMessageHelper,
+    ImportHelper
 };
 
 use Exception;
@@ -28,16 +29,6 @@ class CompanyDetailsService
     public function getMfCompanyForms($filters)
     {
         return QueryResultHelper::successGet('Company form', $this->repository->getMfCompanyForms($filters));
-    }
-
-    public function updateMfCompanyForm($id, $data)
-    {
-        try {
-            $res = $this->repository->updateMfCompanyForm($id, $data);
-            return QueryResultHelper::successUpdate('Company form', $res);
-        } catch (Exception $e) {
-            return QueryResultHelper::error($e);
-        }
     }
 
     public function deleteMfCompanyForm($id)
@@ -64,16 +55,6 @@ class CompanyDetailsService
     public function getMfHrForms($filters)
     {
         return QueryResultHelper::successGet('HR form', $this->repository->getMfHrForms($filters));
-    }
-
-    public function updateMfHrForm($id, $data)
-    {
-        try {
-            $res = $this->repository->updateMfHrForm($id, $data);
-            return QueryResultHelper::successUpdate('HR form', $res);
-        } catch (Exception $e) {
-            return QueryResultHelper::error($e);
-        }
     }
 
     public function deleteMfHrForm($id)
@@ -127,15 +108,23 @@ class CompanyDetailsService
     {
         $created = [];
         $hasDuplicates = false;
+        $hasEmpty = 0;
 
         foreach ($data as $item) {
+            if (empty($item['organizational_chart_desc'])) {
+                $hasEmpty++;
+                continue;
+            }
+
             if ($this->repository->isOrganizationalChartDescExist($item['organizational_chart_desc'])) {
                 $hasDuplicates = true;
                 continue;
             }
+
+            $created[] = $this->repository->createMfOrganizationalChart($item);
         }
 
-        return CustomValidationMessageHelper::importMessage($created, $hasDuplicates, 'organizational chart');
+        return ImportHelper::message($created, $hasDuplicates, 'organizational chart', $hasEmpty == count($data));
     }
 
     public function createCompanyInformation($data)

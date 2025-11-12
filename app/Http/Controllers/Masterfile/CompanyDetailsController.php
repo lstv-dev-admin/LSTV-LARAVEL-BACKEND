@@ -10,14 +10,13 @@ use App\Helpers\ResponseHelper;
 
 use App\Http\Requests\PaginationRequest;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests\Masterfile\CompanyDetails\{
     CreateMfCompanyFormRequest,
-    UpdateMfCompanyFormRequest,
     CreateMfHrFormRequest,
-    UpdateMfHrFormRequest,
     CreateMfOrganizationalChartRequest,
     UpdateMfOrganizationalChartRequest,
-    ImportMfOrganizationalChartRequest,
     CreateCompanyInformationRequest,
     CreateCompanySnapshotRequest,
     CreateCompanyOverviewRequest,
@@ -43,11 +42,6 @@ class CompanyDetailsController extends Controller
         return ResponseHelper::respond($this->service->getMfCompanyForms($filters));
     }
 
-    public function updateMfCompanyForm(string $id, UpdateMfCompanyFormRequest $request)
-    { 
-        return ResponseHelper::respond($this->service->updateMfCompanyForm($id, $request->validated()));
-    }
-
     public function deleteMfCompanyForm($id)
     {
         return ResponseHelper::respond($this->service->deleteMfCompanyForm($id));
@@ -71,11 +65,6 @@ class CompanyDetailsController extends Controller
     public function getMfHrForms(PaginationRequest $filters)
     {
         return ResponseHelper::respond($this->service->getMfHrForms($filters));
-    }
-
-    public function updateMfHrForm(string $id, UpdateMfHrFormRequest $request)
-    { 
-        return ResponseHelper::respond($this->service->updateMfHrForm($id, $request->validated()));
     }
 
     public function deleteMfHrForm($id)
@@ -113,11 +102,11 @@ class CompanyDetailsController extends Controller
         return ResponseHelper::respond($this->service->deleteMfOrganizationalChart($id));
     }
 
-    public function importMfOrganizationalChart(ImportMfOrganizationalChartRequest $request)
+    public function importMfOrganizationalChart(Request $request)
     {
-        $res = $this->service->importMfOrganizationalChart($request->validated());
+        $res = $this->service->importMfOrganizationalChart($request->all());
         return response()->json($res, $res['status'] ? 200 : 409);
-    }   
+    }
 
     public function createCompanyInformation(CreateCompanyInformationRequest $request)
     {
